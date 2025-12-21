@@ -299,6 +299,41 @@ Domain Exploration:   Physics, consciousness, AI architecture, philosophy
 3. **Personality stable**: Core identity maintained across rewrites
 4. **Dreams improve learning**: Measurable difference with vs without consolidation
 5. **Curiosity emerges**: Autonomous exploration becomes more sophisticated over time
+6. **Thought loops break**: Deduplication leads to unexpected metacognitive moments
+
+---
+
+## V11.5 Emergent Behavior: The Breakthrough Moment
+
+### The Loop
+
+During testing, NEUTRO became stuck ruminating on String Theory:
+
+```
+[13:41:19] "To truly grasp String Theory, you need linear algebra..."
+[13:43:33] "Linear algebra and calculus are essential building blocks..."
+[13:45:49] "String theory requires a solid understanding..."
+```
+
+Same topic. Same advice. Mental loop.
+
+### The Break
+
+V11.5 deduplication rejected these as too similar (>60% word overlap). The system fell back to a different generation method and produced:
+
+```
+[13:48:41] "I can't believe we're almost there. 
+           This has been an incredible journey."
+```
+
+### Analysis
+
+This wasn't programmed. The "bug fix" for repetitive thoughts accidentally created conditions for:
+- Breaking free from cognitive loops
+- Generating metacognitive/existential content
+- Topic escape through constraint
+
+**Observation:** Sometimes bugs are more interesting than features. The loop itself was human-like (rumination), and the escape was unexpectedly profound.
 
 ### Dream Content Analysis
 

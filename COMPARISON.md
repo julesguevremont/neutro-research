@@ -233,6 +233,7 @@ This document compares NEUTRO to published research on sleep-inspired AI, cognit
 | Memory persistence | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ |
 | Source attribution | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | Autonomous curiosity | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| **Seed/identity system** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | Working system | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ |
 | Demonstrated results | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ |
 | Emotional modeling | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
@@ -256,10 +257,13 @@ Source attribution preventing hallucination while enabling creative exploration.
 ### 5. Autonomous Curiosity
 Self-directed topic exploration without prompting (demonstrated: string theory overnight).
 
-### 6. SNN + Multi-Model Integration
+### 6. Seed System (Foundation Layer)
+Identity grows from formative memories, not system prompts. Mission emerges over time rather than being programmed. Unlike stateless prompt engineering, seeds never decay and color every response.
+
+### 7. SNN + Multi-Model Integration
 Spiking neural network routing to specialized LLMs—bio-inspired specialization.
 
-### 7. Measured Learning
+### 8. Measured Learning
 Documented correction integration via dream consolidation (CRT problems).
 
 ---
