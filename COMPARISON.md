@@ -270,6 +270,12 @@ Documented correction integration via dream consolidation (CRT problems).
 ### 9. Torque Clustering (V11.6)
 Physics-inspired memory clustering using gravitational dynamics (97.7% accuracy). Clusters memories during BACKGROUND mode, flags outliers for creative exploration in REM.
 
+**Immediate result after integration:**
+```
+Before Torque: Stuck on "String Theory" loop (same topic 10+ times)
+After Torque:  Diverse topics - consciousness, connection, engagement
+```
+
 ---
 
 ## The LLM Integration Difference

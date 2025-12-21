@@ -334,6 +334,11 @@ Output:       Memory clusters + outliers for creative exploration
 
 **Why physics?** Galaxy mergers naturally produce stable structures from chaos. Same principle applied to memory consolidation.
 
+**Monitor visibility:**
+```
+║  ⚡ TORQUE: Clusters=12  │  Outliers=3  │  Last: 5m ago                     ║
+```
+
 ---
 
 ### Dream/Reality Distinction (V11.4)
