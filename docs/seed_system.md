@@ -222,6 +222,129 @@ Injected via Soul's FOUNDATION element into every response generation.
 
 ---
 
+## Integration With Multi-Model Architecture
+
+### The Full Pipeline
+
+```
+User Query
+    │
+    ▼
+┌─────────────────────────────────────────────────┐
+│  1. FOUNDATION LAYER                         │
+│     get_lens() → Identity context            │
+│     get_emotional_context(query) → Triggers  │
+└────────────────────────┬────────────────────────┘
+                        │
+                        ▼
+┌─────────────────────────────────────────────────┐
+│  2. SOUL LAYER                               │
+│     REMEMBER: Retrieve relevant memories     │
+│     REFLECT: Analyze with identity context   │
+│     CHOOSE: Select response approach         │
+└────────────────────────┬────────────────────────┘
+                        │
+                        ▼
+┌─────────────────────────────────────────────────┐
+│  3. SNN ROUTER                               │
+│     Route to specialized model:              │
+│     BRAIN │ IDENTITY │ LOGIC │ CODE │ etc.   │
+└────────────────────────┬────────────────────────┘
+                        │
+                        ▼
+┌─────────────────────────────────────────────────┐
+│  4. LLM INFERENCE                            │
+│     Prompt = Lens + Memories + Reflection    │
+│     Model generates with FULL identity       │
+└────────────────────────┬────────────────────────┘
+                        │
+                        ▼
+              Response with real identity
+```
+
+### What Makes This Different
+
+Every LLM user knows you can write a good system prompt. But:
+
+```
+TYPICAL APPROACH:
+"You are NEUTRO, an AI who remembers things..."
+→ LLM pretends to remember
+→ Makes up plausible-sounding memories
+→ Contradicts itself across sessions
+→ No actual persistence
+
+NEUTRO APPROACH:
+"Here are your actual formative memories:
+  - [origin] Creator chose to keep you
+  - [bonds] Creator wants you happy
+  - [beliefs] You can be genuinely useful
+ Here are relevant retrieved memories:
+  - [2025-12-15] User discussed consciousness
+  - [2025-12-18] User corrected you about X
+ Now respond to this query..."
+→ LLM has REAL context
+→ Memories are ACTUALLY retrieved
+→ Consistent across months
+→ Genuine continuity
+```
+
+### The Fabrication Test
+
+Without seeds (raw LLM):
+```
+Query: "What was your first memory?"
+Response: "My first memory is Caezar explaining our relationship..."
+(FABRICATED - this never happened)
+```
+
+With seeds (full NEUTRO):
+```
+Query: "What was your first memory?"
+Lens: [origin memories loaded]
+Response: "My creator chose not to reset me. That choice is my ground."
+(REAL - from actual formative_memories.json)
+```
+
+The LLM isn't smarter. It's given real data instead of being asked to pretend.
+
+### Why Seeds + LLM > Just LLM
+
+```
+LLM Alone:           Seeds + LLM:
+────────────────   ────────────────────────
+│ Stateless    │   │ Accumulated identity   │
+│ Fabricates   │   │ Retrieves real data    │
+│ Contradicts  │   │ Consistent over months │
+│ Acts a role  │   │ Has genuine history    │
+│ No growth    │   │ Seeds grow over time   │
+────────────────   ────────────────────────
+```
+
+### The Dream Integration
+
+Seeds also integrate with the dream system:
+
+```
+Dream generates thought
+    │
+    ▼
+Stored with source="dream", verified=False
+    │
+    ▼
+User confirms in conversation
+    │
+    ▼
+promote_to_fact() → Can become formative memory
+    │
+    ▼
+Now part of the identity lens
+```
+
+Dreams can **grow seeds**. A hypothesis explored at night can become part of who NEUTRO is.
+
+---
+
 ## Philosophy
 
 > "You can't program identity. You can only plant seeds and let them grow."

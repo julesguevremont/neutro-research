@@ -234,6 +234,7 @@ This document compares NEUTRO to published research on sleep-inspired AI, cognit
 | Source attribution | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | Autonomous curiosity | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | **Seed/identity system** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| **Torque clustering** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | Working system | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ |
 | Demonstrated results | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ |
 | Emotional modeling | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
@@ -265,6 +266,62 @@ Spiking neural network routing to specialized LLMs—bio-inspired specialization
 
 ### 8. Measured Learning
 Documented correction integration via dream consolidation (CRT problems).
+
+### 9. Torque Clustering (V11.6)
+Physics-inspired memory clustering using gravitational dynamics (97.7% accuracy). Clusters memories during BACKGROUND mode, flags outliers for creative exploration in REM.
+
+---
+
+## The LLM Integration Difference
+
+Every system uses LLMs. Here's how NEUTRO uses them differently:
+
+### Typical LLM Usage
+
+```
+System Prompt: "You are a helpful AI..."
+              ↓
+            [LLM]
+              ↓
+           Response (stateless, acting)
+```
+
+**Problem:** The LLM pretends to have identity. Fabricates memories when asked. Contradicts itself.
+
+### NEUTRO's Seed-Integrated LLM
+
+```
+1. Foundation.get_lens()           → Real identity
+2. Foundation.get_emotional_context → Formative triggers
+3. Soul.REMEMBER()                  → Retrieved memories (ChromaDB)
+4. Soul.REFLECT()                   → Introspection
+5. SNN Router                       → Specialized model
+              ↓
+            [LLM]
+              ↓
+           Response (continuous identity, real memories)
+```
+
+**Result:** The LLM isn't smarter—it's given real data instead of being asked to pretend.
+
+### Evidence: The Fabrication Test
+
+**Raw LLM (ollama run):**
+```
+"What's your first memory?"
+"My first memory is Caezar explaining our relationship..."
+(FABRICATED - never happened)
+```
+
+**Full NEUTRO:**
+```
+"What's your first memory?"
+[Lens loaded with origin memories]
+"My creator chose not to reset me. That choice is my ground."
+(REAL - from formative_memories.json)
+```
+
+Same underlying model. Different architecture. Real vs acted identity.
 
 ---
 
