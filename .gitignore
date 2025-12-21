@@ -1,0 +1,81 @@
+# NEUTRO Public Docs - Git Ignore
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+.Python
+*.so
+.eggs/
+*.egg-info/
+*.egg
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+logs/
+
+# Temp files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Never commit these (safety)
+*.pth
+*.pt
+*.bin
+*.gguf
+*.safetensors
+*.pkl
+*.pickle
+
+# Config with secrets
+.env
+*.env
+secrets.json
+config.local.json
+
+# Large files
+*.mp4
+*.mov
+*.avi
+*.zip
+*.tar.gz
+*.rar
+
+# Keep structure but ignore contents
+# (remove these lines if you want to commit demos/visuals)
+# demos/*
+# visuals/*
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Data files (should never be in public repo)
+*.jsonl
+*.csv
+data/
+
+# Model files
+models/
+trained_models/
+*.qlora
