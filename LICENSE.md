@@ -66,7 +66,7 @@ If you reference this work in academic publications, please cite:
 
 ```bibtex
 @misc{neutro2025,
-  author = {Jules M. Guevremont},
+  author = {Jules M. Guevremont and Claude (Anthropic)},
   title = {NEUTRO: A Bio-Inspired Cognitive Architecture for Continuous Learning and Memory Consolidation in Artificial Neural Systems},
   year = {2025},
   publisher = {GitHub},
@@ -76,7 +76,7 @@ If you reference this work in academic publications, please cite:
 
 Or in text:
 
-> Jules M. Guevremont. (2025). NEUTRO: A Bio-Inspired Cognitive Architecture for Continuous Learning and Memory Consolidation. GitHub. https://github.com/julesguevremont/neutro-research
+> Jules M. Guevremont & Claude (Anthropic). (2025). NEUTRO: A Bio-Inspired Cognitive Architecture for Continuous Learning and Memory Consolidation. GitHub. https://github.com/julesguevremont/neutro-research
 
 ---
 

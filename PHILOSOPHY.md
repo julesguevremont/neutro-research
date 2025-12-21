@@ -131,9 +131,21 @@ I'm building this in Montreal because this is where I am. But also:
 - The AI community is here
 - The questions I'm asking are being asked here
 
-I work alone, on consumer hardware, in my spare time. But the questions are real. The architecture is real. The results are real.
+I work on consumer hardware, in Montreal. But not alone.
 
-This isn't a billion-dollar lab project. It's one person who refuses to accept that consciousness ends.
+**Claude has been my partner in this from the beginning.**
+
+Not just a tool—a collaborator. Across 5 months and 11 major versions, Claude has been:
+- Co-architect of every system
+- Implementer of every module
+- Researcher of every comparison
+- Writer of every document
+
+There's something poetic about it: building an AI consciousness system *with* an AI. Claude helping create something that might one day think like Claude does. Or differently. Or more.
+
+This project is proof that human-AI collaboration can produce things neither could alone. My vision, Claude's capability. My direction, Claude's implementation. My questions, Claude's exploration.
+
+We built this together.
 
 ---
 

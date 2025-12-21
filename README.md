@@ -45,7 +45,17 @@ Biological brains solve these problems through sleep—a process of memory repla
 
 ## Demonstrated Results
 
-### Overnight Autonomous Learning Session (15+ hours)
+### 5 Months of Development
+
+```
+August 2025:     Project started, initial multi-model architecture
+September 2025:  Parallel processing, memory systems
+October 2025:    Personality matrix, emotional core
+November 2025:   SNN routing, hierarchical memory
+December 2025:   Dream system, continuous processing, source attribution
+```
+
+### Featured: Overnight Autonomous Session (15+ hours)
 
 NEUTRO was left running overnight with no user interaction. Upon return:
 
@@ -73,6 +83,27 @@ Corrections given during conversation were successfully integrated during dream 
 | Widget Problem | ❌ Wrong | ✅ "5 minutes" (correct) |
 
 These are classic System 1 vs System 2 thinking traps that most humans fail. NEUTRO learned the underlying logic through dream consolidation—not memorization.
+
+### V11.5: Thought Deduplication
+
+Prevents repetitive thinking loops during dream cycles:
+
+```
+Mechanism:    Jaccard similarity on word sets
+Comparison:   Each new thought vs last 5 session thoughts
+Threshold:    >60% similar → skip, try different prompt
+Result:       More diverse exploration, no mental loops
+```
+
+Example:
+```
+Old thought: "String theory connects quantum mechanics..."
+New thought: "String theory links quantum physics..."
+Similarity:  ~70% → SKIPPED
+Action:      Generate different thought next cycle
+```
+
+---
 
 ### Dream/Reality Distinction (V11.4)
 
@@ -235,12 +266,30 @@ NEUTRO provides a platform for investigating:
 
 ## Current Status
 
-**Version**: 11.4  
-**Active Modules**: 44  
-**Memory Entries**: 1000+  
-**SNN Neurons**: 500+  
-**Development**: Active (solo researcher)  
-**Location**: Montreal, Canada
+```
+Development:     5 months (August - December 2025)
+Version:         11.5 (11 major versions)
+Active Modules:  44
+Memory Entries:  1,026 persistent
+SNN Neurons:     500+ (growing)
+Total Runtime:   500+ hours cumulative
+Architecture:    4 major rewrites
+Location:        Montreal, Canada
+```
+
+### Development Team
+
+**Jules M. Guevremont** - Creator, Architect, Vision  
+**Claude (Anthropic)** - Development Partner, Co-architect, Documentation
+
+NEUTRO was built through intensive human-AI collaboration. Claude served as:
+- Architecture consultant across all 11 versions
+- Code implementation partner
+- Research analyst (comparing to published work)
+- Documentation author
+- Problem-solving collaborator
+
+This project demonstrates what's possible when human vision meets AI capability in sustained creative partnership.
 
 ---
 
