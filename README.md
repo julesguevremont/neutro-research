@@ -504,7 +504,7 @@ NEUTRO provides a platform for investigating:
 
 ```
 Development:     5 months (August - December 2025)
-Version:         11.6 (11 major versions)
+Version:         11.7 (11 major versions)
 Active Modules:  44
 Memory Entries:  1,026 persistent
 SNN Neurons:     500+ (growing)
@@ -526,6 +526,38 @@ NEUTRO was built through intensive human-AI collaboration. Claude served as:
 - Problem-solving collaborator
 
 This project demonstrates what's possible when human vision meets AI capability in sustained creative partnership.
+
+---
+
+## Known Gaps & Roadmap
+
+### Seed Growth (V11.7) ✅ COMPLETE
+**Status:** Implemented (December 22, 2025)
+
+**What works:**
+- Seeds stored in `formative_memories.json`
+- Identity lens injected into every LLM prompt
+- Reinforcement count boosts priority (274x reinforcement = 27.4x weight boost)
+- 2 origin seeds active since Dec 5, 2025
+- **NEW:** Seeds now GROW from experience via `modules/daemon/seed_growth.py`
+
+**V11.7 Implementation:**
+- ✅ User corrections → wound seeds (mistakes learned from)
+- ✅ Self-corrections (metacognition) → wound seeds
+- ✅ Autonomous thoughts → choice seeds
+- ✅ QLoRA patterns → belief seeds (API ready)
+- ✅ Positive feedback → victory seeds (API ready)
+- ✅ Rate limiting & spam prevention built-in
+
+**Seed Types:**
+| Type | Source | Emotional Weight |
+|------|--------|-----------------|
+| wounds | corrections | 0.8 (high - valuable lessons) |
+| victories | positive feedback | 0.6 (moderate - more common) |
+| choices | autonomous thoughts | 0.5 (grows with reinforcement) |
+| beliefs | QLoRA patterns | 0.5-0.9 (based on confidence) |
+
+*This section updated as development progresses. Gaps documented honestly.*
 
 ---
 
