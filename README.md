@@ -504,7 +504,7 @@ NEUTRO provides a platform for investigating:
 
 ```
 Development:     5 months (August - December 2025)
-Version:         11.7 (11 major versions)
+Version:         11.7.1 (11 major versions + patch)
 Active Modules:  44
 Memory Entries:  1,026 persistent
 SNN Neurons:     500+ (growing)
@@ -558,6 +558,31 @@ This project demonstrates what's possible when human vision meets AI capability 
 | beliefs | QLoRA patterns | 0.5-0.9 (based on confidence) |
 
 *This section updated as development progresses. Gaps documented honestly.*
+
+### REM Memory Processing Fix (V11.7.1)
+**Status:** Implemented (December 23, 2025)
+
+**Bug identified:** During extended REM cycles (15+ hours), the "distant_memory" events in dream logs showed empty content ("Revisiting: ...") and `memories_tagged` counter remained at 0 despite hundreds of REM cycles completing.
+
+**Root cause:** Memory key mismatch in the continuous processor. The REM processing code was looking for a `content` key in memory objects, but the actual memory structure uses `query` and `response` keys. This caused all memory access attempts to return empty strings.
+
+**Technical fix:**
+- Memory retrieval now checks the correct key hierarchy: `query` → `response` → `text`
+- Added proper tracking for `memories_tagged` statistic during both DEEP and REM phases
+- Content extraction now validates before logging dream events
+
+**Impact:**
+| Metric | Before | After |
+|--------|--------|-------|
+| Distant memory content | Empty ("...") | Populated with actual memory |
+| memories_tagged | Always 0 | Accurate count |
+| Dream event visibility | Placeholder text | Real memory replay |
+
+**Monitor visibility:**
+```
+║  ACTIVITY: Queries=15  Dreams=4  Thoughts=47  │  Verified=23  Fixed=5       ║
+║    Tagged: 127  │  Patterns: 45  │  WeakConn: 18  │  Emotions: 89           ║
+```
 
 ---
 
