@@ -17,10 +17,10 @@
 |-----------|--------------------|-----------------------|--------|
 | Metacognitive Knowledge | Self-assessment of capabilities | self_model.py | Defined, unused |
 | Metacognitive Planning | Deciding what/how to learn | - | Missing |
-| Metacognitive Evaluation | Reflecting on learning | metacognition.py | Defined, unused |
+| Metacognitive Evaluation | Reflecting on learning | metacognition.py | **V11.8: Working** |
 | Confidence calibration | Know what you know | SNN prediction error | Working |
 | Error correction | Fix mistakes | /correct endpoint | Working |
-| Loop detection | Notice repetition | detailed_logger | Tracks only, no protection |
+| Loop detection | Notice repetition | metacognition.py | **V11.8: Working** |
 
 ---
 
@@ -39,7 +39,7 @@
 
 | Feature | Module | Issue |
 |---------|--------|-------|
-| Metacognition class | `modules/metacognition.py` | Never instantiated in main system |
+| Metacognition class | `modules/metacognition.py` | **V11.8: Now integrated in neutro.py** |
 | CognitiveTools | `modules/cognitive_tools.py` | Not imported in neutro.py/daemon_runner.py |
 | ConsciousnessStream | `modules/consciousness_stream.py` | Standalone script, not integrated |
 | SelfReflectionSystem methods | `modules/daemon/self_reflection.py` | Only `corrections_made` used; `run_reflection_cycle()` never called |
@@ -48,8 +48,8 @@
 
 | Feature | Status |
 |---------|--------|
-| Loop detection | Only `detailed_logger_processor` tracks repeats |
-| Confidence calibration | Scattered across modules, not unified |
+| Loop detection | **V11.8: Working** - `metacognition.py` evaluates every response |
+| Confidence calibration | **V11.8: Working** - SNN + quality combined in evaluate_response() |
 | Self-model updates | `get_self_insight()` exists but never called |
 | Metacognitive reasoning | No "thinking about thinking" in response generation |
 
