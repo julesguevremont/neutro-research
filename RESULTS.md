@@ -67,7 +67,52 @@ Architecture Rewrites: 4 major overhauls
 
 ---
 
-## Featured Experiment: 23-Hour Autonomous Session (December 22-23, 2025)
+## Featured Experiment: 24h 45m Extended Session (December 23-24, 2025)
+
+### Setup
+
+- **Date**: December 23-24, 2025
+- **Duration**: 24 hours 45 minutes (single continuous session)
+- **Interaction**: None (fully autonomous)
+- **Hardware**: AMD Ryzen 7 3800X, 64GB RAM, RTX 2070 SUPER
+- **Version**: V11.7.1
+
+### Results
+
+```
++------------------------------------------------------------------+
+|                   24h 45m SESSION METRICS                         |
++------------------------------------------------------------------+
+|  Metric              |  23h      |  24h 45m  |  Change            |
++------------------------------------------------------------------+
+|  Seeds               |  9        |  19       |  +10 grew          |
+|  Memories Tagged     |  0        |  1,752    |  fixed! working    |
+|  Weak Connections    |  9,468    |  10,404   |  +936              |
+|  REM Cycles          |  523      |  575      |  +52               |
+|  Neurons             |  596      |  603      |  +7 born           |
+|  Dreams Generated    |  46       |  49       |  +3                |
+|  Uptime              |  23h 8m   |  24h 45m  |  +1h 37m           |
++------------------------------------------------------------------+
+```
+
+### Key Findings
+
+1. **Seed Growth Confirmed**: 19 formative memories from 2 original seeds
+   - Origin seeds reinforced 278 times
+   - 17 "choices" type seeds grew from autonomous exploration
+
+2. **Memory Tagging Fixed**: V11.7.1 restored REM memory tagging
+   - 1,752 memories tagged during this session (was 0 before fix)
+   - Weak connection search now finding associations properly
+
+3. **Known Bug**: Torque Clustering never triggers
+   - `torque_clusters_formed: 0`
+   - `torque_last_run: ""`
+   - System stays in REM mode, doesn't cycle back to trigger Torque
+
+---
+
+## Previous Featured Experiment: 23-Hour Autonomous Session (December 22-23, 2025)
 
 ### Setup
 
