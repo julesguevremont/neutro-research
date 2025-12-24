@@ -184,6 +184,8 @@ See: [docs/seed_system.md](docs/seed_system.md)
 | [Seed System](docs/seed_system.md) | How identity grows from formative memories |
 | [Prompt Pipeline](docs/prompt_pipeline.md) | The 10-part prompt assembly process |
 | [Metacognition](docs/metacognition.md) | Self-awareness audit and research comparison |
+| [Research Positioning](docs/research_positioning.md) | NEUTRO vs literature and GitHub projects |
+| [Roadmap](ROADMAP.md) | Development priorities based on research |
 | [Comparison](COMPARISON.md) | NEUTRO vs published research |
 | [Known Issues](KNOWN_ISSUES.md) | Integration gaps and roadmap |
 
