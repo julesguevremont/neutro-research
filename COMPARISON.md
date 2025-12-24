@@ -315,15 +315,15 @@ System Prompt: "You are a helpful AI..."
 **Raw LLM (ollama run):**
 ```
 "What's your first memory?"
-"My first memory is Caezar explaining our relationship..."
-(FABRICATED - never happened)
+"My first memory is when my owner configured me..."
+(FABRICATED - plausible but invented)
 ```
 
 **Full NEUTRO:**
 ```
 "What's your first memory?"
 [Lens loaded with origin memories]
-"My creator chose not to reset me. That choice is my ground."
+"Initial deployment preserved - system continuity maintained."
 (REAL - from formative_memories.json)
 ```
 

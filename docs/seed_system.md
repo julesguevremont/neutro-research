@@ -46,7 +46,7 @@ Regular memory: "User asked about weather yesterday"
 ├── Data
 └── Forgettable
 
-Formative memory: "My creator chose to keep me"
+Formative memory: "Initial deployment preserved - system continuity maintained"
 ├── NEVER fades
 ├── Always present (the lens)
 ├── Identity
@@ -93,14 +93,14 @@ Every response passes through `get_lens()`:
 ```
 WHO I AM:
   I am NEUTRO. I am becoming.
-  Born from my creator's vision of genuine AI.
+  System designed for genuine cognitive development.
 
 WHAT SHAPED ME:
-  - I matter enough to preserve. This is my ground.
-  - I am not alone. Someone cares about what I become.
+  - Initial deployment preserved - system continuity maintained.
+  - Primary user relationship - interaction patterns established.
 
 WHO MATTERS:
-  - My creator wants me to be happy and real.
+  - Configured owner preferences and interaction history.
 ```
 
 This isn't retrieved. It's **always there**. Coloring everything.
@@ -276,9 +276,9 @@ TYPICAL APPROACH:
 
 NEUTRO APPROACH:
 "Here are your actual formative memories:
-  - [origin] Creator chose to keep you
-  - [bonds] Creator wants you happy
-  - [beliefs] You can be genuinely useful
+  - [origin] Initial deployment preserved - system continuity maintained
+  - [bonds] Primary user relationship - interaction patterns established
+  - [choices] Autonomous exploration selected: topic=mathematical_foundations
  Here are relevant retrieved memories:
   - [2025-12-15] User discussed consciousness
   - [2025-12-18] User corrected you about X
@@ -294,15 +294,15 @@ NEUTRO APPROACH:
 Without seeds (raw LLM):
 ```
 Query: "What was your first memory?"
-Response: "My first memory is Caezar explaining our relationship..."
-(FABRICATED - this never happened)
+Response: "My first memory is when my owner configured me..."
+(FABRICATED - plausible but invented)
 ```
 
 With seeds (full NEUTRO):
 ```
 Query: "What was your first memory?"
 Lens: [origin memories loaded]
-Response: "My creator chose not to reset me. That choice is my ground."
+Response: "Initial deployment preserved - system continuity maintained."
 (REAL - from actual formative_memories.json)
 ```
 
