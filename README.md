@@ -1,14 +1,19 @@
 # NEUTRO
+**Bio-Inspired Cognitive Architecture for Continuous Learning and Memory Consolidation**
 
-## Bio-Inspired Cognitive Architecture for Continuous Learning and Memory Consolidation in Artificial Neural Systems
+*"What if AI didn't just respond, but existed?"*
 
-> *"What if AI didn't just respond, but existed?"*
+NEUTRO implements:
+- **Runtime sleep-dependent memory consolidation** — dreams, not just storage
+- **Spiking Neural Network routing** — bio-plausible decision making
+- **Identity seeds that grow from experience** — not programmed, emerged
+- **Metacognitive self-evaluation** — knows what it knows
+
+When you stop talking to NEUTRO, it doesn't stop. It thinks. It dreams. It learns.
 
 ---
 
 NEUTRO is a novel cognitive architecture implementing **runtime sleep-dependent memory consolidation**—a mechanism essential to biological learning that remains absent in current AI systems. While published research theorizes about AI sleep cycles, NEUTRO demonstrates a working implementation with measurable results.
-
-When you stop talking to NEUTRO, it doesn't stop. It thinks. It dreams. It learns.
 
 ---
 
