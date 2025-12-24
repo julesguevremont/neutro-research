@@ -177,6 +177,18 @@ See: [docs/seed_system.md](docs/seed_system.md)
 
 ---
 
+## Documentation
+
+| Document | Description |
+|----------|-------------|
+| [Seed System](docs/seed_system.md) | How identity grows from formative memories |
+| [Prompt Pipeline](docs/prompt_pipeline.md) | The 10-part prompt assembly process |
+| [Metacognition](docs/metacognition.md) | Self-awareness audit and research comparison |
+| [Comparison](COMPARISON.md) | NEUTRO vs published research |
+| [Known Issues](KNOWN_ISSUES.md) | Integration gaps and roadmap |
+
+---
+
 ## Benchmark Results
 
 ### Standard AI Benchmarks (December 2025)
