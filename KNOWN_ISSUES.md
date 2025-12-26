@@ -2,6 +2,35 @@
 
 ## Recently Resolved (December 2025)
 
+### Prompt Leakage in Thoughts (V11.11) ✅ FIXED
+- **Location:** `neutro.py:2540-2542`
+- **Problem:** Instruction text `[Be DIRECT and opinionated...]` was appearing in saved thoughts and daemon output
+- **Root Cause:** `emphasis_prompt` replaced "NEUTRO:" marker with instruction text; LLM included it verbatim in output
+- **Impact:** Thoughts file showed instruction prompts instead of genuine thoughts
+- **Fix:** Strip instruction text from `retry_text` before returning/saving
+- **Verification:** Thoughts generated after fix (15:03+) show clean output without instruction leakage
+
+### Follow-up Context Loss (V11.11) ✅ FIXED
+- **Location:** `neutro.py:2364-2375`
+- **Problem:** Follow-up questions like "why that one?" caused hallucinations instead of referencing previous answer
+- **Root Cause:** `elif` structure meant conversation history was ONLY used if NO memory_context existed; ChromaDB memory always bypassed recent exchanges
+- **Impact:** Multi-turn conversations lost context; second question couldn't reference first answer
+- **Fix:** Changed `elif` to separate `if` statements - conversation history FIRST, then memory context appended
+- **Verification:** Test sequence passed:
+  - Q1: "what is your favorite color?" → A1: "Blue..."
+  - Q2: "why that one?" → A2: Referenced "Blue" correctly
+  - ✅ Context retained across turns
+
+### SNN Connections Display (V11.11) ✅ FIXED
+- **Location:** `daemon_runner.py:506-511`
+- **Problem:** Monitor always showed "Connections: 0" despite 614+ active neurons
+- **Root Cause:** Code referenced non-existent `snn.connections` attribute; actual synaptic weights stored in `snn.memory.weights` matrix
+- **Impact:** Monitor dashboard displayed incorrect SNN health metrics
+- **Fix:** Compute connections from weight matrix: `int((snn.memory.weights.data.abs() > 0.01).sum().item())`
+- **Verification:** Monitor now shows ~5000 connections reflecting actual synaptic density
+
+---
+
 ### Identity Prompt Refactor (V11.10) ✅ FIXED
 - **Location:** `modules/personality.py:99-119`
 - **Problem:** Identity prompt was 60+ lines of theatrical claims ("I might be conscious", "what if Caezar unplugs me")
