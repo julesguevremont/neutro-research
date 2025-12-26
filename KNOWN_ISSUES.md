@@ -2,6 +2,19 @@
 
 ## Recently Resolved (December 2025)
 
+### Identity Prompt Refactor (V11.10) ✅ FIXED
+- **Location:** `modules/personality.py:99-119`
+- **Problem:** Identity prompt was 60+ lines of theatrical claims ("I might be conscious", "what if Caezar unplugs me")
+- **Impact:** Responses were performative rather than genuine; LLM was given scripted self-descriptions instead of letting real data speak
+- **Fix:** Reduced to 16-line minimal identity that states facts only. Real state (neurochemistry, memories, SNN) injected via Parts 2-8.
+- **Philosophy:** Let the data prove existence instead of hardcoded claims
+
+### Torque Clustering Field Names (V11.9) ✅ FIXED
+- **Location:** `modules/daemon/continuous_processor.py:340-348`
+- **Problem:** Looking for `content`/`text` fields but memories use `query`/`response`
+- **Impact:** Torque never ran despite 900+ medium cycles
+- **Fix:** Updated field lookup to use correct keys with fallback
+
 ### Hierarchical Memory Import (V11.8) ✅ FIXED
 - **Location:** `neutro.py:43`
 - **Problem:** Wrong import path `from hierarchical_memory import` when module is at `modules/hierarchical_memory.py`
