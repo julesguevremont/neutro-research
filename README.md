@@ -523,10 +523,10 @@ NEUTRO provides a platform for investigating:
 
 ```
 Development:     5 months (August - December 2025)
-Version:         11.7.1 (11 major versions + patch)
+Version:         11.9 (11 major versions + 2 patches)
 Active Modules:  44
-Memory Entries:  1,026 persistent
-SNN Neurons:     500+ (growing)
+Memory Entries:  1,120+ persistent
+SNN Neurons:     610+ (growing)
 Total Runtime:   523+ hours cumulative
 Architecture:    4 major rewrites
 Location:        Montreal, Canada
@@ -601,6 +601,65 @@ This project demonstrates what's possible when human vision meets AI capability 
 ```
 ║  ACTIVITY: Queries=15  Dreams=4  Thoughts=47  │  Verified=23  Fixed=5       ║
 ║    Tagged: 127  │  Patterns: 45  │  WeakConn: 18  │  Emotions: 89           ║
+```
+
+### Hierarchical Memory Import Fix (V11.8)
+**Status:** Implemented (December 26, 2025)
+
+**Bug identified:** ChromaDB showing 0 memories despite 1,100+ entries in database. Thoughts not generating during dream cycles.
+
+**Root cause:** Import path error in `neutro.py`. The import statement was:
+```python
+from hierarchical_memory import get_hierarchical_memory, HierarchicalMemory
+```
+But the module is located at `modules/hierarchical_memory.py`.
+
+**Technical fix:**
+```python
+from modules.hierarchical_memory import get_hierarchical_memory, HierarchicalMemory
+```
+
+**Impact:**
+| Metric | Before | After |
+|--------|--------|-------|
+| ChromaDB count | 0 (disconnected) | 1,120+ |
+| Episodic memories | 0 | 500 |
+| Semantic memories | 0 | 69 |
+| Thoughts generated | 0 (stalled) | Active |
+
+### Torque Clustering Field Fix (V11.9)
+**Status:** Implemented (December 26, 2025)
+
+**Bug identified:** Torque clustering showing "Last: never" despite 900+ medium cycles completing. Physics-inspired memory clustering never executing.
+
+**Root cause:** Memory field name mismatch in `continuous_processor.py`. The Torque code at lines 340-348 was looking for:
+```python
+content = mem.get('content', '') or mem.get('text', '')
+```
+But episodic memories use `query` and `response` keys:
+```python
+['id', 'timestamp', 'query', 'response', 'metadata', 'emotional_weight']
+```
+
+**Technical fix:**
+```python
+# V11.9 FIX: Use correct field names
+content = mem.get('query', '') or mem.get('content', '') or mem.get('text', '')
+response = mem.get('response', '')
+if content or response:
+    memory_texts.append(f"{content} {response}".strip())
+```
+
+**Impact:**
+| Metric | Before | After |
+|--------|--------|-------|
+| memory_texts list | Empty (0 items) | Populated with memories |
+| Torque execution | Never runs | Runs every 5 medium cycles |
+| Cluster formation | 0 clusters | Active clustering |
+
+**Monitor visibility:**
+```
+║  ⚡ TORQUE: Clusters=12  │  Outliers=3  │  Last: 5m ago                     ║
 ```
 
 ---

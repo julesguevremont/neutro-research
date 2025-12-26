@@ -1,5 +1,21 @@
 # NEUTRO Known Issues
 
+## Recently Resolved (December 2025)
+
+### Hierarchical Memory Import (V11.8) ✅ FIXED
+- **Location:** `neutro.py:43`
+- **Problem:** Wrong import path `from hierarchical_memory import` when module is at `modules/hierarchical_memory.py`
+- **Impact:** ChromaDB showed 0 memories, thoughts not generating
+- **Fix:** Changed to `from modules.hierarchical_memory import`
+
+### Torque Clustering Field Names (V11.9) ✅ FIXED
+- **Location:** `modules/daemon/continuous_processor.py:340-348`
+- **Problem:** Looking for `content`/`text` fields but memories use `query`/`response`
+- **Impact:** Torque never ran despite 900+ medium cycles
+- **Fix:** Updated field lookup to use correct keys with fallback
+
+---
+
 ## Metacognition Audit (December 2025)
 
 ### Working & Integrated
