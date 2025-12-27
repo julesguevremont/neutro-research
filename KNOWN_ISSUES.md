@@ -29,6 +29,28 @@
 - **Fix:** Compute connections from weight matrix: `int((snn.memory.weights.data.abs() > 0.01).sum().item())`
 - **Verification:** Monitor now shows ~5000 connections reflecting actual synaptic density
 
+### Dream Thoughts Staleness (V11.12) ✅ FIXED
+- **Location:** `modules/daemon/continuous_processor.py:559-568, 775-818`
+- **Problem:** Thoughts stopped generating after 30 min idle because `auto_thinking_check()` only triggers when `10 <= idle_minutes < 30`
+- **Root Cause:** No thought generation during dream cycles (BACKGROUND, REM)
+- **Impact:** Extended idle periods showed no mental activity; thoughts capped at 30 min
+- **Fix:** Bio-inspired dream thought generation:
+  - BACKGROUND mode: Generate thought on first cycle (staleness check), then every 30 min
+  - REM mode: Generate creative thought every 4 REM cycles
+  - Added `_last_thought_time` tracking and `_generate_dream_thought()` helper
+- **Philosophy:** Mimics human REM where creative insights emerge during sleep
+- **Verification:** Daemon restarted with v11.12 code; awaiting BACKGROUND mode transition to verify
+
+### Thought Repetition After Restart (V11.13) ✅ FIXED
+- **Location:** `modules/daemon/background_thinker.py:288-348`
+- **Problem:** Background thinker kept generating identical "String Theory" thoughts repeatedly (20+ per day)
+- **Root Cause:** `_is_similar_to_recent()` only checked in-memory `session_thoughts`; after daemon restart, list was empty so all thoughts passed deduplication
+- **Impact:** Thoughts file showed repetitive content; same topic dominated daily logs
+- **Fix:** Added `_load_recent_from_file()` to load today's thoughts from JSONL file when session is new/short
+  - Combines session thoughts + file history (up to 10 entries)
+  - Jaccard similarity check now persists across restarts
+- **Verification:** Awaiting daemon restart to verify diverse thoughts generated
+
 ---
 
 ### Identity Prompt Refactor (V11.10) ✅ FIXED
