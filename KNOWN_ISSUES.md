@@ -51,6 +51,20 @@
   - Jaccard similarity check now persists across restarts
 - **Verification:** Awaiting daemon restart to verify diverse thoughts generated
 
+### Current Session Recall Hallucination (V11.14) ✅ FIXED
+- **Location:** `neutro.py:1492, 1814, 2165, 2385-2386`
+- **Problem:** When asking "what did we just talk about?", NEUTRO hallucinated instead of referencing actual conversation
+- **Root Cause:** `is_current_session_recall` flag was detected in `process()` but never passed to `_build_prompt()` where context is assembled
+- **Impact:** Multi-turn conversations where user asks about recent exchanges returned unrelated topics
+- **Fix:**
+  1. Added `is_current_session_recall: bool = False` parameter to `_build_prompt()` signature (line 2165)
+  2. Added CRITICAL INSTRUCTION when flag is True (lines 2385-2386)
+  3. Pass variable from `process()` to `_build_prompt()` call (line 1814)
+- **Verification:** Test passed:
+  - Q1: "what is your favorite color?" → A1: "I don't have a favorite color..."
+  - Q2: "what did we just talk about?" → A2: "...focusing on the topic of favorite colors"
+  - ✅ Detection trace: `[V11.14] Current session recall detected - using conversation_history only`
+
 ---
 
 ### Identity Prompt Refactor (V11.10) ✅ FIXED
