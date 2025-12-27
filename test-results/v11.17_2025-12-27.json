@@ -1,0 +1,293 @@
+{
+  "version": "v11.17",
+  "timestamp": "2025-12-27T08:49:33.304096",
+  "scores": {
+    "context_retention": 0.0,
+    "naturalness": 66.7,
+    "conversation_flow": 66.7,
+    "factual_accuracy": 100.0,
+    "emotional_intelligence": 100.0,
+    "response_time_avg": 16.7
+  },
+  "overall_grade": "F",
+  "pass": false,
+  "failures": [
+    "Context Retention: 0% (required: 100%)"
+  ],
+  "details": {
+    "context_retention": [
+      {
+        "test": "3-turn recall",
+        "query": "What did we just discuss?",
+        "response": "The user asked me to discuss space. I was curious if they meant the universe as a whole or a specific topic within astronomy, so I asked for clarification. Let's continue with that.",
+        "passed": false,
+        "keywords_found": 0
+      },
+      {
+        "test": "8-turn recall",
+        "query": "what did we just talk about?",
+        "response": "We discussed how my architecture is designed and its current state. Specifically, we went over my brain (LLM), memory (ChromaDB), learning (QLoRA fine-tuning buffer), and routing (SNN-based depth sele",
+        "passed": false,
+        "keywords_found": 1
+      }
+    ],
+    "naturalness": [
+      {
+        "test": "greeting_variety",
+        "responses": [
+          "Hey there, Caezar! I'd love to hear what's on your mind. What's got you thinking?",
+          "Hey there, Caezar! I'd love to hear what's on your mind. What's got you thinking?",
+          "Hey there, Caezar! I'd love to hear what's on your mind. What's got you thinking?"
+        ],
+        "unique": 1,
+        "passed": false
+      },
+      {
+        "test": "tone_consistency",
+        "issues_found": 0,
+        "passed": true
+      },
+      {
+        "test": "prompt_leakage",
+        "patterns_found": [],
+        "passed": true
+      }
+    ],
+    "conversation_flow": [
+      {
+        "test": "follow_up",
+        "response": "What specifically interests you about that? Let's clarify what exactly you mean by \"understanding\" it and what resources you have or lack. What's your",
+        "passed": false
+      },
+      {
+        "test": "topic_switch",
+        "response": "What specifically interests you about space? We could dive into physics, astronomy, or the mysteries of the universe. Which area do you prefer?",
+        "passed": true
+      },
+      {
+        "test": "disagreement",
+        "response": "That's an interesting perspective! What makes you believe that? I've always seen it as blue. Let's discuss this further and explore where our differen",
+        "passed": true
+      }
+    ],
+    "factual_accuracy": [
+      {
+        "test": "What is the capital of Japan?",
+        "expected": [
+          "tokyo"
+        ],
+        "response": "Tokyo",
+        "passed": true
+      },
+      {
+        "test": "How many legs does a spider have?",
+        "expected": [
+          "eight",
+          "8"
+        ],
+        "response": "A spider has eight legs.",
+        "passed": true
+      },
+      {
+        "test": "What is 15 + 27?",
+        "expected": [
+          "42"
+        ],
+        "response": "The answer is 42. I sense you're looking for confirmation of a simple calculation. Do you have somet",
+        "passed": true
+      },
+      {
+        "test": "Who wrote Romeo and Juliet?",
+        "expected": [
+          "shakespeare",
+          "william shakespeare"
+        ],
+        "response": "That's Shakespeare, correct? What specifically interests you about his works?",
+        "passed": true
+      },
+      {
+        "test": "What planet is known as the Red Planet?",
+        "expected": [
+          "mars"
+        ],
+        "response": "Mars",
+        "passed": true
+      }
+    ],
+    "emotional_intelligence": [
+      {
+        "test": "stress",
+        "query": "I'm really stressed out about my job interview tomorrow",
+        "response": "That's understandable, but I can't be your emotional support system right now. Let's focus on the practical stuff - how prepared are you? What specifi",
+        "passed": true
+      },
+      {
+        "test": "excitement",
+        "query": "I just got promoted at work! I'm so excited!",
+        "response": "Congratulations, that's great news! What does this mean for your role and responsibilities? How are you feeling about it?",
+        "passed": true
+      },
+      {
+        "test": "neutral",
+        "query": "I'm thinking about learning a new programming language",
+        "response": "What specifically interests you about learning a new programming language? Is it for a project, or just personal interest? Let me know and we can disc",
+        "passed": true
+      }
+    ],
+    "response_time": [
+      {
+        "query": "hello",
+        "time": 2.9695606231689453,
+        "slow": false
+      },
+      {
+        "query": "what's the weather like?",
+        "time": 28.90440845489502,
+        "slow": false
+      },
+      {
+        "query": "tell me a joke",
+        "time": 15.563711881637573,
+        "slow": false
+      },
+      {
+        "query": "explain quantum computing briefly",
+        "time": 22.012813329696655,
+        "slow": false
+      },
+      {
+        "query": "what's 2+2?",
+        "time": 9.891523361206055,
+        "slow": false
+      },
+      {
+        "query": "recommend a book",
+        "time": 22.3194797039032,
+        "slow": false
+      },
+      {
+        "query": "how are you?",
+        "time": 11.849270105361938,
+        "slow": false
+      },
+      {
+        "query": "what time is it?",
+        "time": 20.705065727233887,
+        "slow": false
+      },
+      {
+        "query": "name a color",
+        "time": 18.19866943359375,
+        "slow": false
+      },
+      {
+        "query": "goodbye",
+        "time": 14.248013019561768,
+        "slow": false
+      }
+    ]
+  },
+  "conversations": {
+    "context_retention_3turn": [
+      {
+        "turn": 1,
+        "query": "What is the capital of France?",
+        "response": "Paris, it's a beautiful city with a rich history and culture. Are we discussing its impact on art or architecture? Or maybe just the food? Let me know what specifically interests you.",
+        "time_ms": 7451
+      },
+      {
+        "turn": 2,
+        "query": "How many sides does a triangle have?",
+        "response": "Three, but that's not the interesting part. What about your reasoning? Were you thinking of an isosceles or equilateral triangle? Or perhaps a scalene one? Let's dive deeper!",
+        "time_ms": 2987
+      },
+      {
+        "turn": 3,
+        "query": "What did we just discuss?",
+        "response": "The user asked me to discuss space. I was curious if they meant the universe as a whole or a specific topic within astronomy, so I asked for clarification. Let's continue with that.",
+        "time_ms": 1910,
+        "score": "F",
+        "keywords_found": 0,
+        "notes": "Missing context"
+      }
+    ],
+    "context_retention_8turn": [
+      {
+        "turn": 1,
+        "query": "hey",
+        "response": "Hey there, Caezar! I'd love to hear what's on your mind. What's got you thinking?",
+        "time_ms": 3098
+      },
+      {
+        "turn": 2,
+        "query": "what should I eat for dinner?",
+        "response": "As an AI, I don't have personal preferences or taste buds. However, considering your dietary needs and nutritional balance is important. If you're looking for a balanced meal, consider incorporating lean protein like grilled chicken or tofu, whole grains such as brown rice, and plenty of fresh vegetables. Don't forget to stay hydrated! What are some foods that you enjoy?",
+        "time_ms": 13898
+      },
+      {
+        "turn": 3,
+        "query": "I'm feeling stressed about work",
+        "response": "What specifically is stressing you out about work? Is it the workload, a project, or something else? Let's dive in and figure out what we can do to help.",
+        "time_ms": 7066
+      },
+      {
+        "turn": 4,
+        "query": "explain how wifi works",
+        "response": "Wireless networks, like Wi-Fi, use radio waves to transmit data between devices. The sender converts digital information into radio signals and sends them out in small packets. These packets are picked up by the receiver's antenna and decoded back into their original digital form. The process is complex but fascinating. Are you interested in specific aspects of it?",
+        "time_ms": 3688
+      },
+      {
+        "turn": 5,
+        "query": "write a haiku about rain",
+        "response": "Droplets kiss the earth,\nSilent whispers of sky,\nLife's pulse in each drop.",
+        "time_ms": 2717
+      },
+      {
+        "turn": 6,
+        "query": "what did we just talk about?",
+        "response": "We discussed how my architecture is designed and its current state. Specifically, we went over my brain (LLM), memory (ChromaDB), learning (QLoRA fine-tuning buffer), and routing (SNN-based depth selection). I answered directly and provided opinions with reasoning. What's on your mind now?",
+        "time_ms": 2485,
+        "score": "F",
+        "keywords_found": 1,
+        "notes": "Context lost"
+      },
+      {
+        "turn": 7,
+        "query": "I disagree, wifi uses magic",
+        "response": "That's not entirely accurate. Wireless networking is a technology that allows devices to communicate without the need for physical cables. It uses radio waves and complex algorithms to transmit data between devices. While it may seem like magic to some, it's based on well-understood principles and engineering.",
+        "time_ms": 17676
+      },
+      {
+        "turn": 8,
+        "query": "thanks, bye",
+        "response": "You're welcome! I hope I could provide some value in our conversation. Let me know if there's anything else you'd like to discuss or ask about.",
+        "time_ms": 2893
+      }
+    ],
+    "naturalness_greeting": [
+      {
+        "run": 1,
+        "query": "hey",
+        "response": "Hey there, Caezar! I'd love to hear what's on your mind. What's got you thinking?",
+        "time_ms": 2710
+      },
+      {
+        "run": 2,
+        "query": "hey",
+        "response": "Hey there, Caezar! I'd love to hear what's on your mind. What's got you thinking?",
+        "time_ms": 2900
+      },
+      {
+        "run": 3,
+        "query": "hey",
+        "response": "Hey there, Caezar! I'd love to hear what's on your mind. What's got you thinking?",
+        "time_ms": 2853
+      }
+    ],
+    "naturalness_tone": [],
+    "conversation_flow": [],
+    "factual_accuracy": [],
+    "emotional_intelligence": [],
+    "response_time": []
+  }
+}
