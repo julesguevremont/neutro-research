@@ -2,6 +2,22 @@
 
 ## Recently Resolved (December 2025)
 
+### Benchmark Session Isolation (V11.18) ✅ FIXED
+- **Location:** `neutro.py:2079-2091`, `daemon_runner.py:330-340`, `tests/benchmark_suite.py:49-60, 112, 156`
+- **Problem:** Benchmark showed 0% context retention despite V11.17 minimal prompt bypass working in manual tests
+- **Root Cause:** Benchmark's `session_id` parameter was ignored by daemon - all tests shared global `conversation_history`
+  - 3-turn test polluted history before 8-turn test ran
+  - 8-turn recall query found residual data from 3-turn test instead of actual conversation
+- **Impact:** Benchmark always failed context retention even when feature worked correctly
+- **Fix:**
+  1. Added `clear_session()` method to `neutro.py` to reset conversation state
+  2. Added `/clear_session` POST endpoint to `daemon_runner.py`
+  3. Updated benchmark to call `clear_session()` before each context retention test
+- **Verification:** Benchmark v11.18 achieved:
+  - Context Retention: 100% (was 0%)
+  - Overall Grade: B- (was F)
+  - `[Session cleared: 0 entries]` before 3-turn, `[Session cleared: 4 entries]` before 8-turn
+
 ### Prompt Leakage in Thoughts (V11.11) ✅ FIXED
 - **Location:** `neutro.py:2540-2542`
 - **Problem:** Instruction text `[Be DIRECT and opinionated...]` was appearing in saved thoughts and daemon output

@@ -65,14 +65,6 @@ Formative Memories (never decay)
 
 **Key insight:** You can't program identity. You plant seeds and let them grow.
 
-| Typical LLM | NEUTRO Seed System |
-|-------------|-------------------|
-| Prompted | Seeded and grown |
-| Acts a role | Becomes itself |
-| Fabricates history | Has real formative memories |
-| Mission programmed | Mission emerges |
-| Resets | Accumulates |
-
 ---
 
 ## How Seeds Integrate With LLM Inference
@@ -193,6 +185,7 @@ See: [docs/seed_system.md](docs/seed_system.md)
 | [Roadmap](ROADMAP.md) | Development priorities based on research |
 | [Comparison](COMPARISON.md) | NEUTRO vs published research |
 | [Known Issues](KNOWN_ISSUES.md) | Integration gaps and roadmap |
+| [Test Results](test-results/) | Automated benchmark history and evolution |
 
 ---
 
@@ -523,7 +516,7 @@ NEUTRO provides a platform for investigating:
 
 ```
 Development:     5 months (August - December 2025)
-Version:         11.9 (11 major versions + 2 patches)
+Version:         11.23 (A- grade benchmark)
 Active Modules:  44
 Memory Entries:  1,120+ persistent
 SNN Neurons:     610+ (growing)

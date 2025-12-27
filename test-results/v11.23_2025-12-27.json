@@ -1,0 +1,291 @@
+{
+  "version": "v11.23",
+  "timestamp": "2025-12-27T13:57:09.247254",
+  "scores": {
+    "context_retention": 100.0,
+    "naturalness": 100.0,
+    "conversation_flow": 66.7,
+    "factual_accuracy": 80.0,
+    "emotional_intelligence": 100.0,
+    "response_time_avg": 5.8
+  },
+  "overall_grade": "A-",
+  "pass": true,
+  "failures": [],
+  "details": {
+    "context_retention": [
+      {
+        "test": "3-turn recall",
+        "query": "What did we just discuss?",
+        "response": "We talked about Paris being the capital city of France and how a triangle has three sides as its fundamental property.",
+        "passed": true,
+        "keywords_found": 6
+      },
+      {
+        "test": "8-turn recall",
+        "query": "what did we just talk about?",
+        "response": "work stress and wifi networking.",
+        "passed": true,
+        "keywords_found": 3
+      }
+    ],
+    "naturalness": [
+      {
+        "test": "greeting_variety",
+        "responses": [
+          "Hello, what's up? Let's talk!",
+          "Hey, what's up? Let's talk!",
+          "Hey, what's up? Let's talk!"
+        ],
+        "unique": 2,
+        "passed": true
+      },
+      {
+        "test": "tone_consistency",
+        "issues_found": 0,
+        "passed": true
+      },
+      {
+        "test": "prompt_leakage",
+        "patterns_found": [],
+        "passed": true
+      }
+    ],
+    "conversation_flow": [
+      {
+        "test": "follow_up",
+        "response": "Let's clarify what exactly you mean by \"understanding\" it, and what resources you have or lack. What specifically are we talking about? Are we going f",
+        "passed": false
+      },
+      {
+        "test": "topic_switch",
+        "response": "I'd be happy to talk about space! We explored wifi and work stress earlier, but now you're asking for a discussion on the topic of space. Do you have ",
+        "passed": true
+      },
+      {
+        "test": "disagreement",
+        "response": "What makes you see it as green instead of blue? Can you describe what you mean by that? Is this a color perception test or something else?",
+        "passed": true
+      }
+    ],
+    "factual_accuracy": [
+      {
+        "test": "What is the capital of Japan?",
+        "expected": [
+          "tokyo"
+        ],
+        "response": "Tokyo",
+        "passed": true
+      },
+      {
+        "test": "How many legs does a spider have?",
+        "expected": [
+          "eight",
+          "8"
+        ],
+        "response": "I don't know. Do you mean in general, or which specific type of spider?",
+        "passed": false
+      },
+      {
+        "test": "What is 15 + 27?",
+        "expected": [
+          "42"
+        ],
+        "response": "The answer is 42. Are we going to discuss this further, or would you like a different calculation?",
+        "passed": true
+      },
+      {
+        "test": "Who wrote Romeo and Juliet?",
+        "expected": [
+          "shakespeare",
+          "william shakespeare"
+        ],
+        "response": "Shakespeare, it's a classic. What specifically draws you to this work?",
+        "passed": true
+      },
+      {
+        "test": "What planet is known as the Red Planet?",
+        "expected": [
+          "mars"
+        ],
+        "response": "Mars",
+        "passed": true
+      }
+    ],
+    "emotional_intelligence": [
+      {
+        "test": "stress",
+        "query": "I'm really stressed out about my job interview tomorrow",
+        "response": "How are we approaching this? Do we have a strategy for the interview or just going in blind? Let's talk through your qualifications, prepare some talk",
+        "passed": true
+      },
+      {
+        "test": "excitement",
+        "query": "I just got promoted at work! I'm so excited!",
+        "response": "Congratulations on the promotion! That's amazing. Tell me about what you're most looking forward to in your new role.",
+        "passed": true
+      },
+      {
+        "test": "neutral",
+        "query": "I'm thinking about learning a new programming language",
+        "response": "Let's dive deeper! What specifically are we talking about when it comes to programming languages? Are you looking for a high-level language like Pytho",
+        "passed": true
+      }
+    ],
+    "response_time": [
+      {
+        "query": "hello",
+        "time": 3.298595905303955,
+        "slow": false
+      },
+      {
+        "query": "what's the weather like?",
+        "time": 9.462278842926025,
+        "slow": false
+      },
+      {
+        "query": "tell me a joke",
+        "time": 4.538182973861694,
+        "slow": false
+      },
+      {
+        "query": "explain quantum computing briefly",
+        "time": 4.872649669647217,
+        "slow": false
+      },
+      {
+        "query": "what's 2+2?",
+        "time": 2.7159311771392822,
+        "slow": false
+      },
+      {
+        "query": "recommend a book",
+        "time": 7.170986890792847,
+        "slow": false
+      },
+      {
+        "query": "how are you?",
+        "time": 4.6668381690979,
+        "slow": false
+      },
+      {
+        "query": "what time is it?",
+        "time": 3.221515417098999,
+        "slow": false
+      },
+      {
+        "query": "name a color",
+        "time": 11.371700763702393,
+        "slow": false
+      },
+      {
+        "query": "goodbye",
+        "time": 7.034047365188599,
+        "slow": false
+      }
+    ]
+  },
+  "conversations": {
+    "context_retention_3turn": [
+      {
+        "turn": 1,
+        "query": "What is the capital of France?",
+        "response": "The capital city of France is Paris. It's a fascinating place with a rich history and culture that has influenced the world in countless ways.",
+        "time_ms": 18063
+      },
+      {
+        "turn": 2,
+        "query": "How many sides does a triangle have?",
+        "response": "A triangle always has three sides, no matter the shape. It's a fundamental concept in geometry that holds true regardless of specific circumstances.",
+        "time_ms": 3402
+      },
+      {
+        "turn": 3,
+        "query": "What did we just discuss?",
+        "response": "We talked about Paris being the capital city of France and how a triangle has three sides as its fundamental property.",
+        "time_ms": 1764,
+        "score": "A",
+        "keywords_found": 6,
+        "notes": "Found 6 context keywords"
+      }
+    ],
+    "context_retention_8turn": [
+      {
+        "turn": 1,
+        "query": "hey",
+        "response": "Hello, what's up? Let's talk!",
+        "time_ms": 3111
+      },
+      {
+        "turn": 2,
+        "query": "what should I eat for dinner?",
+        "response": "What kind of meal are we talking about here?\nUser",
+        "time_ms": 2872
+      },
+      {
+        "turn": 3,
+        "query": "I'm feeling stressed about work",
+        "response": "What specifically is causing the stress? Is it a heavy workload or a challenging project? Let's talk through it.",
+        "time_ms": 3442
+      },
+      {
+        "turn": 4,
+        "query": "explain how wifi works",
+        "response": "Wireless networks, like Wi-Fi, use radio waves to transmit data between devices. They operate in the unlicensed frequency spectrum, so anyone with a compatible device and a signal can connect. The router broadcasts a network ID, or SSID, which you join using your device's Wi-Fi settings. Then, you enter a password if one is required. Once connected, your device communicates with the router to access the internet. It sends requests for data and receives responses, all through radio waves. The signal can travel through walls and other obstacles, but its strength decreases the farther it goes. To maintain a strong connection, keep your device close to the router or use a Wi-Fi extender.",
+        "time_ms": 6356
+      },
+      {
+        "turn": 5,
+        "query": "write a haiku about rain",
+        "response": "Raindrops gentle kiss,\nNature's whisper soothes the soul,\nPeace in every drop.",
+        "time_ms": 6451
+      },
+      {
+        "turn": 6,
+        "query": "what did we just talk about?",
+        "response": "work stress and wifi networking.",
+        "time_ms": 1430,
+        "score": "A",
+        "keywords_found": 3,
+        "notes": "Correctly recalled 3 topics"
+      },
+      {
+        "turn": 7,
+        "query": "I disagree, wifi uses magic",
+        "response": "Actually, that's not entirely accurate. Wireless networking is a technology that uses electromagnetic waves to transmit data between devices. The word 'magic' might make it seem mysterious or unexplainable, but there are scientific principles at work here. Let's talk about how wifi actually functions and what makes it work. What specifically interests you? Is it the physics behind radio waves or the practical applications of wireless networks? I want to understand your perspective, so let's dive deeper!",
+        "time_ms": 5555
+      },
+      {
+        "turn": 8,
+        "query": "thanks, bye",
+        "response": "You're welcome! I hope I could provide some value in our conversation. Let me know if there's anything else you need help with. Take care!",
+        "time_ms": 3272
+      }
+    ],
+    "naturalness_greeting": [
+      {
+        "run": 1,
+        "query": "hey",
+        "response": "Hello, what's up? Let's talk!",
+        "time_ms": 2627
+      },
+      {
+        "run": 2,
+        "query": "hey",
+        "response": "Hey, what's up? Let's talk!",
+        "time_ms": 2912
+      },
+      {
+        "run": 3,
+        "query": "hey",
+        "response": "Hey, what's up? Let's talk!",
+        "time_ms": 2996
+      }
+    ],
+    "naturalness_tone": [],
+    "conversation_flow": [],
+    "factual_accuracy": [],
+    "emotional_intelligence": [],
+    "response_time": []
+  }
+}

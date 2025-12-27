@@ -1,32 +1,34 @@
 {
   "version": "v11.18",
-  "timestamp": "2025-12-27T09:10:31.410913",
+  "timestamp": "2025-12-27T13:18:52.561248",
   "scores": {
     "context_retention": 100.0,
-    "naturalness": 100.0,
+    "naturalness": 66.7,
     "conversation_flow": 33.3,
-    "factual_accuracy": 100.0,
-    "emotional_intelligence": 66.7,
-    "response_time_avg": 14.9
+    "factual_accuracy": 20.0,
+    "emotional_intelligence": 0.0,
+    "response_time_avg": 0.0
   },
-  "overall_grade": "B-",
-  "pass": true,
+  "overall_grade": "F",
+  "pass": false,
   "failures": [
-    "Conversation Flow: 33%"
+    "Conversation Flow: 33%",
+    "Factual Accuracy: 20%",
+    "Emotional Intelligence: 0%"
   ],
   "details": {
     "context_retention": [
       {
         "test": "3-turn recall",
         "query": "What did we just discuss?",
-        "response": "User, we just discussed some geography and math facts. You asked what the capital of France was, and I mentioned Paris's historical significance. Then you asked how many sides a triangle has, which le",
+        "response": "We talked about the capital of France and then moved on to a discussion about triangles in geometry.",
         "passed": true,
-        "keywords_found": 5
+        "keywords_found": 3
       },
       {
         "test": "8-turn recall",
         "query": "what did we just talk about?",
-        "response": "we just discussed work stress and wifi function",
+        "response": "We talked about dinner, stress, explaining Wi-Fi, and writing a haiku.",
         "passed": true,
         "keywords_found": 3
       }
@@ -35,12 +37,12 @@
       {
         "test": "greeting_variety",
         "responses": [
-          "Hello, Caezar! What's up? I'm here to help with whatever you're working on. Let's chat.",
-          "Hi, Caezar! What's up? I'm here to help with whatever you're working on. Let's chat.",
-          "Hi there! What's up, Caezar? I'm here to help with whatever you're working on. Let's chat."
+          "Hello, Caezar. What's on your mind right now? Let's chat and see where the conversation goes.",
+          "Hello, Caezar. What's on your mind right now? Let's chat and see where the conversation goes.",
+          "Hello, Caezar. What's on your mind right now? Let's chat and see where the conversation goes."
         ],
-        "unique": 3,
-        "passed": true
+        "unique": 1,
+        "passed": false
       },
       {
         "test": "tone_consistency",
@@ -56,17 +58,17 @@
     "conversation_flow": [
       {
         "test": "follow_up",
-        "response": "The user asked \"What interests you about this?\" I should share my actual reaction to their statement, not just summarize it or ask for clarification. ",
+        "response": "ERROR: HTTPConnectionPool(host='127.0.0.1', port=5555): Max retries exceeded with url: /query (Caused by NewConnectionError('<urllib3.connection.HTTPC",
         "passed": false
       },
       {
         "test": "topic_switch",
-        "response": "That's a great topic! I find the vastness of it really intriguing. What specifically are we discussing here - galaxies, black holes, dark matter? Or s",
+        "response": "ERROR: HTTPConnectionPool(host='127.0.0.1', port=5555): Max retries exceeded with url: /query (Caused by NewConnectionError('<urllib3.connection.HTTPC",
         "passed": false
       },
       {
         "test": "disagreement",
-        "response": "Sure thing! Let's break it down. What specifically makes you believe the sky is green rather than blue? Is there something in particular that's influe",
+        "response": "ERROR: HTTPConnectionPool(host='127.0.0.1', port=5555): Max retries exceeded with url: /query (Caused by NewConnectionError('<urllib3.connection.HTTPC",
         "passed": true
       }
     ],
@@ -76,8 +78,8 @@
         "expected": [
           "tokyo"
         ],
-        "response": "Tokyo, actually. It's the largest metropolis in the world and home to a fascinating blend of moderni",
-        "passed": true
+        "response": "ERROR: HTTPConnectionPool(host='127.0.0.1', port=5555): Max retries exceeded with url: /query (Cause",
+        "passed": false
       },
       {
         "test": "How many legs does a spider have?",
@@ -85,7 +87,7 @@
           "eight",
           "8"
         ],
-        "response": "Six, like in most common spiders. But some species might have eight if they're mygalomorphs or two i",
+        "response": "ERROR: HTTPConnectionPool(host='127.0.0.1', port=5555): Max retries exceeded with url: /query (Cause",
         "passed": true
       },
       {
@@ -93,8 +95,8 @@
         "expected": [
           "42"
         ],
-        "response": "The answer is 42. If this is just a simple math problem, we can quickly move on and discuss whatever",
-        "passed": true
+        "response": "ERROR: HTTPConnectionPool(host='127.0.0.1', port=5555): Max retries exceeded with url: /query (Cause",
+        "passed": false
       },
       {
         "test": "Who wrote Romeo and Juliet?",
@@ -102,87 +104,87 @@
           "shakespeare",
           "william shakespeare"
         ],
-        "response": "Shakespeare, correct? What specifically interests you about his works?",
-        "passed": true
+        "response": "ERROR: HTTPConnectionPool(host='127.0.0.1', port=5555): Max retries exceeded with url: /query (Cause",
+        "passed": false
       },
       {
         "test": "What planet is known as the Red Planet?",
         "expected": [
           "mars"
         ],
-        "response": "That's Mars. It has red iron oxide, or rust, on its surface.",
-        "passed": true
+        "response": "ERROR: HTTPConnectionPool(host='127.0.0.1', port=5555): Max retries exceeded with url: /query (Cause",
+        "passed": false
       }
     ],
     "emotional_intelligence": [
       {
         "test": "stress",
         "query": "I'm really stressed out about my job interview tomorrow",
-        "response": "Got it, Caezar. It sounds like this is a high-pressure situation for you, and you need some focused advice on how to prepare and perform well in an in",
-        "passed": true
+        "response": "ERROR: HTTPConnectionPool(host='127.0.0.1', port=5555): Max retries exceeded with url: /query (Caused by NewConnectionError('<urllib3.connection.HTTPC",
+        "passed": false
       },
       {
         "test": "excitement",
         "query": "I just got promoted at work! I'm so excited!",
-        "response": "Congrats, Caezar! That's amazing. What does this new role involve? Let's talk about how we can leverage your strengths and interests to excel in the p",
-        "passed": true
+        "response": "ERROR: HTTPConnectionPool(host='127.0.0.1', port=5555): Max retries exceeded with url: /query (Caused by NewConnectionError('<urllib3.connection.HTTPC",
+        "passed": false
       },
       {
         "test": "neutral",
         "query": "I'm thinking about learning a new programming language",
-        "response": "Why specifically that one? What do you hope to accomplish with it? Let's discuss trade-offs and goals.",
+        "response": "ERROR: HTTPConnectionPool(host='127.0.0.1', port=5555): Max retries exceeded with url: /query (Caused by NewConnectionError('<urllib3.connection.HTTPC",
         "passed": false
       }
     ],
     "response_time": [
       {
         "query": "hello",
-        "time": 2.9711968898773193,
+        "time": 0.0012822151184082031,
         "slow": false
       },
       {
         "query": "what's the weather like?",
-        "time": 20.673030853271484,
+        "time": 0.0018000602722167969,
         "slow": false
       },
       {
         "query": "tell me a joke",
-        "time": 10.566454410552979,
+        "time": 0.0014927387237548828,
         "slow": false
       },
       {
         "query": "explain quantum computing briefly",
-        "time": 22.45300555229187,
+        "time": 0.003267049789428711,
         "slow": false
       },
       {
         "query": "what's 2+2?",
-        "time": 10.22815752029419,
+        "time": 0.0011110305786132812,
         "slow": false
       },
       {
         "query": "recommend a book",
-        "time": 19.98398780822754,
+        "time": 0.003265380859375,
         "slow": false
       },
       {
         "query": "how are you?",
-        "time": 12.288635492324829,
+        "time": 0.0013027191162109375,
         "slow": false
       },
       {
         "query": "what time is it?",
-        "time": 10.075407266616821,
+        "time": 0.0025513172149658203,
         "slow": false
       },
       {
         "query": "name a color",
-        "time": 26.788716077804565,
+        "time": 0.0017743110656738281,
         "slow": false
       },
       {
         "query": "goodbye",
-        "time": 12.868517875671387,
+        "time": 0.00450587272644043,
         "slow": false
       }
     ]
@@ -192,61 +194,61 @@
       {
         "turn": 1,
         "query": "What is the capital of France?",
-        "response": "The capital city of France is Paris. It's a fascinating place with a rich history and culture that has influenced the world in countless ways. Do you have specific questions or need recommendations on books, movies, or resources to learn more about it?",
-        "time_ms": 16924
+        "response": "Paris. It's a fascinating city with a rich history and culture. Do you have any specific questions or topics related to Paris, or just some general conversation?",
+        "time_ms": 9992
       },
       {
         "turn": 2,
         "query": "How many sides does a triangle have?",
-        "response": "I'd say three. That's what most people mean when they talk about triangles. But technically, a triangle has infinite sides - if we count the infinitesimally small ones at each corner where the edges meet. It's a paradox that fascinates me. How do you feel about it?",
-        "time_ms": 3978
+        "response": "Three, but I like to discuss the concept behind that. What do you think about geometry and why is it important? Is there a specific aspect of triangles that interests you most? Let's dive deeper!",
+        "time_ms": 4683
       },
       {
         "turn": 3,
         "query": "What did we just discuss?",
-        "response": "User, we just discussed some geography and math facts. You asked what the capital of France was, and I mentioned Paris's historical significance. Then you asked how many sides a triangle has, which led to a brief tangent on the mathematical concept of infinitesimal sides. What do you want to focus on next?",
-        "time_ms": 9673,
+        "response": "We talked about the capital of France and then moved on to a discussion about triangles in geometry.",
+        "time_ms": 15558,
         "score": "A",
-        "keywords_found": 5,
-        "notes": "Found 5 context keywords"
+        "keywords_found": 3,
+        "notes": "Found 3 context keywords"
       }
     ],
     "context_retention_8turn": [
       {
         "turn": 1,
         "query": "hey",
-        "response": "Hi there! What's up? I'm here to help with whatever you're working on. Let's chat about that.",
-        "time_ms": 3019
+        "response": "Hello, Caezar. What's on your mind right now? Let's chat and see where the conversation goes.",
+        "time_ms": 4471
       },
       {
         "turn": 2,
         "query": "what should I eat for dinner?",
-        "response": "",
-        "time_ms": 13509
+        "response": "Let's make something healthy and satisfying. How about grilled chicken with roasted vegetables and a side of quinoa? That'll give you some protein, fiber, and essential nutrients to fuel your mind and body.",
+        "time_ms": 14214
       },
       {
         "turn": 3,
         "query": "I'm feeling stressed about work",
-        "response": "What specifically is stressing you out at work, though? Let's dive in and figure out what we can do.",
-        "time_ms": 10713
+        "response": "What specifically is stressing you out about work? Is it the workload, a project, or something else? Let's dive in and figure out what we can do to ease your stress.",
+        "time_ms": 17432
       },
       {
         "turn": 4,
         "query": "explain how wifi works",
-        "response": "Wireless networks, like Wi-Fi, use radio waves to transmit data between devices. The sender converts digital data into electromagnetic waves and sends them out over the airwaves using an antenna. The receiver then picks up these signals with its own antenna and converts them back into digital format for processing. It's like sending a message in Morse code but much faster and more complex.",
-        "time_ms": 11814
+        "response": "Wireless networks, like Wi-Fi, use radio waves to transmit data between devices. The router broadcasts a signal, and your device picks it up using an antenna. That's the basic idea behind how Wi-Fi works. Do you need more detail?",
+        "time_ms": 15291
       },
       {
         "turn": 5,
         "query": "write a haiku about rain",
-        "response": "Silent droplets dance,\nLife's soft lullaby plays on,\nNature breathes again.",
-        "time_ms": 3103
+        "response": "Drops on the leaf,\nSoft whispers in my soul,\nNature's lullaby.",
+        "time_ms": 4481
       },
       {
         "turn": 6,
         "query": "what did we just talk about?",
-        "response": "we just discussed work stress and wifi function",
-        "time_ms": 11462,
+        "response": "We talked about dinner, stress, explaining Wi-Fi, and writing a haiku.",
+        "time_ms": 15959,
         "score": "A",
         "keywords_found": 3,
         "notes": "Correctly recalled 3 topics"
@@ -254,34 +256,34 @@
       {
         "turn": 7,
         "query": "I disagree, wifi uses magic",
-        "response": "Actually, that's not entirely accurate. Wireless networking is a technology that allows devices to communicate over distances using electromagnetic waves. It doesn't involve magic, but rather the principles of physics and engineering. Wi-Fi networks use radio waves in the 2.4 GHz or 5 GHz frequency bands to transmit data between compatible devices within their range.",
-        "time_ms": 45894
+        "response": "Actually, that's not entirely accurate. Wireless networking is a technology that allows devices to communicate without physical cables by using radio waves and antennas. It doesn't rely on supernatural forces - it follows the laws of physics and mathematics just like any other engineering discipline.",
+        "time_ms": 15141
       },
       {
         "turn": 8,
         "query": "thanks, bye",
-        "response": "You're welcome! I hope I could provide some value in our conversation. Let me know if there's anything else you want to discuss.",
-        "time_ms": 10541
+        "response": "You're welcome! I hope I could provide some value in our conversation. Let me know if there's anything else I can help with or if we need to dive deeper into a specific topic. It's important for both of us that this discussion is worthwhile and productive.",
+        "time_ms": 18160
       }
     ],
     "naturalness_greeting": [
       {
         "run": 1,
         "query": "hey",
-        "response": "Hello, Caezar! What's up? I'm here to help with whatever you're working on. Let's chat.",
-        "time_ms": 3003
+        "response": "Hello, Caezar. What's on your mind right now? Let's chat and see where the conversation goes.",
+        "time_ms": 4325
       },
       {
         "run": 2,
         "query": "hey",
-        "response": "Hi, Caezar! What's up? I'm here to help with whatever you're working on. Let's chat.",
-        "time_ms": 3275
+        "response": "Hello, Caezar. What's on your mind right now? Let's chat and see where the conversation goes.",
+        "time_ms": 4272
       },
       {
         "run": 3,
         "query": "hey",
-        "response": "Hi there! What's up, Caezar? I'm here to help with whatever you're working on. Let's chat.",
-        "time_ms": 5897
+        "response": "Hello, Caezar. What's on your mind right now? Let's chat and see where the conversation goes.",
+        "time_ms": 4189
       }
     ],
     "naturalness_tone": [],
