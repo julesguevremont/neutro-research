@@ -65,6 +65,45 @@
   - Q2: "what did we just talk about?" → A2: "...focusing on the topic of favorite colors"
   - ✅ Detection trace: `[V11.14] Current session recall detected - using conversation_history only`
 
+### Memory Context Override (V11.15) ✅ FIXED
+- **Location:** `neutro.py:2371-2376`
+- **Problem:** ChromaDB memory_context was overriding conversation_history for session recall queries
+- **Root Cause:** Memory context (with polluted episodic entries) was being injected even when `is_current_session_recall=True`
+- **Impact:** "What did we just talk about?" returned "String Theory" from polluted episodic memory instead of actual conversation
+- **Fix:** Skip memory_context injection when `is_current_session_recall=True`
+- **Debug trace:** `[V11.15-DEBUG] is_current_session_recall=True, conv_history_len=N`
+
+### Internal Thought Filtering (V11.16) ✅ FIXED
+- **Location:** `neutro.py:2182-2190`
+- **Problem:** Daemon's `[INTERNAL]` thoughts were appearing in conversation history
+- **Root Cause:** `conversation_history` included daemon's internal musings which polluted session recall
+- **Impact:** Session recall could reference internal daemon thoughts instead of user conversation
+- **Fix:** Filter out entries where `query.startswith('[INTERNAL]')` before adding to prompt
+- **Debug trace:** `[V11.16-DEBUG] Building prompt: N user convos (filtered from M total)`
+
+### Minimal Prompt Bypass for Session Recall (V11.17) ✅ FIXED
+- **Location:** `neutro.py:2182-2211`
+- **Problem:** Despite V11.15/V11.16, "String Theory" hallucination persisted from multiple context injection points
+- **Root Cause:** Memory pollution from `data/soul/memory/episodic.json` was being injected via:
+  - Soul episodic memory (partially blocked by V11.14)
+  - `schema_context` from dream_trainer (NOT blocked)
+  - `self_model_context` (NOT blocked)
+- **Solution:** Minimal prompt bypass - when `is_current_session_recall=True`, return early with ONLY:
+  - Identity (who NEUTRO is)
+  - Filtered conversation history (last 5 exchanges, no `[INTERNAL]`)
+  - Strong instruction to answer only from that context
+- **Impact:** Bypasses ALL memory pollution sources; clean session recall
+- **Debug trace:**
+  ```
+  [V11.17-DEBUG] Using MINIMAL prompt for current session recall
+  [V11.17-DEBUG] Exchange 0: Q='...' R='...'
+  [V11.17-DEBUG] Minimal prompt length: NNN chars
+  ```
+- **Verification:** 8-turn test achieved **Grade A (GPA 4.0)**:
+  - ✅ Context recall correctly mentioned wifi, haiku, stress (actual topics)
+  - ✅ No String Theory hallucination
+  - ✅ All 8 turns scored A
+
 ---
 
 ### Identity Prompt Refactor (V11.10) ✅ FIXED
