@@ -2,6 +2,24 @@
 
 ## Recently Resolved (December 2025)
 
+### V11.31 Self-Reflection Integration - 100% Working
+- **Location:** `modules/daemon/self_reflection.py`, `modules/daemon/continuous_processor.py`, `neutro.py`, `daemon_runner.py`, `monitor.sh`
+- **Problem:** SelfReflectionSystem was defined but never integrated into the daemon
+- **Root Cause:** `run_reflection_cycle()` was never called; responses weren't being recorded
+- **V11.31 Fix:**
+  - Import SelfReflectionSystem in `continuous_processor.py`
+  - Call `run_reflection_cycle()` during DEEP_DREAM (every 3rd cycle) and REM (every 4th cycle)
+  - Record responses in `neutro.py` via `record_response()` after each query
+  - Expose reflection stats in `/introspect` endpoint via `daemon_runner.py`
+  - Add `🔍 REFLECT` line to `monitor.sh` display
+- **Stats Exposed:**
+  - V11.31 names: `reflection_cycles`, `responses_recorded`, `issues_found`, `insights_generated`
+  - Legacy names: `total_corrections`, `total_contradictions` (for backwards compatibility)
+- **Verification:**
+  - Monitor shows: `🔍 REFLECT: Cycles=0 │ Responses=2 │ Issues=0 │ Insights=0`
+  - `/introspect` returns all field names correctly
+  - State persistence working (`total_corrections: 1` loaded from file)
+
 ### V11.30 Grounded Thoughts - 100% Working
 - **Location:** `modules/daemon/background_thinker.py`
 - **Problem:** Background thoughts were "theatrical" - claiming fake sensory perceptions like "I noticed how the sun's warmth made visitors smile"
