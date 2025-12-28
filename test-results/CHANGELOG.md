@@ -1,5 +1,49 @@
 # NEUTRO Benchmark Changelog
 
+## [v11.28] - 2025-12-28
+
+### Added
+- **Cascade Verification System** - 3-step verification cascade:
+  1. Knowledge Library (ChromaDB) - high confidence matches
+  2. Consultant System (web search) - current facts
+  3. LLM Fallback (mistral/phi3) - final verification
+- Battery test suite: `tests/test_correction_verifier_v11_28.py`
+- Test results saved to `data/benchmarks/correction_verifier_v11.28.json`
+
+### Battery Test Results
+```
+Total Tests:  8
+Passed:       6 (75%)
+Failed:       2
+
+BY CATEGORY:
+  biology        : 1/1 (100%)
+  chemistry      : 1/1 (100%)
+  math           : 2/2 (100%)
+  geography      : 1/1 (100%)
+  science        : 1/1 (100%)
+  opinion        : 0/2 (0%)
+
+VERIFICATION SOURCE DISTRIBUTION:
+  knowledge   :  0 (0%)
+  consultant  :  0 (0%)
+  llm         :  4 (100%)
+
+OVERALL GRADE: C
+```
+
+### Known Issues
+- Opinion/preference tests fail (marked DISPUTED instead of UNCERTAIN)
+- Knowledge Library and Consultant System not triggering (0% usage)
+- All verifications fall through to LLM fallback
+
+### Files Changed
+- `modules/daemon/correction_verifier.py` - Cascade verification logic
+- `tests/test_correction_verifier_v11_28.py` - Battery test suite (NEW)
+- `data/benchmarks/correction_verifier_v11.28.json` - Test results (NEW)
+
+---
+
 ## [v11.27] - 2025-12-28
 
 ### Added

@@ -67,7 +67,7 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 ### Gaps to Address
 - [ ] Metacognitive planning (what to learn next)
 - [ ] Self-model updates based on corrections
-- [ ] Reflection bank in ChromaDB
+- [x] Reflection bank in ChromaDB *(IN PROGRESS - V11.28 Cascade Verification)*
 
 ---
 
@@ -129,8 +129,9 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 
 ### v12.0 (Target)
 - [ ] Metacognitive planning integrated
-- [ ] Reflection bank in ChromaDB
+- [x] Reflection bank in ChromaDB *(V11.28 started - cascade verification working)*
 - [ ] Sleep cycle metrics dashboard
+- [ ] Full V11.28 cascade integration (Knowledge Library + Consultant)
 
 ### v13.0 (Target)
 - [ ] Self-directed learning basics

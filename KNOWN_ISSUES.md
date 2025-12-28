@@ -2,6 +2,22 @@
 
 ## Recently Resolved (December 2025)
 
+### V11.28 Cascade Correction Verifier - 75% Working
+- **Location:** `modules/daemon/correction_verifier.py`
+- **Battery Test:** 6/8 tests passed (75% - Grade C)
+- **Working:** Factual verification (biology, chemistry, math, geography, science)
+- **Issue:** Opinion/preference detection marks as DISPUTED instead of UNCERTAIN
+- **Cascade Status:**
+  - Knowledge Library: 0% (not triggering - needs ChromaDB population)
+  - Consultant System: 0% (not triggering - needs web search setup)
+  - LLM Fallback: 100% (all verifications via mistral:latest)
+- **Next Steps for V11.29:**
+  - Improve opinion detection in LLM prompt
+  - Populate Knowledge Library with common facts
+  - Configure Consultant System web search
+
+---
+
 ### GWT NoneType Error (V11.25) FIXED
 - **Location:** `modules/daemon/background_thinker.py:288`
 - **Problem:** Background thought generation crashed when accessing `global_workspace_theory.current_state` when GWT was None
