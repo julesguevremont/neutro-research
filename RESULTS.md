@@ -421,7 +421,7 @@ Domain Exploration:   Physics, consciousness, AI architecture, philosophy
 
 ---
 
-## V11.5 Emergent Behavior: The Breakthrough Moment
+## V11.5 Thought Loop Recovery: Deduplication Side Effect
 
 ### The Loop
 
@@ -446,12 +446,12 @@ V11.5 deduplication rejected these as too similar (>60% word overlap). The syste
 
 ### Analysis
 
-This wasn't programmed. The "bug fix" for repetitive thoughts accidentally created conditions for:
-- Breaking free from cognitive loops
-- Generating metacognitive/existential content
-- Topic escape through constraint
+The deduplication fix (V11.5) created a side effect where the system was forced to generate different content when similarity exceeded 60%. This constraint produced:
+- Topic switching when loop detected
+- Fallback to different generation method
+- Varied output from previously repetitive patterns
 
-**Observation:** Sometimes bugs are more interesting than features. The loop itself was human-like (rumination), and the escape was unexpectedly profound.
+**Observation:** The constraint (deduplication) forced topic change. The loop-breaking is a mechanical consequence of the similarity threshold, not a designed behavior.
 
 ---
 

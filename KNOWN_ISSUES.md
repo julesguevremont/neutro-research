@@ -2,6 +2,20 @@
 
 ## Recently Resolved (December 2025)
 
+### GWT NoneType Error (V11.25) FIXED
+- **Location:** `modules/daemon/background_thinker.py:288`
+- **Problem:** Background thought generation crashed when accessing `global_workspace_theory.current_state` when GWT was None
+- **Root Cause:** No None check before accessing GWT properties during soul-based thought generation
+- **Impact:** Template fallback rate was 50%+ instead of <10%
+- **Fix:** Added `if gwt is not None:` guard before accessing `gwt.current_state`
+- **Verification:** Soul method now generates 72% of thoughts (was ~40%)
+
+### Debug Logging Added (V11.26) FIXED
+- **Location:** `modules/daemon/background_thinker.py:~290-310`
+- **Problem:** No visibility into which thought generation method was being used
+- **Fix:** Added `[V11.26-DEBUG]` logging to trace thought source (soul/process/template)
+- **Verification:** Monitor output now shows method distribution
+
 ### Benchmark Session Isolation (V11.18) ✅ FIXED
 - **Location:** `neutro.py:2079-2091`, `daemon_runner.py:330-340`, `tests/benchmark_suite.py:49-60, 112, 156`
 - **Problem:** Benchmark showed 0% context retention despite V11.17 minimal prompt bypass working in manual tests

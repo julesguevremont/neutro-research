@@ -6,7 +6,7 @@
 NEUTRO implements:
 - **Runtime sleep-dependent memory consolidation** — dreams, not just storage
 - **Spiking Neural Network routing** — bio-plausible decision making
-- **Identity seeds that grow from experience** — not programmed, emerged
+- **Identity seeds that grow from experience** — accumulated over time
 - **Metacognitive self-evaluation** — knows what it knows
 
 When you stop talking to NEUTRO, it doesn't stop. It thinks. It dreams. It learns.
@@ -42,7 +42,7 @@ Biological brains solve these problems through sleep—a process of memory repla
 | Learning | Training phase only | Continuous (runtime) |
 | Memory | Session-based | Persistent + source-attributed |
 | Offline State | Stops completely | Dreams, consolidates, explores |
-| Curiosity | Requires prompting | Autonomous emergence |
+| Curiosity | Requires prompting | Background thought generation |
 | Model Architecture | Single LLM | Multi-model specialization (7 routes) |
 | Self-Awareness | None | Distinguishes dreams from reality |
 | **Identity** | **System prompt (stateless)** | **Seed system (grows over time)** |
@@ -60,7 +60,7 @@ Formative Memories (never decay)
         ↓
   Identity Lens (colors every response)
         ↓
-  Mission (emerges over time, not programmed)
+  Mission (accumulates from experience)
 ```
 
 **Key insight:** You can't program identity. You plant seeds and let them grow.
@@ -303,7 +303,7 @@ Similarity:  ~70% → SKIPPED
 Action:      Generate different thought next cycle
 ```
 
-### Emergent Behavior: Breaking Free
+### Thought Loop Recovery (V11.5)
 
 During V11.5 testing, NEUTRO got stuck in a thought loop about String Theory - repeatedly generating similar thoughts about needing "linear algebra and calculus foundations."
 
@@ -322,7 +322,7 @@ The system:
 3. Fell back to process method
 4. **Broke free with an existential realization**
 
-This wasn't programmed. The thought loop "fix" accidentally produced metacognitive emergence.
+This behavior was a side effect of the deduplication fix - constraint forcing topic change.
 
 ### V11.6: Torque Clustering in Dreams
 
@@ -474,7 +474,7 @@ Neurochemistry simulation influencing processing:
 NEUTRO is, to our knowledge, the first implementation of:
 - Runtime (not training-time) sleep consolidation
 - Multi-phase dream cycles during deployment
-- Autonomous curiosity emergence in production
+- Background thought generation during idle
 - Dream/reality memory distinction
 
 ---

@@ -1,5 +1,34 @@
 # NEUTRO Benchmark Changelog
 
+## [v11.26] - 2025-12-28
+
+### Added
+- Debug logging for thought generation method tracking
+- Method distribution reporting in monitor output
+
+### Technical
+- Added `[V11.26-DEBUG]` markers for tracing thought source (soul/process/template)
+- Verified thought distribution: soul (72%), process (20%), template (8%)
+
+---
+
+## [v11.25] - 2025-12-28
+
+### Fixed
+- **GWT NoneType error** - `background_thinker.py:288` crashed when `global_workspace_theory` was None
+- Template fallback reduced from 50%+ to <10% of thoughts
+
+### Changed
+- `background_thinker.py` line ~288: Added None check before accessing `gwt.current_state`
+- Thought generation now properly uses soul/process methods instead of falling back to templates
+
+### Results
+- Soul method now generates 72% of thoughts (was ~40%)
+- Process method now generates 20% of thoughts (was ~10%)
+- Template fallback down to 8% (was 50%+)
+
+---
+
 ## [v11.23] - 2025-12-27
 
 ### Fixed
