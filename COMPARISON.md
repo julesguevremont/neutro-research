@@ -238,6 +238,9 @@ This document compares NEUTRO to published research on sleep-inspired AI, cognit
 | Working system | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ |
 | Demonstrated results | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ |
 | Emotional modeling | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| **Eligibility traces** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| **Emotional memory** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| **Dynamic tool creation** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 
 ---
 

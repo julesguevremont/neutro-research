@@ -2,6 +2,63 @@
 
 ## Recently Resolved (December 2025)
 
+### V11.37 Tool Creator - 100% Working
+- **Location:** `modules/tool_creator.py`
+- **Feature:** Dynamic Python tool creation at runtime
+- **V11.37 Implementation:**
+  - Created `ToolCreator` class for runtime tool generation
+  - Security-first design with FORBIDDEN patterns blocking dangerous operations
+  - Blocks: `import os`, `subprocess`, `eval(`, `exec(`, `__import__`, `open(`, etc.
+  - Auto-loads tools from `tools/` directory on startup
+  - Singleton access via `get_tool_creator()`
+- **API:**
+  - `create(name, desc, code)`: Create new tool with security validation
+  - `run(name, **kwargs)`: Execute tool by name
+  - `list()`: Get all available tools
+  - `delete(name)`: Remove a tool
+  - `stats()`: Tool statistics
+- **Philosophy:** "Teach an AI to make tools and it can do anything forever."
+- **Verification:** Monitor shows: `🔧 TOOLS: Total=5 │ Available: tool1, tool2`
+
+### V11.36 Emotional Memory Tagger - 100% Working
+- **Location:** `modules/emotional_memory.py`
+- **Feature:** Tags memories with emotional valence and arousal for consolidation priority
+- **V11.36 Implementation:**
+  - Created `EmotionalTagger` class for memory emotional analysis
+  - Valence scoring: -1 (negative) to +1 (positive)
+  - Arousal scoring: 0 (calm) to 1 (intense)
+  - Importance detection via keyword matching
+  - Consolidation boost calculation: `1.0 + (arousal * 0.5) + (important ? 0.3 : 0)`
+- **Word Lists:**
+  - POSITIVE: love, happy, excited, grateful, amazing, great, wonderful, etc.
+  - NEGATIVE: sad, angry, frustrated, worried, hate, terrible, awful, etc.
+  - IMPORTANT: remember, never forget, crucial, important, must, always, forever
+- **Stats Exposed:**
+  - `total`: Total tagged memories
+  - `positive`, `negative`, `neutral`: Valence distribution
+  - `avg_arousal`: Average emotional intensity
+  - `high_priority`: Memories with boost > 1.2
+- **Philosophy:** "What we feel deeply, we remember forever" (biologically accurate)
+
+### V11.35 Eligibility Traces for SNN - 100% Working
+- **Location:** `modules/snn/eligibility_traces.py`
+- **Feature:** Temporal credit assignment for SNN learning (STDP enhancement)
+- **V11.35 Implementation:**
+  - Created `EligibilityTrace` class for spike trace management
+  - Exponential decay of traces over time (configurable tau)
+  - Supports multiple trace types: presynaptic, postsynaptic, reward
+  - Enables three-factor learning: pre × post × reward
+- **Key Methods:**
+  - `update(pre_spike, post_spike)`: Update traces on spike events
+  - `get_eligibility(pre_idx, post_idx)`: Get trace value for synapse
+  - `apply_reward(reward, weights)`: Apply reward-modulated weight update
+  - `decay()`: Apply time-based trace decay
+- **Stats Exposed:**
+  - `traces_active`: Number of non-zero traces
+  - `total_updates`: Cumulative trace updates
+  - `rewards_applied`: Reward signals processed
+- **Philosophy:** "What fires together, wires together" - enhanced with temporal credit
+
 ### V11.34 Sleep Quality Dashboard - 100% Working
 - **Location:** `daemon_runner.py`, `monitor.sh`
 - **Feature:** Visual sleep quality metrics in monitor and /introspect API

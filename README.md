@@ -516,7 +516,7 @@ NEUTRO provides a platform for investigating:
 
 ```
 Development:     5 months (August - December 2025)
-Version:         11.34 (Sleep Quality Dashboard)
+Version:         11.37 (Tool Creator)
 Active Modules:  44
 Memory Entries:  1,120+ persistent
 SNN Neurons:     610+ (growing)
