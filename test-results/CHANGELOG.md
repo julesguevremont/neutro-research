@@ -1,5 +1,29 @@
 # NEUTRO Benchmark Changelog
 
+## [v11.27] - 2025-12-28
+
+### Added
+- **Correction Verification Layer** (anti-poisoning for training data)
+- LLM-based verification of user corrections before storing for training
+- New module: `modules/daemon/correction_verifier.py`
+- Detection patterns for corrections in chat (e.g., "actually it's...", "that's wrong")
+- JSONL storage for corrections by verification status
+
+### Technical
+- `CorrectionVerifier` class with async verification using `llama3.2:3b`
+- `CorrectionStatus` enum: VERIFIED, DISPUTED, UNCERTAIN, PENDING
+- Only VERIFIED corrections used for QLoRA training
+- DISPUTED corrections logged separately for review
+- Integration at `daemon_runner.py:689-739` for chat flow
+- Direct `/correct` endpoint support for explicit corrections
+
+### Security
+- Prevents training data poisoning by malicious users
+- Blocks factually incorrect corrections from entering training buffer
+- Separates opinions/preferences from facts
+
+---
+
 ## [v11.26] - 2025-12-28
 
 ### Added
