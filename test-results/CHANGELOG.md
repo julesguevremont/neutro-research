@@ -1,5 +1,78 @@
 # NEUTRO Benchmark Changelog
 
+## [v11.30] - 2025-12-28
+
+### Fixed
+- **Theatrical Thought Generation** - Removed fake sensory perceptions from background thoughts
+- NEUTRO has NO sensors - thoughts claiming "I noticed how the sun's warmth made visitors smile" are hallucinations
+- All thoughts now grounded in real data OR clearly labeled as speculation
+
+### Changed
+- `modules/daemon/background_thinker.py`:
+  - Replaced `PROMPTS` with `PROMPTS_GROUNDED` (reference real data: conversation history, memories, system metrics)
+  - Added `PROMPTS_SPECULATIVE` with `[IMAGINING]`/`[SPECULATING]`/`[HYPOTHETICAL]` prefixes
+  - Updated template thoughts: grounded templates reference actual system state
+  - Updated `_build_internal_query()` to enforce grounding instructions
+  - 80/20 split: 80% grounded thoughts, 20% labeled speculation
+
+### Philosophy
+- `process()` = real data only, no fabrication
+- `imagine()` = labeled speculation, honest about limitations
+- If no real data available, say "I don't have data on this" not "I noticed..."
+
+### Files Changed
+- `modules/daemon/background_thinker.py` - Grounding enforcement
+
+---
+
+## [v11.29] - 2025-12-28
+
+### Added
+- **Intelligent Opinion Detection** - LLM-based statement classification before verification:
+  1. Classification Step (phi3 fast) - categorizes as FACT, OPINION, or CLAIM
+  2. OPINION → immediate UNCERTAIN return (no verification needed)
+  3. FACT/CLAIM → proceed to verification cascade
+- `StatementType` enum: FACT, OPINION, CLAIM
+- `_classify_statement()` method with 10s timeout
+- `_query_llm_fast()` helper for fast LLM queries
+- Classification stats tracking: `classified_as_fact`, `classified_as_opinion`, `classified_as_claim`
+
+### Battery Test Results
+```
+Total Tests:  8
+Passed:       8 (100%)
+Failed:       0
+
+BY CATEGORY:
+  biology        : 1/1 (100%)
+  chemistry      : 1/1 (100%)
+  math           : 2/2 (100%)
+  geography      : 1/1 (100%)
+  science        : 1/1 (100%)
+  opinion        : 2/2 (100%)  <-- FIXED!
+
+VERIFICATION SOURCE DISTRIBUTION:
+  knowledge   :  0 (0%)
+  consultant  :  0 (0%)
+  llm         :  4 (100%)
+
+CLASSIFICATION STATS:
+  classified_as_fact   : 2
+  classified_as_opinion: 2  <-- Early exit for opinions
+  classified_as_claim  : 4
+
+OVERALL GRADE: A
+```
+
+### Performance
+- Opinion tests now complete in <3s (vs 25-36s for fact verification)
+- No hardcoded keyword lists - pure LLM-based classification
+
+### Files Changed
+- `modules/daemon/correction_verifier.py` - Added classification layer
+
+---
+
 ## [v11.28] - 2025-12-28
 
 ### Added

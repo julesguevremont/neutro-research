@@ -2,19 +2,23 @@
 
 ## Recently Resolved (December 2025)
 
-### V11.28 Cascade Correction Verifier - 75% Working
+### V11.29 Intelligent Opinion Detection - 100% Working
 - **Location:** `modules/daemon/correction_verifier.py`
-- **Battery Test:** 6/8 tests passed (75% - Grade C)
-- **Working:** Factual verification (biology, chemistry, math, geography, science)
-- **Issue:** Opinion/preference detection marks as DISPUTED instead of UNCERTAIN
+- **Battery Test:** 8/8 tests passed (100% - Grade A)
+- **Working:** All categories including opinion detection
+- **V11.29 Fix:** Added LLM-based statement classification before verification:
+  - `StatementType` enum: FACT, OPINION, CLAIM
+  - OPINION → immediate UNCERTAIN return (no verification needed)
+  - FACT/CLAIM → proceed to verification cascade
+  - Classification uses phi3 for fast response (~3s for opinions)
 - **Cascade Status:**
-  - Knowledge Library: 0% (not triggering - needs ChromaDB population)
-  - Consultant System: 0% (not triggering - needs web search setup)
-  - LLM Fallback: 100% (all verifications via mistral:latest)
-- **Next Steps for V11.29:**
-  - Improve opinion detection in LLM prompt
+  - Knowledge Library: 0% (still needs ChromaDB population)
+  - Consultant System: 0% (still needs web search setup)
+  - LLM Fallback: 100% (all fact verifications via mistral:latest)
+- **Next Steps for V12.0:**
   - Populate Knowledge Library with common facts
   - Configure Consultant System web search
+  - See `docs/V12_PLAN.md` for full integration plan
 
 ---
 
