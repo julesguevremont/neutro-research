@@ -516,7 +516,7 @@ NEUTRO provides a platform for investigating:
 
 ```
 Development:     5 months (August - December 2025)
-Version:         11.31 (Self-Reflection Integration)
+Version:         11.34 (Sleep Quality Dashboard)
 Active Modules:  44
 Memory Entries:  1,120+ persistent
 SNN Neurons:     610+ (growing)
@@ -653,6 +653,77 @@ if content or response:
 **Monitor visibility:**
 ```
 ║  ⚡ TORQUE: Clusters=12  │  Outliers=3  │  Last: 5m ago                     ║
+```
+
+### V11.31 Self-Reflection Integration - 100% Working
+**Status:** Implemented (December 27, 2025)
+
+Self-awareness through response analysis:
+- Records and analyzes own responses for quality
+- Tracks corrections received and contradictions detected
+- Generates insights from self-reflection cycles
+- Exposes stats via `/introspect` endpoint
+
+**Monitor visibility:**
+```
+║  🪞 REFLECT: Cyc=5  Resp=23  Issues=2  Insights=8                           ║
+```
+
+### V11.32 STDP Learning Stats - 100% Working
+**Status:** Implemented (December 27, 2025)
+
+Spike-Timing-Dependent Plasticity tracking for SNN routing:
+- Tracks weight updates from successful/failed routes
+- Measures average weight delta for learning rate
+- Records total STDP events for neural adaptation
+
+**Monitor visibility:**
+```
+║  🧠 STDP: Updates=127  AvgDelta=0.023  TotalEvents=1,892                    ║
+```
+
+### V11.33 Knowledge Gap Detection - 100% Working
+**Status:** Implemented (December 28, 2025)
+
+Tracks what NEUTRO doesn't know well for targeted learning:
+- Detects low confidence responses (<0.4)
+- Identifies uncertainty expressions ("I don't know", etc.)
+- Tracks corrections as gap indicators
+- Scores gaps by frequency, recency, and confidence deficit
+- New `/gaps` endpoint exposes top knowledge gaps
+
+**Gap Detection Sources:**
+1. Low confidence responses
+2. High prediction error
+3. Explicit uncertainty expressions
+4. Repeated questions on same topic
+5. Corrections received
+
+**Monitor visibility:**
+```
+║  🕳️ GAPS: Open=15  Closed=3  Top: "quantum computing"                       ║
+```
+
+### V11.34 Sleep Quality Dashboard - 100% Working
+**Status:** Implemented (December 28, 2025)
+
+Visual sleep quality metrics in monitor and `/introspect` API:
+- Calculates sleep efficiency using weighted cycle formula
+- Tracks light, medium, deep, and REM cycles
+- Displays efficiency percentage with visual bars
+- Shows memories consolidated and patterns strengthened
+
+**Efficiency Formula:**
+```
+Light=1, Medium=2, Deep=3, REM=4
+efficiency = (weighted_sum / max_possible) * 100
+```
+
+**Monitor visibility:**
+```
+║  😴 SLEEP: [████████░░] 78% eff  │  Total: 25 cycles                        ║
+║    L▓▓▓=5  M▓▓▓▓=8  D▓▓▓▓▓=10  R▓▓=2                                        ║
+║    Consolidated: 127 memories  │  Patterns: 45                              ║
 ```
 
 ---
