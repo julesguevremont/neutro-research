@@ -2,6 +2,17 @@
 
 ## Recently Resolved (December 2025)
 
+### V11.30 Grounded Thoughts - 100% Working
+- **Location:** `modules/daemon/background_thinker.py`
+- **Problem:** Background thoughts were "theatrical" - claiming fake sensory perceptions like "I noticed how the sun's warmth made visitors smile"
+- **Root Cause:** NEUTRO has NO sensors - these thoughts were hallucinations
+- **V11.30 Fix:**
+  - Replaced `PROMPTS` with `PROMPTS_GROUNDED` (reference real data: conversation history, memories, system metrics)
+  - Added `PROMPTS_SPECULATIVE` with `[IMAGINING]`/`[SPECULATING]`/`[HYPOTHETICAL]` prefixes
+  - 80/20 split: 80% grounded thoughts, 20% labeled speculation
+- **Philosophy:** `process()` = real data only, no fabrication; `imagine()` = labeled speculation
+- **Verification:** All new thoughts are either grounded or properly labeled with `[SPECULATING]` prefix
+
 ### V11.29 Intelligent Opinion Detection - 100% Working
 - **Location:** `modules/daemon/correction_verifier.py`
 - **Battery Test:** 8/8 tests passed (100% - Grade A)
