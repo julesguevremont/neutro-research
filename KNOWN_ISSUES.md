@@ -2,6 +2,18 @@
 
 ## Recently Resolved (December 2025)
 
+### V11.41 STDP Integration Fix - 100% Working
+- **Location:** `neutro.py`, `modules/soul.py`
+- **Bug:** `learn_from_outcome()` was never called in `process_with_soul()`
+- **Root Cause:** STDP learning was defined in SNN router but never triggered after query processing
+- **V11.41 Fix:** Added STDP call after `soul.think()` response in the query processing pipeline
+- **Impact:** SNN routing weights now update from actual query outcomes
+- **Verification:** Monitor shows `STDP Updates > 0` after queries are processed
+- **Stats Exposed:**
+  - `updates`: Total STDP weight updates (should increase after queries)
+  - `ltp_count`: Long-Term Potentiation events
+  - `ltd_count`: Long-Term Depression events
+
 ### V11.37 Tool Creator - 100% Working
 - **Location:** `modules/tool_creator.py`
 - **Feature:** Dynamic Python tool creation at runtime
