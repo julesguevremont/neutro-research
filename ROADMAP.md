@@ -1,8 +1,26 @@
 # NEUTRO Research Roadmap
 
-*Last updated: December 2025*
+*Last updated: December 29, 2025*
 
 This roadmap connects NEUTRO's architecture to current AI research and outlines development priorities based on scientific literature.
+
+---
+
+## Recent Achievements (V11.31 - V11.41)
+
+| Version | Feature | Status |
+|---------|---------|--------|
+| V11.31 | Reflection Bank (metacognition during dreams) | DONE |
+| V11.32 | Real STDP spike timing in routing | DONE |
+| V11.33 | Knowledge Gap Tracker (tracks what NEUTRO doesn't know) | DONE |
+| V11.34 | Sleep Quality Dashboard | DONE |
+| V11.35 | Enhanced dream cycle metrics | DONE |
+| V11.36 | Emotional Memory Tagging (valence/arousal) | DONE |
+| V11.37 | Tool Creator (dynamic tool generation) | DONE |
+| V11.38 | Grounded Response Filter | DONE |
+| V11.39 | STDP debug logging | DONE |
+| V11.40 | Thought generation improvements | DONE |
+| V11.41 | STDP synaptic plasticity fix (verified working) | DONE |
 
 ---
 
@@ -20,6 +38,7 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 - **Medium Sleep**: Pattern strengthening via repeated activation
 - **Deep Sleep**: Prune weak SNN connections, consolidate long-term
 - **REM**: Creative association, cross-domain linking
+- **Sleep Quality Dashboard**: V11.34 tracks efficiency metrics
 
 ### Gaps to Address
 - [ ] Measure actual forgetting rates pre/post sleep cycles
@@ -41,9 +60,13 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 - SNN receives query embeddings, generates prediction
 - Prediction error (uncertainty) determines reasoning depth
 - High uncertainty → deeper LLM reasoning, more context
+- **STDP Learning**: V11.41 - Real-time synaptic weight updates working
+
+### Completed
+- [x] Implement spike-timing-dependent plasticity (STDP) - V11.41
+- [x] Real STDP spike timing in routing - V11.32
 
 ### Gaps to Address
-- [ ] Implement spike-timing-dependent plasticity (STDP)
 - [ ] Add lateral inhibition for winner-take-all dynamics
 - [ ] Benchmark energy efficiency vs pure transformer
 
@@ -58,20 +81,23 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 | "Self-Reflection in LLM Agents" (arXiv 2024) | Reflection improves accuracy | Loop detection |
 | "Truly Self-Improving Agents" (ICML 2025) | Knowledge + Planning + Evaluation | Partial implementation |
 
-### Current Implementation (V11.8)
+### Current Implementation (V11.8+)
 - Real-time response evaluation after every reply
 - Loop detection via response similarity tracking
 - Quality scoring based on response characteristics
 - Confidence calibration from SNN + response quality
 
+### Completed
+- [x] Reflection bank in ChromaDB - V11.31
+- [x] Self-reflection during dream cycles - V11.31
+
 ### Gaps to Address
 - [ ] Metacognitive planning (what to learn next)
 - [ ] Self-model updates based on corrections
-- [x] Reflection bank in ChromaDB *(IN PROGRESS - V11.28 Cascade Verification)*
 
 ---
 
-## 4. Self-Directed Learning (Planned)
+## 4. Self-Directed Learning (Partially Implemented)
 
 ### Research Foundation
 | Paper | Key Insight | NEUTRO Application |
@@ -80,19 +106,32 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 | "Autotelic agents" (Colas 2022) | Self-generated goals improve learning | Dream-time goal setting |
 | "Learning progress hypothesis" (Schmidhuber 2010) | Seek intermediate difficulty | Filter boring/impossible thoughts |
 
-### Planned Implementation
-- Track "interestingness" of topics during dreams
-- Generate exploration goals based on knowledge gaps
-- Balance novelty-seeking with consolidation
+### Completed
+- [x] Knowledge gap detection - V11.33
+- [x] Track open knowledge gaps and questions
+- [x] Autonomous thought generation during idle
 
-### Prerequisites
-- [ ] Knowledge gap detection
+### Gaps to Address
 - [ ] Topic difficulty estimation
 - [ ] Goal persistence across sessions
+- [ ] Interestingness scoring for topics
 
 ---
 
-## 5. Global Workspace Theory (Planned)
+## 5. Emotional Processing (Active)
+
+### Completed
+- [x] Emotional Memory Tagging - V11.36
+- [x] Valence/arousal scoring for consolidation priority
+- [x] Neurochemistry simulation (dopamine, serotonin, etc.)
+
+### Gaps to Address
+- [ ] Emotion-driven memory retrieval prioritization
+- [ ] Emotional state influence on reasoning style
+
+---
+
+## 6. Global Workspace Theory (Planned)
 
 ### Research Foundation
 | Paper | Key Insight | NEUTRO Application |
@@ -119,7 +158,7 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 |---------|------------------|----------------------|--------|----------|
 | Sleep cycle refinement | Strong | Medium | High | P1 |
 | Metacognitive planning | Strong | Medium | High | P1 |
-| STDP in SNN | Strong | High | Medium | P2 |
+| ~~STDP in SNN~~ | ~~Strong~~ | ~~High~~ | ~~Medium~~ | DONE (V11.41) |
 | Self-directed learning | Medium | High | High | P2 |
 | Global workspace | Strong | Very High | High | P3 |
 
@@ -127,21 +166,46 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 
 ## Milestones
 
+### V11.x (Current - December 2025)
+- [x] Reflection bank in ChromaDB - V11.31
+- [x] Knowledge gap detection - V11.33
+- [x] Sleep cycle metrics dashboard - V11.34
+- [x] Emotional memory tagging - V11.36
+- [x] Tool creator system - V11.37
+- [x] STDP implementation verified - V11.41
+
 ### v12.0 (Target)
 - [ ] Metacognitive planning integrated
-- [x] Reflection bank in ChromaDB *(V11.28 started - cascade verification working)*
-- [ ] Sleep cycle metrics dashboard
-- [ ] Full V11.28 cascade integration (Knowledge Library + Consultant)
+- [ ] Knowledge gap → autonomous learning loop
+- [ ] LTD (Long-Term Depression) for corrections
+- [ ] Multi-day continuous operation validation
 
 ### v13.0 (Target)
-- [ ] Self-directed learning basics
-- [ ] STDP implementation
-- [ ] Knowledge gap detection
+- [ ] Self-directed learning with goal persistence
+- [ ] Lateral inhibition in SNN
+- [ ] Topic difficulty estimation
 
 ### v14.0 (Target)
 - [ ] Global workspace architecture
 - [ ] Full self-model updates
 - [ ] Autotelic goal generation
+
+---
+
+## V11.41 STDP Verification (December 29, 2025)
+
+```
+Test Results:
+├── Queries sent: 9
+├── STDP Updates: 9
+├── LTP (strengthening): 9
+├── LTD (weakening): 0
+├── Neurons: 800
+├── Connections: 5,000
+└── Learning Rate: 0.01
+
+Status: VERIFIED WORKING
+```
 
 ---
 
