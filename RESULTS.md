@@ -64,6 +64,68 @@ Architecture Rewrites: 4 major overhauls
 | **V11.6** | **Dec 2025** | **Torque Clustering in dreams (97.7% accuracy physics-inspired)** |
 | **V11.7** | **Dec 2025** | **Seed growth from experience (wounds, victories, choices, beliefs)** |
 | **V11.7.1** | **Dec 2025** | **REM memory fix + truncation removal** |
+| **V11.41** | **Dec 2025** | **STDP synaptic plasticity fix - real-time weight updates working** |
+
+---
+
+## V11.41: STDP Synaptic Plasticity Fix (December 29, 2025)
+
+### Issue
+
+STDP (Spike-Timing-Dependent Plasticity) was not updating synaptic weights despite the SNN being active with 800 neurons. The `learn_from_outcome` function was being called but weights remained static.
+
+### Root Causes Identified
+
+1. **Embedding method mismatch**: `snn_router.py` called `encode()` but EmbeddingEngine uses `embed()`
+2. **Dimension mismatch**: Input embedding (384-dim) was projected to 50-dim before routing, but routing expects 384-dim
+3. **Pre-synaptic spike recording**: Spikes were recorded from post-transform tensor instead of input embedding
+4. **Route name mismatch**: `learn_from_outcome` called with `['soul']` but valid routes are `brain_direct`, `identity`, `logic`, etc.
+
+### Fix Applied
+
+- Saved original 384-dim embedding before projection for routing
+- Fixed spike recording to use input embedding for pre-synaptic neurons
+- Changed route parameter to `['brain_direct']` for soul pathway learning
+- Added STDP statistics to daemon introspect endpoint
+
+### Verification Results
+
+```
+=== STDP Test Battery (December 29, 2025) ===
+
+Before queries:
+  STDP Updates: 0
+  LTP: 0
+  LTD: 0
+
+After 6 queries:
+  STDP Updates: 6
+  LTP: 6 (all Long-Term Potentiation)
+  LTD: 0
+
+SNN Status:
+  Neurons: 800 active
+  Connections: 5,000
+  Learning Rate: 0.01
+  Spike Threshold: 1.0
+```
+
+### Technical Details
+
+| Component | Before Fix | After Fix |
+|-----------|------------|-----------|
+| STDP updates per query | 0 | 1 |
+| Weight modification | None | Active (Hebbian) |
+| Pre-synaptic dim | 10 (wrong) | 384 (correct) |
+| Route learning | Skipped | brain_direct |
+
+### Implications
+
+STDP now enables real-time synaptic weight updates during conversations. Each query strengthens neural pathways through:
+- LTP (Long-Term Potentiation) for successful responses
+- LTD (Long-Term Depression) for corrections (when implemented)
+
+This is essential for the SNN to learn routing preferences over time.
 
 ---
 
