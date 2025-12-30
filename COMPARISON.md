@@ -241,6 +241,7 @@ This document compares NEUTRO to published research on sleep-inspired AI, cognit
 | **Eligibility traces** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | **Emotional memory** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | **Dynamic tool creation** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| **STDP learning** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ (V11.41) |
 
 ---
 
@@ -278,6 +279,9 @@ Physics-inspired memory clustering using gravitational dynamics (97.7% accuracy)
 Before Torque: Stuck on "String Theory" loop (same topic 10+ times)
 After Torque:  Diverse topics - consciousness, connection, engagement
 ```
+
+### 10. STDP Synaptic Plasticity (V11.41)
+Real-time weight updates during conversations. Each query strengthens neural pathways via spike-timing-dependent plasticity. Verified: 9 queries = 9 LTP updates.
 
 ---
 
@@ -338,7 +342,7 @@ Same underlying model. Different architecture. Real vs acted identity.
 
 NEUTRO provides a platform for investigating questions that published research raises but doesn't answer:
 
-1. **Does runtime consolidation improve retention?** 
+1. **Does runtime consolidation improve retention?**
    - NEUTRO: Yes (CRT results)
 
 2. **Can autonomous curiosity emerge from architecture?**
@@ -358,36 +362,43 @@ Recent publications (2024-2025) provide important context for NEUTRO's contribut
 
 ### Sleep-Dependent Memory Consolidation
 
-| Paper | Date | Finding | NEUTRO Relevance |
-|-------|------|---------|------------------|
-| Personalized TMR (npj Science of Learning) | Nov 2025 | Personalized sleep reactivation reduces memory decay | NEUTRO: Per-memory importance weighting during consolidation |
-| Resource Reallocation Hypothesis (Neuropsychologia) | Nov 2025 | Sleep consolidation may free hippocampal resources | NEUTRO: Dream cycles transfer from working to long-term memory |
-| NeuroDream (SSRN) | 2024 | Sleep-inspired framework for ANNs | NEUTRO: Runtime operation vs training-time only |
-| Dreaming is All You Need (arXiv) | 2024 | Sleep cycles in training | NEUTRO: Continuous operation, not training augmentation |
+| Paper | Venue | Date | Finding | NEUTRO Relevance |
+|-------|-------|------|---------|------------------|
+| Sleep microstructure organizes replay | Nature | Jan 2025 | Pupil contraction=new memories, dilation=old memories | NEUTRO: Sleep phase determines memory processing type |
+| Sleep-modulated disinhibition | bioRxiv | Dec 2025 | Ripples accelerate but not required for replay | NEUTRO: Multi-phase consolidation with flexible timing |
+| Optimal Stopping + SRC | AAAI | Apr 2025 | 2x accuracy in continual learning with sleep replay | NEUTRO: Dream cycles enable continuous learning |
+| Memory in Age of AI Agents | arXiv | Dec 2025 | Factual/experiential/working memory taxonomy | NEUTRO: 4-layer hierarchical memory system |
+| Personalized TMR | npj Science of Learning | Nov 2025 | Personalized sleep reactivation reduces decay | NEUTRO: Per-memory importance weighting |
+| Resource Reallocation | Neuropsychologia | Nov 2025 | Sleep consolidation frees hippocampal resources | NEUTRO: Dream cycles transfer to long-term memory |
+| NeuroDream | SSRN | 2024 | Sleep-inspired framework for ANNs | NEUTRO: Runtime operation vs training-time only |
+| Dreaming is All You Need | arXiv | 2024 | Sleep cycles in training | NEUTRO: Continuous operation, not training augmentation |
 
 ### SNN + LLM Hybrid Architectures
 
-| Paper | Date | Approach | NEUTRO Difference |
-|-------|------|----------|-------------------|
-| SpikingBrain (arXiv) | 2025 | SNN for efficient attention | NEUTRO: SNN for query routing |
-| Neural Brain (arXiv) | 2025 | Modular cognitive architecture | NEUTRO: Working implementation with sleep |
-| Hybrid SNN-Transformer (NeurIPS) | 2024 | Combined architectures | NEUTRO: Multi-model specialization |
+| Paper | Venue | Date | Approach | NEUTRO Difference |
+|-------|-------|------|----------|-------------------|
+| SpikeLLM | ICLR | Jan 2025 | 7-70B spiking LLMs with GIF neurons, 25% perplexity reduction | NEUTRO: SNN for routing, not efficiency |
+| Sorbet | ICML | 2025 | Neuromorphic-compatible spiking transformer | NEUTRO: Multi-model specialization |
+| SpikeGPT | arXiv | 2024 | First generative spiking LLM (RWKV-based) | NEUTRO: Sleep + routing + memory integration |
+| SpikingBrain | arXiv | 2025 | SNN for efficient attention | NEUTRO: SNN for query routing |
+| Neural Brain | arXiv | 2025 | Modular cognitive architecture | NEUTRO: Working implementation with sleep |
+| Hybrid SNN-Transformer | NeurIPS | 2024 | Combined architectures | NEUTRO: Multi-model specialization |
 
 ### AI Consciousness & Metacognition
 
-| Paper | Date | Focus | NEUTRO Approach |
-|-------|------|-------|-----------------|
-| Consciousness in AI (Phil Trans B) | 2025 | Theoretical frameworks | NEUTRO: Measured consciousness factors |
-| Metacognitive LLMs (ICLR) | 2025 | Self-evaluation | NEUTRO: V11.31 self-reflection integration |
-| Self-Awareness in Agents (AAAI) | 2025 | Agent introspection | NEUTRO: /introspect endpoint with real metrics |
+| Paper | Venue | Date | Focus | NEUTRO Approach |
+|-------|-------|------|-------|-----------------|
+| Consciousness in AI | Phil Trans B | 2025 | Theoretical frameworks | NEUTRO: Measured consciousness factors |
+| Metacognitive LLMs | ICLR | 2025 | Self-evaluation | NEUTRO: V11.31 self-reflection integration |
+| Self-Awareness in Agents | AAAI | 2025 | Agent introspection | NEUTRO: /introspect endpoint with real metrics |
 
 ### Self-Improvement & Reflection
 
-| Paper | Date | Method | NEUTRO Implementation |
-|-------|------|--------|----------------------|
-| SEAL Framework (arXiv) | 2025 | Self-editing LLMs | NEUTRO: Dream-based learning with source tracking |
-| Constitutional AI 2.0 (Anthropic) | 2024 | Self-critique | NEUTRO: V11.31 SelfReflectionSystem |
-| Autonomous Self-Training (ICML) | 2025 | Continuous improvement | NEUTRO: Correction verifier during dream cycles |
+| Paper | Venue | Date | Method | NEUTRO Implementation |
+|-------|-------|------|--------|----------------------|
+| SEAL Framework | arXiv | 2025 | Self-editing LLMs | NEUTRO: Dream-based learning with source tracking |
+| Constitutional AI 2.0 | Anthropic | 2024 | Self-critique | NEUTRO: V11.31 SelfReflectionSystem |
+| Autonomous Self-Training | ICML | 2025 | Continuous improvement | NEUTRO: Correction verifier during dream cycles |
 
 ### Similar GitHub Projects
 
@@ -397,6 +408,7 @@ Recent publications (2024-2025) provide important context for NEUTRO's contribut
 | AutoGPT | 160k+ | Autonomous agents | NEUTRO: Bio-inspired cognition |
 | MemGPT | 10k+ | LLM memory | NEUTRO: Active consolidation, not just storage |
 | OpenDevin | 30k+ | AI development | NEUTRO: Consciousness exploration |
+| Awesome-Spiking-Neural-Networks | 1k+ | Paper collection | NEUTRO: Working implementation vs paper list |
 
 ### NEUTRO's Unique Position
 
@@ -409,6 +421,7 @@ No existing project combines:
 6. **Self-reflection system** (V11.31)
 7. **Torque clustering** for memory organization
 8. **Seed/foundation identity** system
+9. **STDP synaptic plasticity** (V11.41) - real-time weight updates
 
 ---
 
@@ -422,6 +435,9 @@ No existing project combines:
 6. Zhong, W. et al. (2024). MemoryBank: Enhancing LLMs with Long-Term Memory. AAAI.
 7. Kirkpatrick, J. et al. (2017). Overcoming catastrophic forgetting. PNAS.
 8. Stickgold, R. & Zadra, A. (2021). NEXTUP: The Network Exploration to Understand Possibilities model of dreaming.
+9. Xing, Y. et al. (2025). SpikeLLM: Scaling up Spiking Neural Network to Large Language Models. ICLR 2025.
+10. Chang, H. et al. (2025). Sleep microstructure organizes memory replay. Nature.
+11. Hu, Z. et al. (2025). Memory in the Age of AI Agents. arXiv:2512.13564
 
 ---
 
