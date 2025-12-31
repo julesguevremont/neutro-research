@@ -67,6 +67,53 @@ Architecture Rewrites: 4 major overhauls
 | **V11.41** | **Dec 2025** | **STDP synaptic plasticity fix - real-time weight updates working** |
 | **V11.46** | **Dec 2025** | **Math specialist routing fix - qwen2.5:7b for algebra** |
 | **V11.46** | **Dec 2025** | **Comprehensive benchmark suite - 10/10 PASS** |
+| **V11.47** | **Dec 2025** | **Greeting fast-path fix - instant responses (0.003s)** |
+
+---
+
+## V11.47: Greeting Fast-Path Fix (December 31, 2025)
+
+### Problem
+
+Simple greetings like "Hello" were going through the full Soul cognitive pipeline (10-15s), sometimes returning empty responses due to pipeline timeouts.
+
+### Root Cause
+
+1. All queries went through `process_with_soul()` → `soul.think()` → full pipeline
+2. Correction memory context was prepended BEFORE greeting detection
+3. No fast-path for simple greetings
+
+### Fix Applied
+
+Added greeting fast-path in `process_with_soul()`:
+- Detects simple greetings: hi, hello, hey, good morning, etc.
+- Uses `original_query` (before correction memory prefix)
+- Returns instant time-appropriate response
+- Bypasses full Soul pipeline for greetings
+
+### Verification Results
+
+| Greeting | Before V11.47 | After V11.47 |
+|----------|---------------|--------------|
+| "Hello" | Empty or 15s | **0.005s** |
+| "Hi" | Empty or 15s | **0.004s** |
+| "Hey NEUTRO" | Empty or 15s | **0.004s** |
+| "Good morning" | Empty or 15s | **0.003s** |
+
+### Technical Details
+
+```python
+# V11.47 Fix in neutro.py:726-763
+simple_greetings = ['hi', 'hello', 'hey', 'greetings', 'howdy', 'yo',
+                   'hi neutro', 'hello neutro', 'hey neutro',
+                   'good morning', 'good afternoon', 'good evening']
+
+is_simple_greeting = original_lower in simple_greetings or
+    (len(original_lower) < 20 and ...)
+
+if is_simple_greeting:
+    return random.choice(time_appropriate_greetings)  # Instant!
+```
 
 ---
 
