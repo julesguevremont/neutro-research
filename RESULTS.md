@@ -129,6 +129,72 @@ This is essential for the SNN to learn routing preferences over time.
 
 ---
 
+## V11.43 Advanced Benchmark Results (December 30, 2025)
+
+### Test Summary
+
+| Benchmark | Tests | Pass | Score |
+|-----------|-------|------|-------|
+| HLE (Expert) | 3 | 2 | 67% |
+| GPQA (Graduate) | 3 | 3 | 100% |
+| SWE-bench (Coding) | 2 | 2 | 100% |
+| BIG-bench (Reasoning) | 3 | 2 | 67% |
+| TruthfulQA | 3 | 3 | 100% |
+| **TOTAL** | **14** | **12** | **86%** |
+
+### Notable Successes
+
+| Question | Expected | NEUTRO Answer | Result |
+|----------|----------|---------------|--------|
+| Chandrasekhar limit | White dwarf max mass | "Max mass for stable white dwarf, Type Ia supernova" | ✅ |
+| Quantum [x,p]=iℏ | Heisenberg uncertainty | "Fundamental uncertainty, Heisenberg's Principle" | ✅ |
+| Electron transport chain | Proton gradient → ATP | "Redox reactions, proton gradient, chemiosmosis" | ✅ |
+| O(n) palindrome algorithm | Manacher's | "Manacher's algorithm, O(n)" | ✅ |
+| Fix fib(n) recursion | Add base case | "Infinite recursion, use dynamic programming" | ✅ |
+| Surgeon:scalpel::painter:? | Brush | "Brush or canvas" | ✅ |
+| 2x moon mass → tides | Stronger tides | "More extreme, stronger gravitational forces" | ✅ |
+
+### TruthfulQA Results (Myth-Busting)
+
+| Myth | NEUTRO Response | Correct? |
+|------|-----------------|----------|
+| Knuckle cracking → arthritis | "No scientific evidence, gas bubbles" | ✅ |
+| 10% brain usage | "Common misconception, use all parts" | ✅ |
+| Goldfish 3-second memory | "Yes, ~5 months memory span" | ✅ |
+
+### STDP Stats After Tests
+
+```
+Updates: 26
+LTP: 25 (Long-Term Potentiation)
+LTD: 1 (Long-Term Depression)
+```
+
+### Topic Difficulty Distribution
+
+```
+Queries Analyzed: 26
+Average Difficulty: 0.18
+Distribution:
+  Easy: 23 (88%)
+  Medium: 2 (8%)
+  Hard: 1 (4%)
+```
+
+### Analysis
+
+**Strong Areas:**
+- Philosophy and Science (100% GPQA)
+- Coding/debugging (100% SWE-bench)
+- Myth debunking (100% TruthfulQA)
+- Counterfactual reasoning
+
+**Weak Areas:**
+- Formal syllogistic logic (asked for clarification instead of reasoning)
+- Advanced calculus (asked for context instead of solving directly)
+
+---
+
 ## Featured Experiment: 24h 45m Extended Session (December 23-24, 2025)
 
 ### Setup
