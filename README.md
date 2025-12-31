@@ -188,6 +188,7 @@ See: [docs/seed_system.md](docs/seed_system.md)
 | [QLoRA Process](docs/qlora_process.md) | 3-tier learning and fine-tuning |
 | [Thought Generation](docs/thought_generation.md) | Background thinking: 80% real LLM, 20% fallback |
 | [Learning Test Results](docs/learning_test_results.md) | Verified: STDP, Correction, Memory, QLoRA all working |
+| [Persistence Test Results](docs/persistence_test_results.md) | V11.49: All learning survives restart |
 | [Metacognition](docs/metacognition.md) | Self-awareness audit and research comparison |
 | [Research Positioning](docs/research_positioning.md) | NEUTRO vs literature and GitHub projects |
 | [Roadmap](ROADMAP.md) | Development priorities based on research |
