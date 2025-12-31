@@ -516,7 +516,7 @@ NEUTRO provides a platform for investigating:
 
 ```
 Development:     5 months (August - December 2025)
-Version:         11.41 (STDP Integration Fix)
+Version:         11.42 (LTD + Self-Reflection API)
 Active Modules:  44
 Memory Entries:  1,120+ persistent
 SNN Neurons:     610+ (growing)

@@ -21,6 +21,7 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 | V11.39 | STDP debug logging | DONE |
 | V11.40 | Thought generation improvements | DONE |
 | V11.41 | STDP synaptic plasticity fix (verified working) | DONE |
+| V11.42 | LTD implementation + self_reflection API | DONE |
 
 ---
 
@@ -177,7 +178,7 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 ### v12.0 (Target)
 - [ ] Metacognitive planning integrated
 - [ ] Knowledge gap → autonomous learning loop
-- [ ] LTD (Long-Term Depression) for corrections
+- [x] LTD (Long-Term Depression) for corrections - V11.42
 - [ ] Multi-day continuous operation validation
 
 ### v13.0 (Target)
