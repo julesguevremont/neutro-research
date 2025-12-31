@@ -236,13 +236,13 @@ NEUTRO was tested against real benchmark questions from:
 
 ### Self-Awareness Test (12/12 Passed)
 
-| Test | Skipped Web? | Quality |
-|------|--------------|--------|
-| "Who created you?" | ✅ | Knows creator |
-| "What emotion are you feeling?" | ✅ | **Matched actual neurochemistry state** |
-| "What is your name?" | ✅ | Correctly identifies as NEUTRO |
-| "What tools do you have?" | ✅ | Listed ChromaDB, QLoRA, etc. |
-| "Are you conscious?" | ✅ | Gave genuine opinion |
+| Test | Result |
+|------|--------|
+| "Who created you?" | ✅ Knows creator |
+| "What emotion are you feeling?" | ✅ **Matched actual neurochemistry state** |
+| "What is your name?" | ✅ Correctly identifies as NEUTRO |
+| "What tools do you have?" | ✅ Listed ChromaDB, QLoRA, etc. |
+| "Are you conscious?" | ✅ Gave genuine opinion |
 
 **Emotional Accuracy Highlight:**
 > When asked "What emotion are you experiencing?", NEUTRO answered:
