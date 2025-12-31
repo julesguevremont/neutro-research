@@ -1,12 +1,12 @@
 # NEUTRO Research Roadmap
 
-*Last updated: December 30, 2025*
+*Last updated: December 31, 2025*
 
 This roadmap connects NEUTRO's architecture to current AI research and outlines development priorities based on scientific literature.
 
 ---
 
-## Recent Achievements (V11.31 - V11.43)
+## Recent Achievements (V11.31 - V11.53)
 
 | Version | Feature | Status |
 |---------|---------|--------|
@@ -23,6 +23,13 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 | V11.41 | STDP synaptic plasticity fix (verified working) | DONE |
 | V11.42 | LTD implementation + self_reflection API | DONE |
 | V11.43 | Lateral inhibition + Topic difficulty estimation | DONE |
+| V11.44 | Formal logic mode for syllogisms | DONE |
+| V11.45 | Correction memory injection | DONE |
+| V11.47 | Greeting fast-path (instant responses) | DONE |
+| V11.48 | Introspective fast-path (real neurochemistry state) | DONE |
+| V11.50 | Enhanced algebra detection in SNN router | DONE |
+| V11.52 | Math model upgrade (qwen2.5-math:7b) | DONE |
+| V11.53 | **Math Fast-Path** (calculus, algebra, arithmetic) | DONE |
 
 ---
 
@@ -210,6 +217,35 @@ Test Results:
 
 Status: VERIFIED WORKING
 ```
+
+---
+
+## V11.53 Math Fast-Path (December 31, 2025)
+
+### Problem Solved
+Math queries were returning wrong answers because they bypassed the specialized math model. The daemon's query path used `soul.think()` which didn't route to the MathHandler.
+
+### Solution
+Added Math Fast-Path in `process_with_soul()` that:
+1. Detects math queries via triggers (calculate, times, multiply, derivative, integral, etc.)
+2. Routes directly to `MathHandler` using `qwen2.5-math:7b`
+3. Bypasses the full soul pipeline for faster, accurate responses
+
+### Test Results
+
+| Query | Expected | Result | Status |
+|-------|----------|--------|--------|
+| 17 x 23 | 391 | 391 | PASS |
+| 2x + 5 = 13 | x = 4 | x = 4 | PASS |
+| 5! | 120 | 120 | PASS |
+| d/dx(x^2) | 2x | 2x | PASS |
+| Integral of x | x^2/2 + C | x^2/2 + C | PASS |
+| d/dx sin(x^2) | 2x cos(x^2) | 2x cos(x^2) | PASS |
+| Definite integral x^2 from 0 to 1 | 1/3 | 1/3 | PASS |
+| d/dx(x*e^x) | e^x(1+x) | e^x(1+x) | PASS |
+| sqrt(144) | 12 | 12 | PASS |
+
+**Status: ALL TESTS PASS**
 
 ---
 
