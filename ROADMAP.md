@@ -1,12 +1,12 @@
 # NEUTRO Research Roadmap
 
-*Last updated: December 29, 2025*
+*Last updated: December 30, 2025*
 
 This roadmap connects NEUTRO's architecture to current AI research and outlines development priorities based on scientific literature.
 
 ---
 
-## Recent Achievements (V11.31 - V11.41)
+## Recent Achievements (V11.31 - V11.43)
 
 | Version | Feature | Status |
 |---------|---------|--------|
@@ -22,6 +22,7 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 | V11.40 | Thought generation improvements | DONE |
 | V11.41 | STDP synaptic plasticity fix (verified working) | DONE |
 | V11.42 | LTD implementation + self_reflection API | DONE |
+| V11.43 | Lateral inhibition + Topic difficulty estimation | DONE |
 
 ---
 
@@ -66,9 +67,9 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 ### Completed
 - [x] Implement spike-timing-dependent plasticity (STDP) - V11.41
 - [x] Real STDP spike timing in routing - V11.32
+- [x] Add lateral inhibition for winner-take-all dynamics - V11.43
 
 ### Gaps to Address
-- [ ] Add lateral inhibition for winner-take-all dynamics
 - [ ] Benchmark energy efficiency vs pure transformer
 
 ---
@@ -112,8 +113,10 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 - [x] Track open knowledge gaps and questions
 - [x] Autonomous thought generation during idle
 
+### Completed
+- [x] Topic difficulty estimation - V11.43
+
 ### Gaps to Address
-- [ ] Topic difficulty estimation
 - [ ] Goal persistence across sessions
 - [ ] Interestingness scoring for topics
 
@@ -183,8 +186,8 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 
 ### v13.0 (Target)
 - [ ] Self-directed learning with goal persistence
-- [ ] Lateral inhibition in SNN
-- [ ] Topic difficulty estimation
+- [x] Lateral inhibition in SNN - V11.43
+- [x] Topic difficulty estimation - V11.43
 
 ### v14.0 (Target)
 - [ ] Global workspace architecture
