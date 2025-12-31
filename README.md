@@ -186,6 +186,7 @@ See: [docs/seed_system.md](docs/seed_system.md)
 | [STDP Learning](docs/stdp_learning.md) | Spike-timing dependent plasticity (LTP/LTD) |
 | [SNN Routing](docs/snn_routing.md) | Spiking neural network query routing |
 | [QLoRA Process](docs/qlora_process.md) | 3-tier learning and fine-tuning |
+| [Thought Generation](docs/thought_generation.md) | Background thinking: 80% real LLM, 20% fallback |
 | [Metacognition](docs/metacognition.md) | Self-awareness audit and research comparison |
 | [Research Positioning](docs/research_positioning.md) | NEUTRO vs literature and GitHub projects |
 | [Roadmap](ROADMAP.md) | Development priorities based on research |
