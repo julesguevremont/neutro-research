@@ -516,10 +516,10 @@ NEUTRO provides a platform for investigating:
 
 ```
 Development:     5 months (August - December 2025)
-Version:         11.43 (Lateral Inhibition + Topic Difficulty)
+Version:         11.48 (STDP, LTD, Lateral Inhibition, Math Specialist)
 Active Modules:  44
 Memory Entries:  1,120+ persistent
-SNN Neurons:     610+ (growing)
+SNN Neurons:     800 (growing dynamically)
 Total Runtime:   523+ hours cumulative
 Architecture:    4 major rewrites
 Location:        Montreal, Canada
@@ -725,6 +725,19 @@ efficiency = (weighted_sum / max_possible) * 100
 ║    L▓▓▓=5  M▓▓▓▓=8  D▓▓▓▓▓=10  R▓▓=2                                        ║
 ║    Consolidated: 127 memories  │  Patterns: 45                              ║
 ```
+
+### V11.4x Series (December 2025)
+
+| Version | Feature | Description |
+|---------|---------|-------------|
+| V11.41 | STDP Fix | Spike-timing dependent plasticity working |
+| V11.42 | LTD | Long-term depression for corrections |
+| V11.43 | Lateral Inhibition | Winner-take-all SNN routing |
+| V11.43 | Topic Difficulty | Query complexity estimation |
+| V11.45 | Correction Memory | Learn from user corrections |
+| V11.46 | Math Specialist | qwen2.5:7b for calculations |
+| V11.47 | Greeting Fast-Path | Instant responses (0.003s) |
+| V11.48 | Real Introspection | Neurochemistry-based self-awareness |
 
 ---
 
