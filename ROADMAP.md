@@ -30,6 +30,7 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 | V11.50 | Enhanced algebra detection in SNN router | DONE |
 | V11.52 | Math model upgrade (qwen2.5-math:7b) | DONE |
 | V11.53 | **Math Fast-Path** (calculus, algebra, arithmetic) | DONE |
+| V11.54 | **Web Search Integration** (DDG for knowledge gaps) | DONE |
 
 ---
 
