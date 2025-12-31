@@ -6,7 +6,7 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 
 ---
 
-## Recent Achievements (V11.31 - V11.53)
+## Recent Achievements (V11.31 - V11.55)
 
 | Version | Feature | Status |
 |---------|---------|--------|
@@ -31,6 +31,7 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 | V11.52 | Math model upgrade (qwen2.5-math:7b) | DONE |
 | V11.53 | **Math Fast-Path** (calculus, algebra, arithmetic) | DONE |
 | V11.54 | **Web Search Integration** (DDG for knowledge gaps) | DONE |
+| V11.55 | **Correction Memory Fix** (require actual relevance) | DONE |
 
 ---
 
