@@ -65,6 +65,44 @@ Architecture Rewrites: 4 major overhauls
 | **V11.7** | **Dec 2025** | **Seed growth from experience (wounds, victories, choices, beliefs)** |
 | **V11.7.1** | **Dec 2025** | **REM memory fix + truncation removal** |
 | **V11.41** | **Dec 2025** | **STDP synaptic plasticity fix - real-time weight updates working** |
+| **V11.46** | **Dec 2025** | **Math specialist routing fix - qwen2.5:7b for algebra** |
+
+---
+
+## V11.46: Math Specialist Routing Fix (December 30, 2025)
+
+### Problem
+
+Math queries like "Solve: 5x + 3 = 23" were returning incorrect answers (3.6 instead of 4).
+
+### Root Cause
+
+The short-query filter in `ultimate_consultants.py` blocked queries with fewer than 6 words before they could reach the math specialist routing logic. Math equations are naturally short but need expert processing.
+
+### Fix Applied
+
+1. Added math signal detection to bypass the short-query filter:
+   - Signals: `solve`, `calculate`, `=`, `+`, `-`, `*`, `/`, `x=`, `equation`
+2. Configured `deepseek-math` expert to use `qwen2.5:7b` model
+3. Added custom system prompt for step-by-step math solving
+
+### Verification Results
+
+| Query | Before V11.46 | After V11.46 |
+|-------|---------------|--------------|
+| `5x + 3 = 23` | 3.6 | **4** |
+| `3x + 2 = 14` | wrong | **4** |
+| `2x + 5 = 13` | 3.5 | **4** |
+
+### Technical Details
+
+```python
+# V11.46 Fix in ultimate_consultants.py:115-120
+math_signals = ['solve', 'calculate', '=', '+', '-', '*', '/', 'x=', 'equation']
+is_math_query = any(signal in query_lower for signal in math_signals)
+if len(query.split()) < 6 and not is_math_query:
+    return None  # Skip non-math short queries
+```
 
 ---
 

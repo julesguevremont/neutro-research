@@ -424,7 +424,7 @@ Spiking Neural Network (SNN) routes queries to specialized models:
 | LOGIC | Deductive reasoning | mistral |
 | MEMORY | Knowledge retrieval | phi3 |
 | CODE | Programming | qwen-neutro (custom-trained) |
-| MATH | Computation | mistral |
+| MATH | Computation | qwen2.5:7b |
 | MOUTH | Quick responses | phi3 |
 
 The SNN learns from interaction outcomes, adjusting routing weights through spike-timing dependent plasticity (STDP).

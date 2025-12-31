@@ -2,6 +2,18 @@
 
 ## Recently Resolved (December 2025)
 
+### V11.46 Math Specialist Routing Fix - 100% Working
+- **Location:** `modules/ultimate_consultants.py:115-120`
+- **Bug:** Math queries like "Solve: 5x + 3 = 23" returned wrong answers (3.6 instead of 4)
+- **Root Cause:** Short-query filter (<6 words) blocked equations before reaching math routing logic
+- **V11.46 Fix:** Added math signal detection to bypass filter for queries containing `solve`, `=`, `+`, `-`, `*`, `/`, etc.
+- **Model Change:** `deepseek-math` expert now uses `qwen2.5:7b` instead of fallback
+- **Impact:** All algebra equations now route to specialist and return correct answers
+- **Verification:**
+  - `5x + 3 = 23` → x = 4
+  - `3x + 2 = 14` → x = 4
+  - `2x + 5 = 13` → x = 4
+
 ### V11.41 STDP Integration Fix - 100% Working
 - **Location:** `neutro.py`, `modules/soul.py`
 - **Bug:** `learn_from_outcome()` was never called in `process_with_soul()`
