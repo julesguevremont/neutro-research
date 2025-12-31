@@ -209,6 +209,56 @@ User: "Yes, I know people at MILA"
 
 ---
 
+## Current Statistics (V11.48)
+
+### Memory Counts
+
+| Memory Type | Count |
+|-------------|-------|
+| Episodic | 500 |
+| Semantic | 89 |
+| ChromaDB vectors | 1,544 |
+| Working memory | ~10 (per session) |
+
+### Emotional Memory (V11.36)
+
+```json
+{
+  "total": 145,
+  "positive": 8,
+  "negative": 0,
+  "neutral": 137,
+  "avg_arousal": 0.067,
+  "high_priority": 18,
+  "tags_created": 7
+}
+```
+
+### Correction Memory (V11.45)
+
+```json
+{
+  "total_corrections": 1,
+  "by_type": {"algebra": 1},
+  "most_used": [{"id": 1, "uses": 73}]
+}
+```
+
+### API Access
+
+```bash
+# Check memory stats
+curl -s http://127.0.0.1:5555/introspect | jq '.memory'
+
+# Check emotional memory
+curl -s http://127.0.0.1:5555/introspect | jq '.emotional_memory'
+
+# Check correction memory
+curl -s http://127.0.0.1:5555/introspect | jq '.correction_memory'
+```
+
+---
+
 ## Why This Matters
 
 ### Prevents Hallucination

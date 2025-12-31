@@ -178,8 +178,14 @@ See: [docs/seed_system.md](docs/seed_system.md)
 
 | Document | Description |
 |----------|-------------|
+| [Architecture](ARCHITECTURE.md) | Full system diagram and module inventory |
 | [Seed System](docs/seed_system.md) | How identity grows from formative memories |
 | [Prompt Pipeline](docs/prompt_pipeline.md) | The 10-part prompt assembly process |
+| [Memory System](docs/memory_system.md) | 4-tier hierarchy with source attribution |
+| [Dream System](docs/dream_system.md) | NEXTUP theory, sleep cycles, Torque clustering |
+| [STDP Learning](docs/stdp_learning.md) | Spike-timing dependent plasticity (LTP/LTD) |
+| [SNN Routing](docs/snn_routing.md) | Spiking neural network query routing |
+| [QLoRA Process](docs/qlora_process.md) | 3-tier learning and fine-tuning |
 | [Metacognition](docs/metacognition.md) | Self-awareness audit and research comparison |
 | [Research Positioning](docs/research_positioning.md) | NEUTRO vs literature and GitHub projects |
 | [Roadmap](ROADMAP.md) | Development priorities based on research |
