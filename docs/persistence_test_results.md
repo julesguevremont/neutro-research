@@ -9,7 +9,14 @@
 
 ## Executive Summary
 
-V11.49 fixes STDP persistence. All 5 learning systems now persist to disk.
+**VERIFIED:** V11.49 fixes STDP persistence. All 5 learning systems now persist to disk.
+
+### Live Test Results (December 31, 2025)
+
+```
+BEFORE restart: updates=10, ltp=10, ltd=0
+AFTER restart:  updates=10, ltp=10, ltd=0  ✅ PERSISTED!
+```
 
 | Learning Type | Persists? | Accumulates? | Survives Restart? |
 |---------------|-----------|--------------|-------------------|
