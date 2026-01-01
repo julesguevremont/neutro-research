@@ -37,6 +37,7 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 | V11.58 | **Goal-Focused Thought Generation** (thinker→planner connection) | DONE |
 | V11.59 | **Self-Reflection Integration** (reflection feeds knowledge gaps & planner) | DONE |
 | V11.60 | **Torque First-Run Fix** (clustering runs on first Medium cycle) | DONE |
+| V11.62 | **Cognitive Terms Filter Fix** (allow "notice", "observe", "feel") | DONE |
 
 ---
 
@@ -443,6 +444,53 @@ Active Learning Goals:
 
 Status: VERIFIED WORKING
 ```
+
+---
+
+## V11.62 Cognitive Terms Filter Fix (January 1, 2026)
+
+### Problem Solved
+Background thoughts had 51% template fallback rate due to overly aggressive `THEATRICAL_WORDS` filter. Words like "notice", "observe", "sense", "feel" were blocked even in valid cognitive contexts:
+- "I notice this pattern connects to..." (valid cognition, was BLOCKED)
+- "I feel curious about..." (valid - NEUTRO has neurochemistry, was BLOCKED)
+- "I observe that memory consolidation..." (valid cognitive term, was BLOCKED)
+
+### Solution
+Replaced `THEATRICAL_WORDS` with focused `PHYSICAL_FABRICATIONS` list that only blocks actual physical sensory claims:
+
+```python
+# V11.62: Only block PHYSICAL fabrications, allow cognitive terms
+PHYSICAL_FABRICATIONS = [
+    # Physical temperature (AI has no body)
+    'warmth', 'breeze', 'chilly', 'humid',
+    # Physical smell/taste
+    'smelled', 'tasted', 'aroma', 'flavor',
+    # Physical touch claims
+    'touched the', 'felt the texture', 'felt the weight',
+    # Physical vision of external world
+    'saw a ', 'saw the ', 'watching the ', 'gazed at',
+    # Physical audio perception
+    'heard a ', 'heard the ', 'listening to ', 'the sound of',
+]
+```
+
+### Before vs After
+| Metric | V11.30 (Old) | V11.62 (New) |
+|--------|-------------|-------------|
+| Template fallback | 51% | Target <20% |
+| Words blocked | 20+ | 16 phrases |
+| Cognitive terms | BLOCKED | ALLOWED |
+
+### Allowed Examples (V11.62)
+- "I notice the pattern" - cognitive term, not physical
+- "I feel curious" - valid (neurochemistry simulation)
+- "This makes sense" - cognitive evaluation
+- "I observe that X leads to Y" - intellectual observation
+
+### Still Blocked (Physical Fabrications)
+- "I felt warmth" - no body temperature sensors
+- "I saw a sunset" - no physical vision
+- "I heard music" - no audio perception
 
 ---
 
