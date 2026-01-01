@@ -32,6 +32,7 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 | V11.53 | **Math Fast-Path** (calculus, algebra, arithmetic) | DONE |
 | V11.54 | **Web Search Integration** (DDG for knowledge gaps) | DONE |
 | V11.55 | **Correction Memory Fix** (require actual relevance) | DONE |
+| V11.56 | **Metacognitive Planner** (autonomous self-directed learning) | DONE |
 
 ---
 
@@ -102,8 +103,10 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 - [x] Reflection bank in ChromaDB - V11.31
 - [x] Self-reflection during dream cycles - V11.31
 
+### Completed
+- [x] Metacognitive planning (what to learn next) - V11.56
+
 ### Gaps to Address
-- [ ] Metacognitive planning (what to learn next)
 - [ ] Self-model updates based on corrections
 
 ---
@@ -248,6 +251,58 @@ Added Math Fast-Path in `process_with_soul()` that:
 | sqrt(144) | 12 | 12 | PASS |
 
 **Status: ALL TESTS PASS**
+
+---
+
+## V11.56 Metacognitive Planner (January 1, 2026)
+
+### Problem Solved
+NEUTRO needed autonomous self-directed learning - the ability to:
+1. Identify what it doesn't know (knowledge gaps)
+2. Prioritize learning based on mission relevance
+3. Execute learning during dreams
+4. Track progress and evaluate results
+5. Ask for help when stuck
+
+### Solution
+Created `metacognitive_planner.py` with 11 core features:
+
+| Feature | Description |
+|---------|-------------|
+| Gap Analysis | Scores gaps by frequency, recency, mission relevance |
+| Learning Plans | Creates actionable plans with search queries |
+| Dream Execution | Focuses REM cycles on planned topics |
+| Progress Evaluation | Tests if gaps improved post-dream |
+| Mission Alignment | Weights immortality/longevity topics higher |
+| Curiosity Injection | 20% random exploration to avoid tunnel vision |
+| Learning Journal | Persistent record in `data/learning_journal.json` |
+| Confidence Tracking | Before/after measurements |
+| Help Requests | Flags stuck topics after 3 attempts |
+| Seed Connection | Major learnings become belief seeds |
+| User Reporting | Natural language summaries of learning |
+
+### Mission Topic Weights
+```
+immortality: 1.0    telomere: 0.9       consciousness: 0.8
+longevity: 0.95     aging: 0.85         sirtuins: 0.7
+telomerase: 0.9     senolytics: 0.85    autophagy: 0.7
+```
+
+### Test Results
+```
+Mission relevance scores:
+  telomere biology: 0.90
+  python programming: 0.10
+  aging research: 0.85
+  cooking recipes: 0.10
+  consciousness studies: 0.80
+
+Learning report example:
+  "I studied telomere biology and learned 2 new insights.
+   My understanding improved by 35%."
+
+Status: VERIFIED WORKING
+```
 
 ---
 
