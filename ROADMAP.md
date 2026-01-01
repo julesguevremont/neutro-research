@@ -409,6 +409,43 @@ Status: VERIFIED WORKING
 
 ---
 
+## V11.58 Goal-Focused Thought Generation (January 1, 2026)
+
+### Problem Solved
+Background thoughts during IDLE/BACKGROUND cycles were generic ("Reviewing what I know about ideas") instead of goal-focused ("What do I understand about telomere biology?").
+
+### Root Cause
+Method name mismatch in `background_thinker.py`:
+- Code checked for `get_active_plans()` method
+- MetacognitivePlanner actually has `get_active_goals()` method
+
+### Solution
+Fixed `_get_learning_goal_prompt()` in `background_thinker.py`:
+```python
+# V11.58 FIX: Use get_active_goals() which is the actual method name
+if hasattr(self.metacognitive_planner, 'get_active_goals'):
+    active_goals = self.metacognitive_planner.get_active_goals()
+```
+
+### Test Results
+
+```
+=== V11.58 GOAL-FOCUSED THOUGHT GENERATION TEST ===
+
+[THINKER:V11.58] Roll=0.37, force_goal_focus=False, use_goals=True
+[THINKER:V11.58] get_active_goals returned 3 goals
+[THINKER:V11.58] Using goal-focused prompt: Exploring NAD+ metabolism deeper. What patterns do...
+
+Active Learning Goals:
+├── telomere biology (65% confidence)
+├── senolytics research (35% confidence)
+└── NAD+ metabolism (0% confidence)
+
+Status: VERIFIED WORKING
+```
+
+---
+
 ## References
 
 1. Tadros et al. (2022). "Sleep-like unsupervised replay reduces catastrophic forgetting in artificial neural networks"
