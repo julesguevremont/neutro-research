@@ -1,12 +1,12 @@
 # NEUTRO Research Roadmap
 
-*Last updated: December 31, 2025*
+*Last updated: January 1, 2026*
 
 This roadmap connects NEUTRO's architecture to current AI research and outlines development priorities based on scientific literature.
 
 ---
 
-## Recent Achievements (V11.31 - V11.55)
+## Recent Achievements (V11.31 - V11.57)
 
 | Version | Feature | Status |
 |---------|---------|--------|
@@ -33,6 +33,7 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 | V11.54 | **Web Search Integration** (DDG for knowledge gaps) | DONE |
 | V11.55 | **Correction Memory Fix** (require actual relevance) | DONE |
 | V11.56 | **Metacognitive Planner** (autonomous self-directed learning) | DONE |
+| V11.57 | **Goal Persistence** (resume learning goals across restarts) | DONE |
 
 ---
 
