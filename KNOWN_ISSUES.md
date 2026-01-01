@@ -1,5 +1,49 @@
 # NEUTRO Known Issues
 
+## V11.58 Goal-Focused Thought Generation - FIXED
+
+**Location:** `modules/daemon/background_thinker.py`
+
+**Problem:**
+- Metacognitive planner has active goals: telomere biology, senolytics, NAD+ metabolism
+- But thought generation produced generic templates: "[IMAGINING] What would ideas look like"
+- Goals and thoughts were disconnected
+
+**V11.58 Fix:**
+1. Added `metacognitive_planner` parameter to `BackgroundThinker.__init__()`
+2. Added `set_metacognitive_planner()` method for late binding
+3. Added `_get_learning_goal_prompt()` method that:
+   - Gets active plans from metacognitive planner
+   - Randomly selects a goal topic
+   - Generates goal-focused prompts based on confidence level
+4. Modified `generate_thought()`:
+   - 80% chance to use learning goals (or 100% if `force_goal_focus=True`)
+   - Falls back to generic prompts only 20% of the time
+5. Modified `_generate_template_thought()` to also use learning goals
+
+**Goal-Focused Prompts:**
+```python
+"What do I understand about {topic}? What are the key concepts?"
+"Reviewing my knowledge of {topic}. What connections can I make?"
+"Thinking about {topic}. What questions remain unanswered?"
+"Exploring {topic} deeper. What patterns do I see?"
+```
+
+**Low Confidence (< 30%) Prompts:**
+```python
+"I want to understand {topic} better. What should I focus on?"
+"Starting to learn about {topic}. What are the fundamentals?"
+```
+
+**Expected Result:**
+- 80%+ of thoughts now focus on active learning goals
+- During REM_CREATIVE (force_goal_focus=True): 100% focused
+- Log shows: `[THINKER:V11.58] Goal-focused thought: telomere biology (65% confidence)`
+
+**Status:** FIXED (January 1, 2026)
+
+---
+
 ## Recently Resolved (December 2025)
 
 ### V11.46 Math Specialist Routing Fix - 100% Working
