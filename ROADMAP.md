@@ -337,6 +337,69 @@ Status: VERIFIED WORKING
 
 ---
 
+## V11.57 Goal Persistence (January 1, 2026)
+
+### Problem Solved
+Learning goals were lost on daemon restart. NEUTRO needed to:
+1. Remember what it was learning before shutdown
+2. Resume goals automatically on startup
+3. Track progress across sessions
+4. Report learning status to users
+
+### Solution
+Extended `metacognitive_planner.py` with session persistence:
+
+| Feature | Description |
+|---------|-------------|
+| Startup Goal Resume | Loads in-progress plans from `learning_plans.json` |
+| Session Tracking | Increments `sessions_active` counter per goal |
+| Progress Calculation | Confidence delta toward 0.7 target |
+| Startup Logging | Prints resumed goals with confidence levels |
+| API Endpoint | `/introspect` returns `learning_goals` with active topics |
+
+### Test Results (6/6 PASSED)
+
+```
+=== V11.57 GOAL PERSISTENCE TEST ===
+
+TEST 1: Daemon Running - PASS
+  PID: 1497004
+
+TEST 2: Health Endpoint - PASS
+  {"status": "alive", "uptime": "0h 6m"}
+
+TEST 3: Goal Resumption in Startup Log - PASS
+  [MetacognitivePlanner] Resuming goal: telomere biology (65% confidence)
+  [MetacognitivePlanner] Resuming goal: senolytics research (35% confidence)
+  [MetacognitivePlanner] Resuming goal: NAD+ metabolism (0% confidence)
+  Active plans: 3
+  Journal entries: 7
+  Resumed goals: 3
+
+TEST 4: Learning Plans Persisted - PASS
+  3 plans in learning_plans.json
+
+TEST 5: Learning Journal - PASS
+  7 entries in learning_journal.json
+
+TEST 6: Introspect API - PASS
+  {
+    "active_count": 3,
+    "resumed_count": 3,
+    "active_topics": [
+      "telomere biology",
+      "senolytics research",
+      "NAD+ metabolism"
+    ],
+    "session_start": "2026-01-01T11:14:22.040217"
+  }
+
+=== ALL 6 TESTS PASSED ===
+Status: VERIFIED WORKING
+```
+
+---
+
 ## References
 
 1. Tadros et al. (2022). "Sleep-like unsupervised replay reduces catastrophic forgetting in artificial neural networks"
