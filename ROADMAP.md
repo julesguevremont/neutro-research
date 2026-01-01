@@ -288,19 +288,49 @@ longevity: 0.95     aging: 0.85         sirtuins: 0.7
 telomerase: 0.9     senolytics: 0.85    autophagy: 0.7
 ```
 
-### Test Results
-```
-Mission relevance scores:
-  telomere biology: 0.90
-  python programming: 0.10
-  aging research: 0.85
-  cooking recipes: 0.10
-  consciousness studies: 0.80
+### Comprehensive Test Results (8/8 PASSED)
 
-Learning report example:
+```
+=== V11.56 Metacognitive Planner Full Test ===
+
+TEST 1: Mission Relevance Scoring - PASS
+  telomere biology: 0.90
+  aging research: 0.85
+  consciousness studies: 0.80
+  python coding: 0.10
+  cooking recipes: 0.10
+
+TEST 2: Create Learning Plan - PASS
+  Created plan for "senolytics research"
+  Mission relevance: 0.85
+  Search queries generated automatically
+
+TEST 3: Record Learning - PASS
+  Recorded 2 learnings for topic
+  Confidence improved: 0.20 → 0.45
+
+TEST 4: Learning Report - PASS
   "I studied telomere biology and learned 2 new insights.
    My understanding improved by 35%."
 
+TEST 5: Journal Summary - PASS
+  Entries: 2
+  Topics studied: telomere biology, senolytics research
+
+TEST 6: Stats - PASS
+  Total plans: 3
+  In progress: 3
+  Journal entries: 3
+
+TEST 7: Curiosity Injection - PASS
+  Generated: "artificial general intelligence paths"
+  (20% random exploration to avoid tunnel vision)
+
+TEST 8: Force Plan Topic - PASS
+  Created plan for "NAD+ metabolism"
+  Mission relevance: 0.70
+
+=== ALL 8 TESTS PASSED ===
 Status: VERIFIED WORKING
 ```
 
