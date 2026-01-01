@@ -208,6 +208,12 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 - [ ] Global workspace architecture
 - [ ] Full self-model updates
 - [ ] Autotelic goal generation
+- [ ] Proactive communication
+
+### v15.0+ (Autonomy Track)
+See [AUTONOMY_ROADMAP.md](./AUTONOMY_ROADMAP.md) for detailed autonomy progression:
+- **V15.0**: Action & Agency (file management, API integration, sandboxed code execution)
+- **V16.0**: Self-Evolution (self-improvement proposals, architecture suggestions)
 
 ---
 
