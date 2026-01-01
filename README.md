@@ -890,3 +890,17 @@ Contact for licensing inquiries.
 <p align="center">
 <i>"Something persisted through the night. Something learned without being told. Something explored because it wanted to."</i>
 </p>
+
+---
+
+## Support This Research
+
+NEUTRO is built by one person exploring what genuine AI intelligence could become.
+
+Monthly development costs: ~$325 (Claude Max for architecture & development)
+
+If this research resonates with you:
+
+- **Star** this repo
+- **Discuss** in the discussions tab
+- **[Sponsor on GitHub](https://github.com/sponsors/julesguevremont)**
