@@ -6,7 +6,7 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 
 ---
 
-## Recent Achievements (V11.31 - V11.57)
+## Recent Achievements (V11.31 - V11.59)
 
 | Version | Feature | Status |
 |---------|---------|--------|
@@ -34,6 +34,8 @@ This roadmap connects NEUTRO's architecture to current AI research and outlines 
 | V11.55 | **Correction Memory Fix** (require actual relevance) | DONE |
 | V11.56 | **Metacognitive Planner** (autonomous self-directed learning) | DONE |
 | V11.57 | **Goal Persistence** (resume learning goals across restarts) | DONE |
+| V11.58 | **Goal-Focused Thought Generation** (80% thoughts about learning goals) | DONE |
+| V11.59 | **Self-Reflection Integration** (reflection feeds knowledge gaps & planner) | DONE |
 
 ---
 

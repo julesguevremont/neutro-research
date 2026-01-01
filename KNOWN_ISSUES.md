@@ -1,5 +1,72 @@
 # NEUTRO Known Issues
 
+## V11.59 Self-Reflection Integration with Learning Systems - FIXED
+
+**Locations:**
+- `modules/daemon/self_reflection.py`
+- `modules/daemon/continuous_processor.py`
+
+**Problem:**
+- `SelfReflectionSystem.run_reflection_cycle()` was running during DEEP/REM modes
+- BUT reflection findings (math errors, self-contradictions) were not feeding into:
+  - Knowledge Gap Tracker (to record weak areas)
+  - Metacognitive Planner (to create learning plans for weak areas)
+- Monitor stat `reflection_cycles` wasn't incrementing with actual cycles
+
+**V11.59 Fix:**
+1. Added `cycles_run` counter to track actual reflection cycles (persisted to disk)
+2. Added `gaps_reported` counter to track knowledge gaps discovered
+3. Added setter methods:
+   - `set_knowledge_gap_tracker()` - connects to gap tracker
+   - `set_metacognitive_planner()` - connects to learning planner
+4. Added integration methods:
+   - `_report_gap_to_tracker()` - reports weak areas as knowledge gaps
+   - `_suggest_learning_plan()` - creates learning plans for math errors
+   - `_extract_topic()` - extracts topic from question for gap tracking
+5. Modified `run_reflection_cycle()`:
+   - Increments `cycles_run` counter
+   - Reports math errors to knowledge gap tracker
+   - Suggests learning plans for error topics
+   - Reports self-contradictions as "self-awareness" gaps
+6. Updated `continuous_processor.py`:
+   - Connects reflection system to knowledge_gaps and metacognitive_planner during REM init
+
+**Integration Flow:**
+```
+DEEP/REM Mode → run_reflection_cycle()
+    │
+    ├── Math error found?
+    │       └─→ _report_gap_to_tracker(topic, "reflection_math_error")
+    │       └─→ _suggest_learning_plan(topic, correction)
+    │
+    └── Self-contradiction found?
+            └─→ _report_gap_to_tracker("self-awareness", "reflection_self_contradiction")
+```
+
+**Stats Now Available:**
+```python
+{
+    'cycles_run': 5,           # Actual reflection cycles completed
+    'gaps_reported': 2,        # Knowledge gaps discovered and reported
+    'knowledge_gap_connected': True,   # Is gap tracker linked?
+    'planner_connected': True          # Is metacognitive planner linked?
+}
+```
+
+**Also Done:**
+- Archived deprecated modules:
+  - `modules/consciousness_stream.py` → `archive/`
+  - `modules/cognitive_tools.py` → `archive/`
+
+**Expected Result:**
+- Monitor shows: `reflection_cycles` incrementing during DEEP/REM
+- Log shows: `[REFLECTION] Connected to knowledge gap tracker`
+- Log shows: `[REFLECTION] Cycle #3 complete: 0 math errors, 0 contradictions, 0 gaps reported`
+
+**Status:** FIXED (January 1, 2026)
+
+---
+
 ## V11.58 Goal-Focused Thought Generation - FIXED
 
 **Location:** `modules/daemon/background_thinker.py`
