@@ -844,6 +844,60 @@ A benchmark designed to test what makes NEUTRO unique vs static LLMs. Static LLM
 - Session-level context memory (short-term recall within conversation)
 - Location-based user memory
 
+### V12.x Series (January 2026)
+
+| Version | Feature | Description |
+|---------|---------|-------------|
+| V12.0 | Inner Voice Grounding | Real research-driven thoughts replace placeholder text |
+| V12.1 | Focus Switching | Proper background thought generation during idle |
+| V12.2 | Response Hygiene | Clean API responses, remove metadata leakage |
+
+### V12.0-12.1 Architecture Improvements (January 1, 2026)
+
+**Inner Voice Grounding**: Background thoughts now use real research findings instead of placeholder text. The daemon reads from `data/research/findings.jsonl` and generates thoughts based on actual web search discoveries.
+
+**Focus Switching**: Fixed background processing so NEUTRO generates thoughts during idle periods. Previously stuck on query processing mode.
+
+**Global Workspace Theory**: Implemented cognitive broadcast system where winning thoughts are amplified and distributed to all cognitive modules.
+
+### V12.2 Response Hygiene (January 2, 2026)
+
+**Problem Identified**: Internal metadata was leaking into API responses:
+- `[Sources]: Topic (Category, 80% match)`
+- `[Attribution]: ...`
+- `[SOUL:STATE]: ...`
+
+**Root Cause**: LLM was echoing back internal prompt formatting.
+
+**Fix Applied**: Added regex-based response cleaning in `daemon_runner.py`:
+```python
+# V12.2: Remove internal metadata that leaked into response
+response = re.sub(r'\[Sources?\]:.*?(?=\n\n|\n[A-Z]|\Z)', '', response, flags=re.DOTALL | re.IGNORECASE)
+response = re.sub(r'\[Attr?ibution?\]:.*?(?=\n\n|\n[A-Z]|\Z)', '', response, flags=re.DOTALL | re.IGNORECASE)
+response = re.sub(r'\[SOUL:[A-Z_]+\]:.*?(?=\n|\Z)', '', response)
+response = re.sub(r'\[GROUNDED KNOWLEDGE\]:.*?(?=\n\n|\Z)', '', response, flags=re.DOTALL)
+```
+
+**Data Pollution Cleanup**: Removed 4000+ entries containing off-topic "String Theory" content that had contaminated memory systems during dream cycles.
+
+| System | Entries Removed |
+|--------|-----------------|
+| formative_memories.json | 1,247 |
+| qlora_smart_buffer.json | 782 |
+| training_candidates | 833+ files |
+| daemon/thoughts/*.jsonl | 305 |
+| state_episodes.json | 101 |
+| episodic.json | 24 |
+
+**Test Results (V12.2)**:
+| Query | Response Quality |
+|-------|-----------------|
+| "Hello there" | ✅ Clean: "Hey there! Ready to learn something new together?" |
+| "Goodbye" | ✅ Clean: "We'll catch up another time. Take care!" |
+| "What is photosynthesis" | ✅ No metadata leak: Clean scientific explanation |
+| "Tell me about Caezar" | ✅ On-topic: "Caezar is my creator..." |
+| "Who are you" | ✅ Identity: "I am NEUTRO, created by Cez" |
+
 ---
 
 ## Collaboration
