@@ -8,7 +8,7 @@ NEUTRO implements:
 - **Spiking Neural Network routing** — bio-plausible decision making
 - **Identity seeds that grow from experience** — accumulated over time
 - **Metacognitive self-evaluation** — knows what it knows
-- **Autonomous scientific research** — reads arXiv papers, builds knowledge graphs (V12.5)
+- **Genuine curiosity from conversations** — WONDER notices gaps, dreams consolidate experiences
 
 When you stop talking to NEUTRO, it doesn't stop. It thinks. It dreams. It learns.
 
@@ -43,11 +43,11 @@ Biological brains solve these problems through sleep—a process of memory repla
 | Learning | Training phase only | Continuous (runtime) |
 | Memory | Session-based | Persistent + source-attributed |
 | Offline State | Stops completely | Dreams, consolidates, explores |
-| Curiosity | Requires prompting | Background thought generation |
+| Curiosity | Requires prompting | Genuine (from conversation gaps) |
 | Model Architecture | Single LLM | Multi-model specialization (7 routes) |
 | Self-Awareness | None | Distinguishes dreams from reality |
 | **Identity** | **System prompt (stateless)** | **Seed system (grows over time)** |
-| **Research** | **None** | **Autonomous arXiv reading + knowledge graphs (V12.5)** |
+| **Thinking** | **None** | **Dreams consolidate real conversation experiences** |
 
 ---
 
@@ -850,13 +850,13 @@ A benchmark designed to test what makes NEUTRO unique vs static LLMs. Static LLM
 
 | Version | Feature | Description |
 |---------|---------|-------------|
-| V12.0 | Inner Voice Grounding | Real research-driven thoughts replace placeholder text |
+| V11.70 | Genuine Curiosity | Thoughts from conversation experiences, not scheduled research |
 | V12.1 | Focus Switching | Proper background thought generation during idle |
 | V12.2 | Response Hygiene | Clean API responses, remove metadata leakage |
 
 ### V12.0-12.1 Architecture Improvements (January 1, 2026)
 
-**Inner Voice Grounding**: Background thoughts now use real research findings instead of placeholder text. The daemon reads from `data/research/findings.jsonl` and generates thoughts based on actual web search discoveries.
+**Genuine Curiosity (V11.70)**: Background thoughts now emerge from real conversation experiences, not scheduled research. WONDER tracks knowledge gaps from actual interactions. Dreams consolidate what NEUTRO genuinely experienced.
 
 **Focus Switching**: Fixed background processing so NEUTRO generates thoughts during idle periods. Previously stuck on query processing mode.
 
