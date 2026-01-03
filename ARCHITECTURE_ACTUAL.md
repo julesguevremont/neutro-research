@@ -74,8 +74,8 @@
 |----------|-------|
 | Total .py files in `modules/` | 242 |
 | Subdirectory modules (`daemon/`, `senses/`) | 25 |
-| **Actually imported** | ~45 unique |
-| **Dead code candidates** | ~197 files (81%) |
+| **Actually imported** | ~48 unique (V11.75+3) |
+| **Dead code candidates** | ~194 files (80%) |
 
 ### ACTIVE Modules (Actually Imported)
 
@@ -107,12 +107,15 @@ Sorted by import frequency:
 | `knowledge_library` | 2 | Learned facts |
 | `consultant_system` | 2 | Expert consultation |
 | `web_search` | 2 | Internet search |
+| `user_model` | 1 | User intent/mood detection (V11.75) |
+| `context_tracker` | 1 | Project/task tracking (V11.75) |
+| `self_correction` | 1 | Learns from corrections (V11.75) |
 
 *Plus 21 more modules imported exactly once*
 
 ### DEAD CODE CANDIDATES (Never Imported)
 
-These 197 files exist in `modules/` but are **never imported** by any active code:
+These ~194 files exist in `modules/` but are **never imported** by any active code:
 
 <details>
 <summary>Click to expand dead code list (partial)</summary>
@@ -161,7 +164,7 @@ Notable unused modules:
 - `real_learning.py` - Learning system
 - `realtime_qlora.py` - Real-time training
 - `research_2025_integration.py` - Research papers
-- `self_correction.py` - Error correction
+- ~~`self_correction.py`~~ - Now active (V11.75)
 - `sketch_rnn_neural.py` - Sketch generation
 - `snn_router.py` - SNN routing
 - `spatial_imagination.py` - Spatial reasoning
@@ -239,6 +242,38 @@ daemon_runner.py starts:
     └── SelfReflection
         └── Metacognitive evaluation
 ```
+
+### V11.75: User Understanding Integration
+
+```
+daemon_runner.py query processing:
+    │
+    ├── ContextTracker (modules/context_tracker.py)
+    │   ├── update_from_interaction(query)
+    │   ├── Tracks current project/task/weekly focus
+    │   └── Persists to data/current_context.json
+    │
+    ├── UserModel (modules/user_model.py)
+    │   ├── analyze_query(query)
+    │   ├── Returns: intent, mood, frustration, prompt_injection
+    │   └── Builds user profile in data/user_model/profile.json
+    │
+    └── SelfCorrectionSystem (modules/self_correction.py)
+        ├── recognize_correction(query, context)
+        ├── Detects "no, I meant...", "actually it's...", etc.
+        └── learn_from_mistake() for training data
+```
+
+**Key integration points in daemon_runner.py:**
+- Line 990-998: Context tracker updates before each query
+- Line 1000-1010: User model analysis (intent/mood/frustration detection)
+- Line 1012-1032: Self-correction detection and learning
+- Line 1097-1099: Query/response storage for future correction detection
+
+**What this enables:**
+- NEUTRO adjusts responses based on user frustration level
+- Context awareness of current project/task being worked on
+- Explicit learning from user corrections ("No, I meant X not Y")
 
 ---
 

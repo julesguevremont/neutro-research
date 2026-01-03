@@ -9,12 +9,12 @@
 
 | Category | Count | Lines | Action |
 |----------|-------|-------|--------|
-| **USEFUL_DISCONNECTED** | 15 | ~3,500 | Wire up! |
+| **USEFUL_DISCONNECTED** | 12 | ~2,700 | Wire up! (3 done in V11.75) |
 | **DEPRECATED** | 13 | ~1,800 | Safe delete |
 | **INCOMPLETE** | 8 | ~1,200 | Finish or delete |
 | **DUPLICATE** | 25 | ~5,000 | Keep best, delete rest |
 | **GARBAGE** | ~140 | ~20,000+ | Archive or delete |
-| **Total Dead** | ~197 | ~31,500 | 49% of codebase |
+| **Total Dead** | ~194 | ~30,700 | 48% of codebase |
 
 **Total modules/\*.py:** 64,818 lines
 **Safe to remove:** ~25,000 lines (39%)
@@ -51,25 +51,25 @@ result = sandbox.execute_python(generated_code)
 **Why it's valuable:** Makes NEUTRO ask better follow-up questions
 **How to connect:** Add to response generation, inject curiosity prompts
 
-### 4. `self_correction.py` (~100 lines)
+### 4. ~~`self_correction.py`~~ (~100 lines) - WIRED UP V11.75
 **What it does:** Detects "no, I meant..." corrections, learns from them
 **Why it's valuable:** Explicit mistake learning already built!
-**How to connect:** Hook into query preprocessing
+**Status:** Connected in daemon_runner.py lines 1012-1032
 
-### 5. `user_model.py` (487 lines)
+### 5. ~~`user_model.py`~~ (487 lines) - WIRED UP V11.75
 **What it does:** Models Caezar's intent, mood, frustration level
 **Why it's valuable:** "Fix this code" → detect if frustrated or teaching
-**How to connect:** Process each query through UserModel first
+**Status:** Connected in daemon_runner.py lines 1000-1010
 
 ### 6. `greeting_handler.py` (32 lines)
 **What it does:** Fast greeting detection/response
 **Why it's valuable:** Skip heavy processing for "Hello"
 **How to connect:** Add to query routing as fast path
 
-### 7. `context_tracker.py` (~200 lines)
+### 7. ~~`context_tracker.py`~~ (~200 lines) - WIRED UP V11.75
 **What it does:** Tracks current task, project, weekly focus
 **Why it's valuable:** Maintains awareness of what user is working on
-**How to connect:** Update on each query, inject into prompts
+**Status:** Connected in daemon_runner.py lines 990-998
 
 ### 8. `analogy_reasoning.py` (36 lines)
 **What it does:** Suggests analogies for explanations
