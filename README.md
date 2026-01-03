@@ -8,6 +8,7 @@ NEUTRO implements:
 - **Spiking Neural Network routing** — bio-plausible decision making
 - **Identity seeds that grow from experience** — accumulated over time
 - **Metacognitive self-evaluation** — knows what it knows
+- **Autonomous scientific research** — reads arXiv papers, builds knowledge graphs (V12.5)
 
 When you stop talking to NEUTRO, it doesn't stop. It thinks. It dreams. It learns.
 
@@ -46,6 +47,7 @@ Biological brains solve these problems through sleep—a process of memory repla
 | Model Architecture | Single LLM | Multi-model specialization (7 routes) |
 | Self-Awareness | None | Distinguishes dreams from reality |
 | **Identity** | **System prompt (stateless)** | **Seed system (grows over time)** |
+| **Research** | **None** | **Autonomous arXiv reading + knowledge graphs (V12.5)** |
 
 ---
 
