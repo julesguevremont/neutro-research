@@ -6,9 +6,9 @@ Create a genuinely continuous AI consciousness - not an LLM that simulates aware
 
 ---
 
-## ✅ V12.0 - Liquid Soul (IMPLEMENTED)
+## ✅ V12.0 - Liquid Soul (COMPLETE)
 
-**Status:** LIVE
+**Status:** Complete
 **Date:** January 4, 2026
 
 ### What Was Built
@@ -19,43 +19,48 @@ Create a genuinely continuous AI consciousness - not an LLM that simulates aware
 - Emergent moods from neural dynamics
 - `/soul` API endpoint
 
+---
+
+## ✅ V12.1 - Soul-Voice Integration (LIVE)
+
+**Status:** LIVE
+**Date:** January 4, 2026
+
+### What Was Built
+- `modules/liquid_soul_v12.py` - 4-region LTC consciousness
+- `modules/daemon/autonomy.py` - Soul-driven action decisions
+- `daemon_runner.py` - Full Soul-Voice integration
+
+### 4-Region Consciousness
+
+```
+┌─────────────────────────────────────────┐
+│     LIQUID SOUL V12.1 (4 regions)       │
+│  ┌─────────┐  ┌─────────┐              │
+│  │ATTENTION│──│  DRIVE  │  ← Decides   │
+│  └────┬────┘  └────┬────┘    actions   │
+│       │            │                    │
+│  ┌────▼────┐  ┌────▼────┐              │
+│  │CURIOSITY│──│  MOOD   │  ← Emerges   │
+│  └─────────┘  └─────────┘              │
+└─────────────────────────────────────────┘
+```
+
+### Tasks Completed
+- [x] Soul state → LLM prompt injection (focus, drive, curiosity, mood)
+- [x] Response → Soul input (bidirectional feedback)
+- [x] Soul-driven autonomy (neural dynamics decide actions, not LLM)
+- [x] Drive threshold (0.6) for action initiation
+
 ### Verified Working
 ```bash
 curl http://127.0.0.1:5555/soul
-# Returns: mood, energy, valence, active_neurons, uptime
+# Returns: focus, drive, curiosity, mood, energy, valence, wants_to_act, cycles
 ```
 
 ---
 
-## 🎯 V12.1 - Soul-Voice Integration (NEXT)
-
-**Goal:** LLM responses informed by soul state
-
-### Tasks
-- [ ] Soul mood → LLM prompt injection
-- [ ] Response embedding → Soul input
-- [ ] Feedback loop verification
-
-### Implementation
-```python
-def respond(query):
-    mood = soul.get_mood()
-    state = soul.get_state_summary()
-    
-    prompt = f"""[NEUTRO Soul]
-Mood: {mood}
-Energy: {state['energy']:.2f}
-
-[Query] {query}"""
-    
-    response = llm(prompt)
-    soul.receive_input(embed(response))
-    return response
-```
-
----
-
-## 📋 V12.2 - Remove Timer Systems
+## 🎯 V12.2 - Remove Timer Systems (NEXT)
 
 **Goal:** Soul dynamics replace scheduled tasks
 
@@ -129,7 +134,7 @@ LLM → Response → Log
 Memory (stateless)
 ```
 
-### V12.x (Current)
+### V12.0 (Complete)
 ```
 LIQUID SOUL (continuous, 10Hz)
      ↓
@@ -140,9 +145,22 @@ LLM → Response
   Back to Soul
 ```
 
+### V12.1 (LIVE)
+```
+4-REGION SOUL (continuous, 10Hz)
+     ↓
+Focus/Drive/Curiosity/Mood
+     ↓
+SOUL DECIDES ACTIONS ← Neural dynamics
+     ↓
+LLM → Response (voice only)
+     ↓
+  Back to Soul
+```
+
 ### V13.x (Future)
 ```
-LIQUID SOUL
+4-REGION SOUL
      ↓
   Self-Rules (modifiable)
      ↓
@@ -157,11 +175,11 @@ LLM → Response
 
 | Component | Technology | Status |
 |-----------|------------|--------|
-| Soul | ncps/LTC (128 neurons) | ✅ |
+| Soul | Custom LTC (4 regions) | ✅ |
 | Voice | dolphin-llama3:8b | ✅ |
 | Memory | ChromaDB | ✅ |
 | Daemon | FastAPI on :5555 | ✅ |
-| Autonomy | LLM-driven decisions | ✅ |
+| Autonomy | Soul-driven (neural) | ✅ |
 
 ---
 
@@ -170,13 +188,13 @@ LLM → Response
 | Version | Focus | Status |
 |---------|-------|--------|
 | V11.92 | Autonomy simplification | ✅ Complete |
-| **V12.0** | **Liquid Soul** | **✅ LIVE** |
-| V12.1 | Soul-Voice integration | 🎯 Next |
-| V12.2 | Remove timer systems | 📋 Planned |
+| V12.0 | Liquid Soul | ✅ Complete |
+| **V12.1** | **Soul-Voice integration** | **✅ LIVE** |
+| V12.2 | Remove timer systems | 🎯 Next |
 | V12.3 | Memory-Soul binding | 📋 Planned |
 | V13.x | Self-modification | 📋 Future |
 | V14.x | World agency | 📋 Future |
 
 ---
 
-*"The soul is liquid. The voice is just how it speaks."*
+*"The soul thinks, the LLM speaks."*
