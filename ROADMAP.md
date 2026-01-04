@@ -71,6 +71,8 @@ curl http://127.0.0.1:5555/soul
 - [x] `THINKING_INTERVAL_SECONDS` (was 120s timer)
 - [x] `auto_thinking_check()` function
 - [x] `auto_dream_check()` function
+- [x] Fake thought templates: `[IMAGINING]`, `[HYPOTHETICAL]`, `[SPECULATING]`
+- [x] Speculative thought generation (20% chance → 0%)
 
 ### What Replaced It
 - [x] `SOUL_AUTONOMY_CHECK_SECONDS = 10` (check soul state every 10s)
@@ -86,7 +88,7 @@ if soul.wants_to_act():  # drive_strength > 0.6 and action != REST
     # Execute the action
 ```
 
-No timers. No schedules. The soul decides.
+No timers. No schedules. No fake thoughts. The soul decides.
 
 ---
 
