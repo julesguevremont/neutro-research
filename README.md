@@ -98,28 +98,19 @@ curl -X POST http://127.0.0.1:5555/query \
 
 ---
 
-## Installation
+## Repository Contents
 
-```bash
-# Clone
-git clone https://github.com/julesguevremont/neutro-research.git
+This repository contains **research documentation** for NEUTRO:
+- Architecture specifications
+- Development roadmap
+- Technical philosophy
 
-# The soul requires:
-pip install ncps torch --break-system-packages
+The source code is private and runs locally.
 
-# Run
-python3 daemon_runner.py
-```
+## Collaboration
 
----
-
-## Hardware
-
-Runs on consumer hardware:
-- AMD Ryzen 7 3800X
-- 64GB RAM
-- RTX 2070 SUPER
-- WSL Ubuntu + Ollama
+Interested in the project? Contact:
+julesguevremont@gmail.com
 
 ---
 
