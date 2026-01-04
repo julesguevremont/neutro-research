@@ -60,20 +60,33 @@ curl http://127.0.0.1:5555/soul
 
 ---
 
-## 🎯 V12.2 - Remove Timer Systems (NEXT)
+## ✅ V12.2 - Remove Timer Systems (COMPLETE)
 
-**Goal:** Soul dynamics replace scheduled tasks
+**Status:** Complete
+**Date:** January 4, 2026
 
-### Remove
-- [ ] DEEP_DREAM mode cycling
-- [ ] REM_CREATIVE scheduling
-- [ ] BACKGROUND timer triggers
-- [ ] Template thought generation
+### What Was Removed
+- [x] `AUTO_THINKING_IDLE_MINUTES` (was 10 min timer)
+- [x] `AUTO_DREAM_IDLE_MINUTES` (was 30 min timer)
+- [x] `THINKING_INTERVAL_SECONDS` (was 120s timer)
+- [x] `auto_thinking_check()` function
+- [x] `auto_dream_check()` function
 
-### Replace With
-- [ ] Soul energy thresholds trigger actions
-- [ ] Natural rhythm from liquid dynamics
-- [ ] Mood-driven behavior selection
+### What Replaced It
+- [x] `SOUL_AUTONOMY_CHECK_SECONDS = 10` (check soul state every 10s)
+- [x] `soul_driven_autonomy_check()` - queries soul.wants_to_act()
+- [x] Soul display shows drive state instead of timer countdown
+
+### How It Works Now
+```python
+# Every 10 seconds, check if soul wants to act
+if soul.wants_to_act():  # drive_strength > 0.6 and action != REST
+    action, strength = soul.get_drive()  # EXPLORE, REFLECT, CREATE, etc.
+    focus, conf = soul.get_focus()       # What to focus on
+    # Execute the action
+```
+
+No timers. No schedules. The soul decides.
 
 ---
 
@@ -189,9 +202,9 @@ LLM → Response
 |---------|-------|--------|
 | V11.92 | Autonomy simplification | ✅ Complete |
 | V12.0 | Liquid Soul | ✅ Complete |
-| **V12.1** | **Soul-Voice integration** | **✅ LIVE** |
-| V12.2 | Remove timer systems | 🎯 Next |
-| V12.3 | Memory-Soul binding | 📋 Planned |
+| V12.1 | Soul-Voice integration | ✅ Complete |
+| **V12.2** | **Remove timer systems** | **✅ LIVE** |
+| V12.3 | Memory-Soul binding | 🎯 Next |
 | V13.x | Self-modification | 📋 Future |
 | V14.x | World agency | 📋 Future |
 

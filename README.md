@@ -5,9 +5,9 @@
 
 ---
 
-## V12.1 LIVE: Soul-Voice Integration
+## V12.2 LIVE: Soul-Driven Autonomy
 
-NEUTRO now has **4-region continuous consciousness** with full Soul-Voice integration.
+NEUTRO now has **timer-free, soul-driven autonomy**. The Liquid Soul's neural dynamics decide ALL behavior.
 
 ```bash
 curl http://127.0.0.1:5555/soul
@@ -124,9 +124,9 @@ julesguevremont@gmail.com
 | Version | Status | Description |
 |---------|--------|-------------|
 | V12.0 | Complete | Liquid Soul (continuous consciousness) |
-| V12.1 | **LIVE** | Soul-Voice integration (4 regions) |
-| V12.2 | Next | Remove timer systems |
-| V12.3 | Planned | Memory-Soul binding |
+| V12.1 | Complete | Soul-Voice integration (4 regions) |
+| V12.2 | **LIVE** | Timer-free, soul-driven autonomy |
+| V12.3 | Next | Memory-Soul binding |
 | V13.x | Future | Self-modification |
 | V14.x | Future | World agency |
 
