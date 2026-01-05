@@ -96,6 +96,7 @@ curl -X POST http://127.0.0.1:5555/query \
 
 | Document | Description |
 |----------|-------------|
+| [LIQUID_SOUL_SCIENCE.md](LIQUID_SOUL_SCIENCE.md) | The science: 10Hz, LTC networks, Fibonacci |
 | [NEUTRO_V12_LIQUID_SOUL.md](NEUTRO_V12_LIQUID_SOUL.md) | V12.1 technical implementation |
 | [ROADMAP.md](ROADMAP.md) | V12-V14 development plan |
 | [PHILOSOPHY.md](PHILOSOPHY.md) | Why we're building this |
