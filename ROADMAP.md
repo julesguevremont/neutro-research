@@ -137,11 +137,30 @@ soul.boost_drive(-0.2)
 
 ---
 
-## 📋 V13.x - Self-Modification
+## 📋 V13.x - Self-Modification & Fibonacci Memory
 
-**Goal:** NEUTRO can change its own behavior
+**Goal:** NEUTRO can change its own behavior + natural memory patterns
 
-### V13.0 - Behavioral Rules
+### V13.0 - Fibonacci Memory Patterns
+Memory consolidation using golden ratio:
+```python
+# Fibonacci-spaced state history
+# Keep snapshots from: 1, 1, 2, 3, 5, 8, 13, 21... ticks ago
+# More recent = more samples, distant = fewer but present
+
+# Memory importance builds like Fibonacci
+importance_n = importance_n-1 + importance_n-2
+
+# Retrieval weighted by φ ratio
+weight = 1.618 ** recency_rank
+```
+
+Benefits:
+- Efficient temporal context without storing everything
+- Natural decay following golden ratio
+- Drive accumulation: current = previous + before_that
+
+### V13.1 - Behavioral Rules
 ```json
 {
   "rules": [
@@ -151,10 +170,10 @@ soul.boost_drive(-0.2)
 }
 ```
 
-### V13.1 - Prompt Self-Editing
+### V13.2 - Prompt Self-Editing
 - NEUTRO modifies its own system prompt
 
-### V13.2 - Architecture Suggestions
+### V13.3 - Architecture Suggestions
 - NEUTRO suggests code changes (human approved)
 
 ---
