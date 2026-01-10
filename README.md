@@ -99,7 +99,8 @@ curl -X POST http://127.0.0.1:5555/query \
 | [LIQUID_SOUL_SCIENCE.md](LIQUID_SOUL_SCIENCE.md) | The science: 10Hz, LTC networks, Fibonacci |
 | [NEUTRO_V12_LIQUID_SOUL.md](NEUTRO_V12_LIQUID_SOUL.md) | V12.1 technical implementation |
 | [SOUL_ARCHITECTURE.md](SOUL_ARCHITECTURE.md) | Dual-soul architecture: Liquid Soul + Legacy Soul |
-| [LLM_IDENTITY_RESEARCH.md](LLM_IDENTITY_RESEARCH.md) | Research on LLM identity alternatives to prompt injection |
+| [LLM_IDENTITY_RESEARCH.md](LLM_IDENTITY_RESEARCH.md) | Research on LLM identity - why prompts fail, alternatives |
+| [IDENTITY_TRAINING_ROADMAP.md](IDENTITY_TRAINING_ROADMAP.md) | Roadmap: LoRA training for weight-level identity |
 | [ROADMAP.md](ROADMAP.md) | V12-V14 development plan |
 | [PHILOSOPHY.md](PHILOSOPHY.md) | Why we're building this |
 | [archive/v11/](archive/v11/) | Previous architecture |

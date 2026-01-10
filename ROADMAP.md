@@ -137,11 +137,26 @@ soul.boost_drive(-0.2)
 
 ---
 
-## 📋 V13.x - Self-Modification & Fibonacci Memory
+## 📋 V13.x - Weight-Level Identity & Self-Modification
 
-**Goal:** NEUTRO can change its own behavior + natural memory patterns
+**Goal:** Identity in weights (not prompts) + self-modification
 
-### V13.0 - Fibonacci Memory Patterns
+### V13.0 - Weight-Level Identity (LoRA Training)
+
+**Problem:** System prompts fail for identity (80%+ bypass rates)
+**Solution:** Train identity directly into model weights via LoRA
+
+| Phase | Task | Status |
+|-------|------|--------|
+| 13.0.1 | Create identity training dataset (500 examples) | 🔲 Planned |
+| 13.0.2 | Train LoRA adapter on identity | 🔲 Planned |
+| 13.0.3 | Merge and deploy neutro-identity model | 🔲 Planned |
+| 13.0.4 | Integrate with Liquid Soul context | 🔲 Planned |
+
+See [IDENTITY_TRAINING_ROADMAP.md](IDENTITY_TRAINING_ROADMAP.md) for implementation details.
+See [LLM_IDENTITY_RESEARCH.md](LLM_IDENTITY_RESEARCH.md) for research background.
+
+### V13.1 - Fibonacci Memory Patterns
 Memory consolidation using golden ratio:
 ```python
 # Fibonacci-spaced state history
@@ -160,7 +175,7 @@ Benefits:
 - Natural decay following golden ratio
 - Drive accumulation: current = previous + before_that
 
-### V13.1 - Behavioral Rules
+### V13.2 - Behavioral Rules
 ```json
 {
   "rules": [
@@ -170,10 +185,10 @@ Benefits:
 }
 ```
 
-### V13.2 - Prompt Self-Editing
+### V13.3 - Prompt Self-Editing
 - NEUTRO modifies its own system prompt
 
-### V13.3 - Architecture Suggestions
+### V13.4 - Architecture Suggestions
 - NEUTRO suggests code changes (human approved)
 
 ---
