@@ -255,5 +255,5 @@ What *is* clear: robust AI identity requires moving beyond text instructions in 
 
 ---
 
-*Compiled for the Immortality Project / NEUTRO Research*
+*NEUTRO Research*
 *Jules M. Guevremont — Montreal — 2026*
