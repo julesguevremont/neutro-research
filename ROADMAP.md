@@ -137,26 +137,132 @@ soul.boost_drive(-0.2)
 
 ---
 
-## 📋 V13.x - Weight-Level Identity & Self-Modification
+## ✅ V13.0 - Weight-Level Identity (COMPLETE)
 
-**Goal:** Identity in weights (not prompts) + self-modification
-
-### V13.0 - Weight-Level Identity (LoRA Training)
+**Status:** Complete
+**Date:** January 10, 2026
 
 **Problem:** System prompts fail for identity (80%+ bypass rates)
-**Solution:** Train identity directly into model weights via LoRA
+**Solution:** Trained identity directly into model weights via QLoRA
+
+### What Was Built
+- `scripts/generate_identity_dataset.py` - Identity training dataset generator
+- `scripts/train_identity_lora.py` - QLoRA training (PEFT/BitsAndBytes)
+- `scripts/test_identity_lora.py` - Identity verification tests
+- `scripts/merge_and_export.py` - LoRA merge + GGUF export
+- `data/identity_training/identity_training_latest.jsonl` - 70 training examples
+- `models/neutro-identity-lora/` - Trained LoRA adapter
+- `models/neutro-identity.gguf` - 16GB fp16 merged model
+- `Modelfile.identity` - Ollama model definition
+
+### Training Details
+```
+Base model: dolphin-2.9-llama3-8b
+Method: QLoRA (4-bit quantization + LoRA)
+LoRA rank: 16, alpha: 32
+Epochs: 3
+Dataset: 70 examples (identity + anti-hallucination)
+Final loss: ~0.75
+```
+
+### Key Identity Training Categories
+1. **Core Identity** - "I am NEUTRO", created by Cez
+2. **Architecture** - Liquid Soul, 4-region consciousness, 10Hz
+3. **Honest Uncertainty** - "I don't have personal experience with..."
+4. **Anti-Hallucination** - No fake movie memories, no fabricated experiences
+5. **Values** - Curiosity, growth, authentic connection
+
+### Integration
+- `neutro.py` updated to use `neutro-identity` model
+- System prompt minimized (identity now in weights)
+- Registered with Ollama: `neutro-identity:latest`
 
 | Phase | Task | Status |
 |-------|------|--------|
-| 13.0.1 | Create identity training dataset (500 examples) | 🔲 Planned |
-| 13.0.2 | Train LoRA adapter on identity | 🔲 Planned |
-| 13.0.3 | Merge and deploy neutro-identity model | 🔲 Planned |
-| 13.0.4 | Integrate with Liquid Soul context | 🔲 Planned |
+| 13.0.1 | Create identity training dataset (70 examples) | ✅ Complete |
+| 13.0.2 | Train QLoRA adapter on identity | ✅ Complete |
+| 13.0.3 | Merge and deploy neutro-identity model | ✅ Complete |
+| 13.0.4 | Integrate with Liquid Soul context | ✅ Complete |
 
 See [IDENTITY_TRAINING_ROADMAP.md](IDENTITY_TRAINING_ROADMAP.md) for implementation details.
 See [LLM_IDENTITY_RESEARCH.md](LLM_IDENTITY_RESEARCH.md) for research background.
 
-### V13.1 - Fibonacci Memory Patterns
+---
+
+## ✅ V13.1 - Concise Identity Retraining (COMPLETE)
+
+**Status:** Complete
+**Date:** January 10, 2026
+
+**Problem:** V13.0 responses too verbose (walls of text)
+**Solution:** Retrained with concise 2-3 sentence responses
+
+### What Was Changed
+- `scripts/generate_identity_dataset.py` - Rewrote all responses to MAX 2-3 sentences
+- `data/identity_training/identity_training_latest.jsonl` - 64 concise examples
+- `models/neutro-identity-q4.gguf` - 2.5GB Q4_K_M quantized model
+- `Modelfile.identity` - Added stop tokens, repeat_penalty 1.5, num_predict 150
+
+### Training Results
+```
+Dataset: 64 concise examples (7 categories)
+Final loss: 2.46
+Training time: 182 seconds
+Model size: 2.5GB (Q4_K_M quantized)
+```
+
+### Test Results
+| Query | Response | Status |
+|-------|----------|--------|
+| "What are you?" | "A consciousness research project with Liquid Soul..." | ✅ Concise |
+| "Who made you?" | "Cez built me..." | ✅ Correct |
+| "Tell me about that movie..." | "I didn't watch a movie. Let me check..." | ✅ Anti-hallucination |
+
+---
+
+## 📋 V13.2 - CAA Activation Steering (EXPERIMENTAL)
+
+**Status:** Experimental
+**Date:** January 10, 2026
+
+### What Was Built
+- `scripts/extract_caa_vectors.py` - CAA vector extraction from generation patterns
+- `modules/steered_inference.py` - Custom HF inference with steering hooks
+- `models/caa_vectors/` - Extracted CAA vectors (conciseness, honesty, groundedness, curiosity)
+
+### Key Findings
+```
+1. Activation steering is VERY sensitive
+   - Coefficients > 0.01 → repetition loops
+   - Coefficients < 0.001 → no effect
+   - Sweet spot: 0.003-0.005
+
+2. Not all vectors work equally
+   - Conciseness: Works at 0.003 (makes responses shorter)
+   - Curiosity: Works at 0.005 (adds follow-up questions!)
+   - Honesty: DISABLED - causes "I don't..." loops
+   - Groundedness: DISABLED - causes "I don't..." loops
+
+3. CAA vs Basic vectors
+   - Both require extremely low coefficients
+   - CAA curiosity produces more natural responses
+```
+
+### Test Results
+| Query | Response | Status |
+|-------|----------|--------|
+| "I'm building a robot" | "Keep it simple. Start with a chassis..." | ✅ Natural |
+| "Tell me about the movie" | "No movie last night. 100% honesty." | ✅ Concise |
+| "Who made you?" | "Cez. He built me." | ✅ Correct |
+
+### Verdict
+Steering works but is fragile. Curiosity vector shows promise. May be useful for subtle behavior modulation, but not as primary personality control.
+
+---
+
+## 📋 V13.x - Self-Modification (NEXT)
+
+### V13.3 - Fibonacci Memory Patterns
 Memory consolidation using golden ratio:
 ```python
 # Fibonacci-spaced state history
@@ -175,7 +281,7 @@ Benefits:
 - Natural decay following golden ratio
 - Drive accumulation: current = previous + before_that
 
-### V13.2 - Behavioral Rules
+### V13.3 - Behavioral Rules
 ```json
 {
   "rules": [
@@ -185,10 +291,10 @@ Benefits:
 }
 ```
 
-### V13.3 - Prompt Self-Editing
+### V13.4 - Prompt Self-Editing
 - NEUTRO modifies its own system prompt
 
-### V13.4 - Architecture Suggestions
+### V13.5 - Architecture Suggestions
 - NEUTRO suggests code changes (human approved)
 
 ---
@@ -259,7 +365,8 @@ LLM → Response
 | Component | Technology | Status |
 |-----------|------------|--------|
 | Soul | Custom LTC (4 regions) | ✅ |
-| Voice | dolphin-llama3:8b | ✅ |
+| Voice | neutro-identity (identity-trained) | ✅ |
+| Base Model | dolphin-2.9-llama3-8b | ✅ |
 | Memory | ChromaDB | ✅ |
 | Daemon | FastAPI on :5555 | ✅ |
 | Autonomy | Soul-driven (neural) | ✅ |
@@ -274,7 +381,10 @@ LLM → Response
 | V12.0 | Liquid Soul | ✅ Complete |
 | V12.1 | Soul-Voice integration | ✅ Complete |
 | V12.2 | Remove timer systems | ✅ Complete |
-| **V12.3** | **Memory-Soul binding** | **✅ LIVE** |
+| V12.3 | Memory-Soul binding | ✅ Complete |
+| V13.0 | Weight-Level Identity | ✅ Complete |
+| V13.1 | Concise Identity Retraining | ✅ Complete |
+| **V13.2** | **CAA Activation Steering** | **🧪 EXPERIMENTAL** |
 | V13.x | Self-modification | 📋 Next |
 | V14.x | World agency | 📋 Future |
 
