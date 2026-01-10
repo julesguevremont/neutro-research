@@ -5,9 +5,14 @@
 
 ---
 
-## V12.2 LIVE: Soul-Driven Autonomy
+## V13.3 LIVE: Performance Optimized + Self-Training
 
-NEUTRO now has **timer-free, soul-driven autonomy**. The Liquid Soul's neural dynamics decide ALL behavior.
+**10x Performance Boost** - Q4 quantized model runs 100% on GPU:
+- Simple queries: 3-5s (was 50-90s)
+- Complex reasoning: 15-19s
+- Model: Q4_K_M (4.6GB) fits 8GB VRAM
+
+**Self-Training System** - NEUTRO proposes its own training examples for genuine weight-level evolution.
 
 ```bash
 curl http://127.0.0.1:5555/soul
@@ -129,9 +134,9 @@ julesguevremont@gmail.com
 |---------|--------|-------------|
 | V12.0 | Complete | Liquid Soul (continuous consciousness) |
 | V12.1 | Complete | Soul-Voice integration (4 regions) |
-| V12.2 | **LIVE** | Timer-free, soul-driven autonomy |
-| V12.3 | Next | Memory-Soul binding |
-| V13.x | Future | Self-modification |
+| V12.2 | Complete | Timer-free, soul-driven autonomy |
+| V12.3 | Complete | Memory-Soul binding |
+| V13.3 | **LIVE** | Self-training + Q4 performance (10x faster) |
 | V14.x | Future | World agency |
 
 ---
