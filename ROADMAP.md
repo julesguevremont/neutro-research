@@ -260,9 +260,128 @@ Steering works but is fragile. Curiosity vector shows promise. May be useful for
 
 ---
 
-## 📋 V13.x - Self-Modification (NEXT)
+## ✅ V13.5 - Context Retention Fix (COMPLETE)
 
-### V13.3 - Fibonacci Memory Patterns
+**Status:** Complete
+**Date:** January 11, 2026
+
+**Problem:** NEUTRO couldn't recall facts from same session (0% context retention)
+**Solution:** Increased conversation history and added session markers
+
+### What Was Changed
+- Conversation history: 3 → 10 exchanges
+- Context truncation: 100/200 → 200/400 chars
+- Added session ID and duration tracking
+- Added explicit session markers in prompts
+
+### Test Results
+| Test | Before (V13.4) | After (V13.5) |
+|------|----------------|---------------|
+| Context recall (3 facts) | 0% | 67-100% |
+| Joke telling | FAIL | PASS |
+
+See [CONVERSATION_TESTS.md](CONVERSATION_TESTS.md) for detailed test results.
+
+---
+
+## 📋 V13.6 - Agentic Tool-Use Loop (NEXT)
+
+**Status:** Research Complete, Implementation Planned
+**Date:** January 11, 2026
+
+**Problem:** NEUTRO cannot read files on-demand during a query
+**Solution:** Add tool-calling capability using Ollama's native tool support
+
+### Research Findings
+
+1. **Ollama supports tool calling** (since v0.3.0, current: v0.12.11)
+2. **Qwen models support it** (neutro-identity uses ChatML format)
+3. **API format is simple** - tools array in request, tool_calls in response
+
+### API Format
+
+**Request:**
+```json
+{
+  "model": "neutro-identity",
+  "messages": [{"role": "user", "content": "..."}],
+  "tools": [{
+    "type": "function",
+    "function": {
+      "name": "read_memory",
+      "description": "Read a memory file",
+      "parameters": {"path": {"type": "string"}}
+    }
+  }]
+}
+```
+
+**Response (tool call):**
+```json
+{
+  "role": "assistant",
+  "tool_calls": [{
+    "function": {"name": "read_memory", "arguments": {"path": "..."}}
+  }]
+}
+```
+
+**Tool result:**
+```json
+{"role": "tool", "content": "file contents..."}
+```
+
+### Implementation Plan
+
+| Phase | Task | Status |
+|-------|------|--------|
+| 13.6.1 | Switch from `ollama.generate()` to `ollama.chat()` | 📋 Planned |
+| 13.6.2 | Define tool schema (read_file, search_memory, etc.) | 📋 Planned |
+| 13.6.3 | Implement agentic loop (detect tool_calls → execute → continue) | 📋 Planned |
+| 13.6.4 | Add memory pointers instead of full content | 📋 Planned |
+| 13.6.5 | Test and verify on-demand memory access | 📋 Planned |
+
+### Architecture Change
+
+**Current (V13.5):**
+```
+query → build prompt (pre-load all context) → generate → return
+```
+
+**V13.6 (Agentic):**
+```
+query → generate → detect tool_call?
+                        ↓ yes
+               execute tool → inject result → continue
+                        ↓ no
+               return response
+```
+
+### Tools to Implement
+
+| Tool | Description | Priority |
+|------|-------------|----------|
+| `read_file` | Read any file from disk | High |
+| `search_memory` | Query ChromaDB for memories | High |
+| `get_soul_state` | Get current soul state | Medium |
+| `list_memories` | List available memory files | Medium |
+| `web_search` | Search the web | Low |
+
+### Benefits
+- Unlimited context (load only what's needed)
+- True on-demand memory access
+- Foundation for V14.x world agency
+
+### Sources
+- [Ollama Tool Calling Docs](https://docs.ollama.com/capabilities/tool-calling)
+- [Ollama Blog: Tool Support](https://ollama.com/blog/tool-support)
+- [Qwen Function Calling](https://qwen.readthedocs.io/en/v2.0/framework/function_call.html)
+
+---
+
+## 📋 V13.x - Self-Modification (FUTURE)
+
+### V13.7 - Fibonacci Memory Patterns
 Memory consolidation using golden ratio:
 ```python
 # Fibonacci-spaced state history
@@ -384,8 +503,11 @@ LLM → Response
 | V12.3 | Memory-Soul binding | ✅ Complete |
 | V13.0 | Weight-Level Identity | ✅ Complete |
 | V13.1 | Concise Identity Retraining | ✅ Complete |
-| **V13.2** | **CAA Activation Steering** | **🧪 EXPERIMENTAL** |
-| V13.x | Self-modification | 📋 Next |
+| V13.2 | CAA Activation Steering | 🧪 Experimental |
+| V13.3 | Q4 Performance (10x faster) | ✅ Complete |
+| V13.5 | Context Retention Fix | ✅ Complete |
+| **V13.6** | **Agentic Tool-Use Loop** | **📋 NEXT** |
+| V13.7+ | Self-modification | 📋 Future |
 | V14.x | World agency | 📋 Future |
 
 ---

@@ -136,7 +136,9 @@ julesguevremont@gmail.com
 | V12.1 | Complete | Soul-Voice integration (4 regions) |
 | V12.2 | Complete | Timer-free, soul-driven autonomy |
 | V12.3 | Complete | Memory-Soul binding |
-| V13.3 | **LIVE** | Self-training + Q4 performance (10x faster) |
+| V13.3 | Complete | Self-training + Q4 performance (10x faster) |
+| V13.5 | **LIVE** | Context retention fix (67-100% recall) |
+| V13.6 | **NEXT** | Agentic tool-use loop (on-demand file access) |
 | V14.x | Future | World agency |
 
 ---
