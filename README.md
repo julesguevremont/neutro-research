@@ -5,14 +5,17 @@
 
 ---
 
-## V13.3 LIVE: Performance Optimized + Self-Training
+## V13.6.6 LIVE: Two-Stage Tool-Calling
 
-**10x Performance Boost** - Q4 quantized model runs 100% on GPU:
-- Simple queries: 3-5s (was 50-90s)
-- Complex reasoning: 15-19s
-- Model: Q4_K_M (4.6GB) fits 8GB VRAM
+**Two-Stage Prompting** - Enables tool-calling with complex context:
+- Stage 1: Simple query to model triggers learned tool-calling patterns
+- Stage 2: Full context prompt with soul state, memories, tool results
+- Solves: Complex prompts preventing tool-calling triggers
 
-**Self-Training System** - NEUTRO proposes its own training examples for genuine weight-level evolution.
+**Identity-Trained Q5 Model** - 116 examples, 70 tool-use:
+- Tool syntax: `<tool_call>{"name": "think", "arguments": {...}}</tool_call>`
+- Q5_K_M quantization (5.4GB) preserves tool-calling patterns
+- Math queries ~38s, identity queries working with full NEUTRO context
 
 ```bash
 curl http://127.0.0.1:5555/soul
@@ -139,8 +142,8 @@ julesguevremont@gmail.com
 | V12.2 | Complete | Timer-free, soul-driven autonomy |
 | V12.3 | Complete | Memory-Soul binding |
 | V13.3 | Complete | Self-training + Q4 performance (10x faster) |
-| V13.5 | **LIVE** | Context retention fix (67-100% recall) |
-| V13.6 | **NEXT** | Agentic tool-use loop (on-demand file access) |
+| V13.5 | Complete | Context retention fix (67-100% recall) |
+| V13.6.6 | **LIVE** | Two-stage tool-calling + Identity-trained Q5 model |
 | V14.x | Future | World agency |
 
 ---
