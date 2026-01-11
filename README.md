@@ -107,6 +107,8 @@ curl -X POST http://127.0.0.1:5555/query \
 | [LLM_IDENTITY_RESEARCH.md](LLM_IDENTITY_RESEARCH.md) | Research on LLM identity - why prompts fail, alternatives |
 | [IDENTITY_TRAINING_ROADMAP.md](IDENTITY_TRAINING_ROADMAP.md) | Roadmap: LoRA training for weight-level identity |
 | [ROADMAP.md](ROADMAP.md) | V12-V14 development plan |
+| [NEUTRO_FUTURE_FEATURES.md](NEUTRO_FUTURE_FEATURES.md) | V14+ advanced features (10 detailed specs) |
+| [CONVERSATION_TESTS.md](CONVERSATION_TESTS.md) | Real conversation tests and results |
 | [PHILOSOPHY.md](PHILOSOPHY.md) | Why we're building this |
 | [archive/v11/](archive/v11/) | Previous architecture |
 
