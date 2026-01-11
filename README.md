@@ -5,17 +5,19 @@
 
 ---
 
-## V13.6.6 LIVE: Two-Stage Tool-Calling
+## V14 LIVE: Harmony Architecture
 
-**Two-Stage Prompting** - Enables tool-calling with complex context:
-- Stage 1: Simple query to model triggers learned tool-calling patterns
-- Stage 2: Full context prompt with soul state, memories, tool results
-- Solves: Complex prompts preventing tool-calling triggers
+**V14 Harmony** - 8 integrated response enhancement features:
+- V14.3: Self-Correction Loop - learns from "that's wrong" feedback
+- V14.4: Uncertainty Quantification - confidence scoring for responses
+- V14.5: Intent-Based Steering - adjusts response length by query type
+- V14.6: Proactive Memory - surfaces relevant past context
+- V14.7: Goal Tracking - remembers user's goals across sessions
+- V14.8: Emotional Attunement - acknowledges user emotions
+- V14.9: Source Attribution - hints at knowledge sources
+- V14.10: Correction Memory - persists corrections to disk
 
-**Identity-Trained Q5 Model** - 116 examples, 70 tool-use:
-- Tool syntax: `<tool_call>{"name": "think", "arguments": {...}}</tool_call>`
-- Q5_K_M quantization (5.4GB) preserves tool-calling patterns
-- Math queries ~38s, identity queries working with full NEUTRO context
+**Built on V13.6.6** - Two-stage prompting + Identity-trained Q5 model
 
 ```bash
 curl http://127.0.0.1:5555/soul
@@ -143,8 +145,9 @@ julesguevremont@gmail.com
 | V12.3 | Complete | Memory-Soul binding |
 | V13.3 | Complete | Self-training + Q4 performance (10x faster) |
 | V13.5 | Complete | Context retention fix (67-100% recall) |
-| V13.6.6 | **LIVE** | Two-stage tool-calling + Identity-trained Q5 model |
-| V14.x | Future | World agency |
+| V13.6.6 | Complete | Two-stage tool-calling + Identity-trained Q5 model |
+| V14 | **LIVE** | Harmony Architecture (8 response features) |
+| V15.x | Future | World agency |
 
 ---
 
